@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Azur Home Collection — Gestion de propriétés et location saisonnière haut de gamme sur la Côte d'Azur." />
+    <meta name="theme-color" content="#1A1916" />
+    <title>Azur Home Collection — Côte d'Azur</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ═══ INTRO CINÉMATIQUE ═══ -->
+    <div class="intro-overlay" aria-hidden="true">
+        <div class="curtain-top"></div>
+        <div class="curtain-bottom"></div>
+        <div class="intro-center">
+            <div class="intro-dot"></div>
+            <div class="intro-logo">
+                <svg viewBox="0 0 64 68" fill="none" width="32" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="2" y1="64" x2="62" y2="64" stroke="currentColor" stroke-width="1" />
+                    <rect x="8" y="28" width="48" height="36" stroke="currentColor" stroke-width="0.7" fill="none" />
+                    <line x1="18" y1="34" x2="18" y2="64" stroke="currentColor" stroke-width="0.6" opacity="0.65" />
+                    <line x1="32" y1="34" x2="32" y2="64" stroke="currentColor" stroke-width="0.6" opacity="0.65" />
+                    <line x1="46" y1="34" x2="46" y2="64" stroke="currentColor" stroke-width="0.6" opacity="0.65" />
+                    <polyline points="6,28 32,10 58,28" stroke="currentColor" stroke-width="0.7" fill="none" />
+                    <line x1="8" y1="28" x2="56" y2="28" stroke="currentColor" stroke-width="0.5" />
+                    <circle cx="32" cy="7" r="2" fill="currentColor" opacity="0.7" />
+                </svg>
+                <div>
+                    <div class="logo-name">AZUR HOME</div>
+                    <div class="logo-collection">COLLECTION</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ CURSOR ═══ -->
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" id="cursor-follower" aria-hidden="true"></div>
+
+    <!-- ═══ NAV ═══ -->
+    <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
+
+        <!-- LOGO — HTML pur, pas de SVG texte -->
+        <a href="#" class="nav-logo" aria-label="Azur Home Collection — Accueil">
+            <div class="logo">
+                <!-- Emblem SVG (icône uniquement, pas de texte) -->
+                <svg class="logo-emblem" viewBox="0 0 64 68" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <!-- Base steps -->
+                    <line x1="2" y1="64" x2="62" y2="64" stroke="currentColor" stroke-width="1" />
+                    <line x1="6" y1="67" x2="58" y2="67" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+                    <!-- Main body -->
+                    <rect x="8" y="28" width="48" height="36" stroke="currentColor" stroke-width="0.7" fill="none" />
+                    <!-- Inner frame -->
+                    <rect x="14" y="34" width="36" height="30" stroke="currentColor" stroke-width="0.4" fill="none"
+                        opacity="0.45" />
+                    <!-- 3 columns -->
+                    <line x1="18" y1="34" x2="18" y2="64" stroke="currentColor" stroke-width="0.6" opacity="0.65" />
+                    <line x1="32" y1="34" x2="32" y2="64" stroke="currentColor" stroke-width="0.6" opacity="0.65" />
+                    <line x1="46" y1="34" x2="46" y2="64" stroke="currentColor" stroke-width="0.6" opacity="0.65" />
+                    <!-- Pediment -->
+                    <polyline points="6,28 32,10 58,28" stroke="currentColor" stroke-width="0.7" fill="none" />
+                    <!-- Entablature line -->
+                    <line x1="8" y1="28" x2="56" y2="28" stroke="currentColor" stroke-width="0.5" />
+                    <!-- Crown ornament -->
+                    <circle cx="32" cy="7" r="2" fill="currentColor" opacity="0.7" />
+                    <line x1="32" y1="9" x2="32" y2="13" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+                    <!-- Corner diamonds -->
+                    <polygon points="8,28 11,31 8,34 5,31" fill="currentColor" opacity="0.4" />
+                    <polygon points="56,28 59,31 56,34 53,31" fill="currentColor" opacity="0.4" />
+                </svg>
+                <!-- Wordmark — HTML pur -->
+                <div class="logo-wordmark">
+                    <span class="logo-name">AZUR HOME</span>
+                    <div class="logo-divider">
+                        <span class="logo-rule"></span>
+                        <span class="logo-diamond" aria-hidden="true"></span>
+                        <span class="logo-rule"></span>
+                    </div>
+                    <span class="logo-collection">COLLECTION</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Nav links -->
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#" data-i18n="nav.rental">Location</a></li>
+            <li><a href="#" data-i18n="nav.management">Gestion</a></li>
+            <li><a href="#" data-i18n="nav.concierge">Conciergerie</a></li>
+            <li><a href="#" data-i18n="nav.about">À propos</a></li>
+        </ul>
+
+        <!-- Right side -->
+        <div class="nav-right">
+            <!-- Language switcher -->
+            <div class="lang-switcher" id="lang-switcher" role="group" aria-label="Langue">
+                <button class="lang-btn active" data-lang="fr" aria-pressed="true">FR</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button class="lang-btn" data-lang="de" aria-pressed="false">DE</button>
+            </div>
+
+            <a href="#" class="nav-cta" data-i18n="nav.contact">
+                Contact
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <line x1="2" y1="10" x2="10" y2="2" stroke="currentColor" stroke-width="0.9" />
+                    <polyline points="5,2 10,2 10,7" stroke="currentColor" stroke-width="0.9" fill="none" />
+                </svg>
+            </a>
+
+            <!-- Mobile burger -->
+            <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"
+                aria-controls="nav-links">
+                <span></span><span></span>
+            </button>
+        </div>
+
+    </nav>
+
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <ul>
+            <li><a href="#" data-i18n="nav.rental">Location</a></li>
+            <li><a href="#" data-i18n="nav.management">Gestion</a></li>
+            <li><a href="#" data-i18n="nav.concierge">Conciergerie</a></li>
+            <li><a href="#" data-i18n="nav.about">À propos</a></li>
+            <li><a href="#" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <div class="mobile-lang">
+            <button class="lang-btn active" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="de">DE</button>
+        </div>
+    </div>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="hero" aria-label="Présentation">
+
+        <div class="hero-bg" aria-hidden="true">
+            <div class="hero-img-wrap">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="images/hero-mobile.webp" type="image/webp" />
+                    <source media="(max-width: 1280px)" srcset="images/hero-tablet.webp" type="image/webp" />
+                    <source srcset="images/hero-desktop.webp" type="image/webp" />
+                    <img src="images/hero-desktop.webp"
+                        alt="Villa de luxe avec piscine à débordement et vue mer au coucher du soleil — Côte d'Azur"
+                        class="hero-img" fetchpriority="high" decoding="async" width="1920" height="1080" />
+                </picture>
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-grain"></div>
+        </div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+            <div class="scroll-line"></div>
+            <span data-i18n="hero.scroll">Découvrir</span>
+        </div>
+
+        <div class="hero-content">
+            <p class="hero-tag" id="hero-tag">
+                <span class="dot" aria-hidden="true"></span>
+                <span data-i18n="hero.tag">Côte d'Azur · Depuis 2020</span>
+            </p>
+
+            <h1 class="hero-title" id="hero-title">
+                <span class="line" data-i18n="hero.title1">L'excellence</span>
+                <span class="line italic" data-i18n="hero.title2">au cœur</span>
+                <span class="line" data-i18n="hero.title3">de chaque villa.</span>
+            </h1>
+
+            <p class="hero-sub" id="hero-sub" data-i18n="hero.sub">
+                Gestion. Location. Conciergerie.<br>Trois services, une exigence — la vôtre.
+            </p>
+
+            <div class="hero-actions" id="hero-actions">
+                <a href="#" class="btn-primary" data-i18n="hero.cta1">
+                    Nos villas
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <line x1="2" y1="14" x2="14" y2="2" stroke="currentColor" stroke-width="1" />
+                        <polyline points="6,2 14,2 14,10" stroke="currentColor" stroke-width="1" fill="none" />
+                    </svg>
+                </a>
+                <a href="#" class="btn-ghost" data-i18n="hero.cta2">Nous contacter</a>
+            </div>
+        </div>
+
+        <div class="hero-stats" id="hero-stats" aria-label="Chiffres clés">
+            <div class="stat">
+                <span class="stat-num" data-target="47">47</span>
+                <span class="stat-label" data-i18n="stats.properties">Propriétés gérées</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+                <span class="stat-num" data-suffix="%" data-target="98">98%</span>
+                <span class="stat-label" data-i18n="stats.occupancy">Taux d'occupation</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+                <span class="stat-num" data-suffix="★">5★</span>
+                <span class="stat-label" data-i18n="stats.rating">Note moyenne</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ═══ SERVICES ═══ -->
+    <section class="services-strip" id="services" aria-labelledby="services-title">
+        <div class="services-inner">
+
+            <header class="services-header">
+                <span class="section-label" data-i18n="services.label">Nos services</span>
+                <h2 class="section-title" id="services-title">
+                    <span data-i18n="services.title1">Une maison de gestion</span><br>
+                    <em data-i18n="services.title2">hors du commun.</em>
+                </h2>
+            </header>
+
+            <div class="services-grid">
+
+                <article class="service-card">
+                    <div class="service-num" aria-hidden="true">01</div>
+                    <div class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 40 40" fill="none">
+                            <rect x="6" y="18" width="28" height="16" stroke="currentColor" stroke-width="0.8" />
+                            <polyline points="2,20 20,6 38,20" stroke="currentColor" stroke-width="0.8" fill="none" />
+                            <rect x="15" y="26" width="10" height="8" stroke="currentColor" stroke-width="0.6" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="services.s1.title">Gestion & Entretien</h3>
+                    <p data-i18n="services.s1.desc">Suivi annuel des villas : maintenance, jardins, piscines, intendance
+                        permanente. Votre propriété, protégée.</p>
+                    <a href="#" class="service-link" data-i18n="services.more">En savoir plus →</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-num" aria-hidden="true">02</div>
+                    <div class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="14" r="7" stroke="currentColor" stroke-width="0.8" />
+                            <path d="M8 34 C8 26 32 26 32 34" stroke="currentColor" stroke-width="0.8" fill="none" />
+                            <line x1="26" y1="10" x2="34" y2="7" stroke="currentColor" stroke-width="0.6" />
+                            <circle cx="35" cy="6" r="2" stroke="currentColor" stroke-width="0.6" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="services.s2.title">Location Saisonnière</h3>
+                    <p data-i18n="services.s2.desc">Commercialisation premium, accueil personnalisé des voyageurs et
+                        gestion complète de chaque séjour.</p>
+                    <a href="#" class="service-link" data-i18n="services.more">En savoir plus →</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-num" aria-hidden="true">03</div>
+                    <div class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 40 40" fill="none">
+                            <path d="M20 4 L22 13 L31 13 L24 18 L27 27 L20 22 L13 27 L16 18 L9 13 L18 13 Z"
+                                stroke="currentColor" stroke-width="0.7" fill="none" />
+                            <circle cx="20" cy="35" r="3" stroke="currentColor" stroke-width="0.6" />
+                            <line x1="20" y1="28" x2="20" y2="32" stroke="currentColor" stroke-width="0.6" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="services.s3.title">Conciergerie</h3>
+                    <p data-i18n="services.s3.desc">Services premium à la demande : chef privé, transferts en berline,
+                        expériences et itinéraires sur-mesure.</p>
+                    <a href="#" class="service-link" data-i18n="services.more">En savoir plus →</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SHOWCASE VILLAS ═══ -->
+    <section class="showcase" id="showcase" aria-labelledby="showcase-title">
+        <div class="showcase-inner">
+
+            <div class="showcase-meta">
+                <span class="section-label" data-i18n="showcase.label">Sélection exclusive</span>
+                <h2 class="section-title" id="showcase-title">
+                    <span data-i18n="showcase.title1">Des villas d'exception,</span><br>
+                    <em data-i18n="showcase.title2">méticuleusement choisies.</em>
+                </h2>
+                <p class="showcase-desc" data-i18n="showcase.desc">Chaque propriété est sélectionnée pour son caractère,
+                    son emplacement et le niveau d'expérience qu'elle offre à nos voyageurs.</p>
+                <a href="#" class="btn-primary" data-i18n="showcase.cta">
+                    Voir toutes les villas
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <line x1="2" y1="14" x2="14" y2="2" stroke="currentColor" stroke-width="1" />
+                        <polyline points="6,2 14,2 14,10" stroke="currentColor" stroke-width="1" fill="none" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="showcase-cards">
+
+                <article class="villa-card featured">
+                    <div class="villa-img">
+                        <picture>
+                            <source srcset="images/villa-aqua-serena.webp" type="image/webp" />
+                            <img src="images/villa-aqua-serena.webp"
+                                alt="Villa Aqua Serena — Saint-Tropez, piscine à débordement et vue mer"
+                                class="villa-img-el" loading="lazy" decoding="async" width="600" height="400" />
+                        </picture>
+                        <span class="villa-badge" data-i18n="villa.available">Disponible</span>
+                    </div>
+                    <div class="villa-info">
+                        <p class="villa-loc">
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                <circle cx="6" cy="5" r="2.5" stroke="currentColor" stroke-width="0.8" />
+                                <path d="M6 10 C3 7 1.5 6 1.5 5 a4.5 4.5 0 0 1 9 0 c0 1 -1.5 2 -4.5 5Z"
+                                    stroke="currentColor" stroke-width="0.8" fill="none" />
+                            </svg>
+                            Saint-Tropez, Var
+                        </p>
+                        <h4>Villa Aqua Serena</h4>
+                        <ul class="villa-specs" aria-label="Caractéristiques">
+                            <li>6 <span data-i18n="villa.rooms">chambres</span></li>
+                            <li><span data-i18n="villa.pool">Piscine à débordement</span></li>
+                            <li><span data-i18n="villa.seaview">Vue mer</span></li>
+                        </ul>
+                        <p class="villa-price"><span data-i18n="villa.from">À partir de</span> <strong>4 800 € / <span
+                                    data-i18n="villa.night">nuit</span></strong></p>
+                    </div>
+                </article>
+
+                <article class="villa-card">
+                    <div class="villa-img">
+                        <picture>
+                            <source srcset="images/bastide-des-pins.webp" type="image/webp" />
+                            <img src="images/bastide-des-pins.webp"
+                                alt="Bastide des Pins — Ramatuelle, domaine 2 hectares" class="villa-img-el"
+                                loading="lazy" decoding="async" width="400" height="300" />
+                        </picture>
+                        <span class="villa-badge badge-grey" data-i18n="villa.onrequest">Sur demande</span>
+                    </div>
+                    <div class="villa-info">
+                        <p class="villa-loc">
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                <circle cx="6" cy="5" r="2.5" stroke="currentColor" stroke-width="0.8" />
+                                <path d="M6 10 C3 7 1.5 6 1.5 5 a4.5 4.5 0 0 1 9 0 c0 1 -1.5 2 -4.5 5Z"
+                                    stroke="currentColor" stroke-width="0.8" fill="none" />
+                            </svg>
+                            Ramatuelle, Var
+                        </p>
+                        <h4>Bastide des Pins</h4>
+                        <ul class="villa-specs" aria-label="Caractéristiques">
+                            <li>4 <span data-i18n="villa.rooms">chambres</span></li>
+                            <li>Domaine 2 ha</li>
+                        </ul>
+                        <p class="villa-price"><span data-i18n="villa.from">À partir de</span> <strong>2 200 € / <span
+                                    data-i18n="villa.night">nuit</span></strong></p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ MANIFESTO ═══ -->
+    <section class="manifesto" id="manifesto" aria-label="Notre philosophie">
+        <div class="manifesto-inner">
+            <div class="manifesto-mark" aria-hidden="true">"</div>
+            <blockquote>
+                <span data-i18n="manifesto.q1">Une relation de confiance,</span><br>
+                <em data-i18n="manifesto.q2">un standard sans compromis.</em>
+            </blockquote>
+            <div class="manifesto-line" aria-hidden="true"></div>
+            <p class="manifesto-sub" data-i18n="manifesto.sub">Discrétion, excellence et sur-mesure — les trois piliers
+                d'Azur Home Collection depuis sa fondation.</p>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-inner">
+
+            <div class="footer-logo">
+                <!-- Logo répété — HTML pur -->
+                <a href="#" aria-label="Azur Home Collection">
+                    <div class="logo logo--footer">
+                        <svg class="logo-emblem" viewBox="0 0 64 68" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <line x1="2" y1="64" x2="62" y2="64" stroke="currentColor" stroke-width="1" />
+                            <line x1="6" y1="67" x2="58" y2="67" stroke="currentColor" stroke-width="0.5"
+                                opacity="0.4" />
+                            <rect x="8" y="28" width="48" height="36" stroke="currentColor" stroke-width="0.7"
+                                fill="none" />
+                            <rect x="14" y="34" width="36" height="30" stroke="currentColor" stroke-width="0.4"
+                                fill="none" opacity="0.45" />
+                            <line x1="18" y1="34" x2="18" y2="64" stroke="currentColor" stroke-width="0.6"
+                                opacity="0.65" />
+                            <line x1="32" y1="34" x2="32" y2="64" stroke="currentColor" stroke-width="0.6"
+                                opacity="0.65" />
+                            <line x1="46" y1="34" x2="46" y2="64" stroke="currentColor" stroke-width="0.6"
+                                opacity="0.65" />
+                            <polyline points="6,28 32,10 58,28" stroke="currentColor" stroke-width="0.7" fill="none" />
+                            <line x1="8" y1="28" x2="56" y2="28" stroke="currentColor" stroke-width="0.5" />
+                            <circle cx="32" cy="7" r="2" fill="currentColor" opacity="0.7" />
+                            <line x1="32" y1="9" x2="32" y2="13" stroke="currentColor" stroke-width="0.5"
+                                opacity="0.5" />
+                            <polygon points="8,28 11,31 8,34 5,31" fill="currentColor" opacity="0.4" />
+                            <polygon points="56,28 59,31 56,34 53,31" fill="currentColor" opacity="0.4" />
+                        </svg>
+                        <div class="logo-wordmark">
+                            <span class="logo-name">AZUR HOME</span>
+                            <div class="logo-divider">
+                                <span class="logo-rule"></span>
+                                <span class="logo-diamond" aria-hidden="true"></span>
+                                <span class="logo-rule"></span>
+                            </div>
+                            <span class="logo-collection">COLLECTION</span>
+                        </div>
+                    </div>
+                </a>
+                <p>Property Management · Seasonal Rental<br>Côte d'Azur, France</p>
+            </div>
+
+            <nav class="footer-nav" aria-label="Navigation secondaire">
+                <div class="footer-col">
+                    <h5 data-i18n="footer.services">Services</h5>
+                    <ul>
+                        <li><a href="#" data-i18n="nav.rental">Location saisonnière</a></li>
+                        <li><a href="#" data-i18n="services.s1.title">Gestion & Entretien</a></li>
+                        <li><a href="#" data-i18n="nav.concierge">Conciergerie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5 data-i18n="footer.discover">Découvrir</h5>
+                    <ul>
+                        <li><a href="#">Villas</a></li>
+                        <li><a href="#" data-i18n="footer.apartments">Appartements</a></li>
+                        <li><a href="#" data-i18n="nav.about">À propos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="mailto:guillaumindany@gmail.com">guillaumindany@gmail.com</a></li>
+                        <li><a href="tel:+33621084443">+33 6 21 08 44 43</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Azur Home Collection.</span>
+            <div class="footer-legal">
+                <a href="#" data-i18n="footer.legal">Mentions légales</a>
+                <a href="#">CGV</a>
+                <a href="#" data-i18n="footer.privacy">Politique de confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
