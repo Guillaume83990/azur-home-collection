@@ -1,0 +1,273 @@
+{
+  "nav": {
+    "location": "Location",
+    "gestion": "Gestion",
+    "concierge": "Conciergerie",
+    "about": "À propos",
+    "blog": "Blog",
+    "contact": "Contact",
+    "book": "Nous contacter",
+    "riviera": "Riviera française",
+    "alps": "Alpes françaises"
+  },
+  "hero": {
+    "tag": "Côte d'Azur · Alpes françaises · Depuis 2020",
+    "sub": "Villas d'exception sélectionnées avec la rigueur d'un service cinq étoiles.",
+    "cta1": "Explorer la collection",
+    "cta2": "Parler à un concierge",
+    "scroll": "Défiler"
+  },
+  "h1": {
+    "l1": "L'Excellence",
+    "l2": "comme Seule",
+    "l3": "Destination."
+  },
+  "search": {
+    "dest": "Destination",
+    "dest_ph": "Saint-Tropez, Courchevel…",
+    "checkin": "Arrivée",
+    "checkout": "Départ",
+    "guests": "Voyageurs",
+    "guests_ph": "Nombre de personnes",
+    "btn": "Rechercher",
+    "title": "Planifiez votre séjour",
+    "success": "Votre demande a bien été envoyée. Nous vous contactons sous 2h.",
+    "name": "Votre nom",
+    "phone": "Téléphone",
+    "name_ph": "Prénom Nom",
+    "phone_ph": "+33 6 xx xx xx xx"
+  },
+  "brand": {
+    "label": "Qui nous sommes",
+    "h1": "Une exigence haut de gamme,",
+    "h2": "trois services dédiés.",
+    "p": "Azur Home Collection n'est pas une agence immobilière. C'est une société d'hospitalité de luxe — pensée comme un hôtel cinq étoiles, appliquée aux villas privées. Chaque propriété est sélectionnée, gérée et louée selon les standards de l'hôtellerie internationale."
+  },
+  "val": {
+    "excellence": "Excellence",
+    "excellence_p": "Un standard sans compromis sur chaque détail.",
+    "discret": "Discrétion",
+    "discret_p": "Une relation de confiance avec nos propriétaires.",
+    "surmesure": "Sur-mesure",
+    "surmesure_p": "Chaque villa, chaque séjour pensés individuellement."
+  },
+  "sv": {
+    "gestion_h": "Gestion & Entretien",
+    "gestion_p": "Suivi annuel des villas : maintenance, jardins, piscines, intendance permanente.",
+    "location_h": "Location Saisonnière",
+    "location_p": "Commercialisation, accueil des voyageurs et gestion complète des séjours.",
+    "conc_h": "Conciergerie",
+    "conc_p": "Services premium à la demande : chef privé, transferts, expériences sur-mesure.",
+    "discover": "Découvrir →"
+  },
+  "coll": {
+    "label": "Sélection exclusive",
+    "h1": "Une collection",
+    "h2": "méticuleusement choisie",
+    "all": "Voir toutes les propriétés",
+    "cta": "Voir toutes les propriétés"
+  },
+  "filter": {
+    "all": "Toutes",
+    "dest": "Destination",
+    "guests": "Voyageurs",
+    "amen": "Équipements",
+    "pool": "Piscine",
+    "sea": "Vue mer",
+    "ski": "Ski direct",
+    "spa": "Spa",
+    "gym": "Salle de sport",
+    "prestige": "Collection Prestige",
+    "reset": "Réinitialiser"
+  },
+  "villa": {
+    "guests": "pers.",
+    "rooms": "ch.",
+    "brochure": "Brochure",
+    "see": "Voir →",
+    "on_request": "Sur demande"
+  },
+  "aqserena": {
+    "desc": "Nichée sur les hauteurs de Canebiers, cette villa d'architecte offre une vue imprenable sur la baie de Saint-Tropez. Sa piscine à débordement semble se fondre dans la Méditerranée au coucher du soleil."
+  },
+  "bastide": {
+    "desc": "Domaine d'exception de 2 hectares à Ramatuelle, entre pinède et vignes. La Bastide des Pins incarne la Provence la plus secrète, accessible en quelques minutes du village de Saint-Tropez."
+  },
+  "emeraude": {
+    "desc": "Le summum du luxe alpin à Courchevel 1850. Ce chalet d'exception bénéficie d'un accès ski-in ski-out direct et d'un spa de 200m² pour des séjours d'une élégance absolue."
+  },
+  "boreal": {
+    "desc": "Perché au cœur de Courchevel 1850, le Chalet Boréal associe l'architecture authentique de la montagne à des équipements cinq étoiles. Ski-in ski-out, cave à vins prestige et service de conciergerie dédié."
+  },
+  "dests": {
+    "label": "Nos destinations",
+    "h1": "Mer & montagne,",
+    "h2": "un même standard.",
+    "st_p": "Canebiers · Les Parcs · Ramatuelle · Gassin",
+    "cour_p": "1850 · Le Praz · Village · Moriond",
+    "cta": "Explorer →"
+  },
+  "cx": {
+    "label": "Conciergerie",
+    "h1": "Des expériences",
+    "h2": "pensées dans les moindres détails",
+    "p": "De l'arrivée à la table étoilée, du spa privé au yacht au coucher du soleil — notre équipe orchestre chaque instant avec la précision d'un directeur de palace.",
+    "chef": "Chef privé & gastronomie",
+    "yacht": "Yacht & transferts privés",
+    "spa": "Spa & bien-être à domicile",
+    "heli": "Héliport & aviation privée",
+    "xp": "Expériences exclusives",
+    "cta": "Découvrir la conciergerie"
+  },
+  "ow": {
+    "label": "Propriétaires",
+    "h1": "Confiez votre villa",
+    "h2": "à des experts 5 étoiles",
+    "p": "Notre équipe, formée à l'exigence hôtelière, prend en charge intégralement la gestion et la commercialisation de votre bien. Revenus optimisés. Discrétion absolue.",
+    "l1": "Gestion locative complète & optimisée",
+    "l2": "Accueil des voyageurs aux standards hôteliers",
+    "l3": "Reporting mensuel détaillé & transparent",
+    "l4": "Maintenance & entretien haut de gamme",
+    "kpi": "de revenus en moyenne vs gestion seule",
+    "cta": "Confier ma propriété"
+  },
+  "trust": {
+    "label": "Notre engagement",
+    "h1": "Un standard",
+    "h2": "sans compromis",
+    "avis": "Avis 5★ vérifiés",
+    "villas": "Propriétés d'exception",
+    "reply": "Délai de réponse garanti",
+    "note": "Note de satisfaction"
+  },
+  "faq": {
+    "label": "Questions fréquentes",
+    "h1": "Tout ce que vous",
+    "h2": "souhaitez savoir",
+    "q1": "Que comprend la location d'une villa à Saint-Tropez ?",
+    "a1": "Chacune de nos villas comprend un service de ménage quotidien, du linge hôtelier haut de gamme et un accès à notre conciergerie personnalisée 24h/24. La majorité dispose de piscines privées, de terrasses panoramiques et d'équipements premium.",
+    "q2": "Quelle est la meilleure période pour réserver à Courchevel ?",
+    "a2": "Nous recommandons de réserver entre septembre et novembre. Les créneaux de Noël et des vacances de février sont les plus demandés. Rejoignez notre liste privée pour un accès en avant-première.",
+    "q3": "Vos services couvrent-ils les deux destinations ?",
+    "a3": "Oui. Notre conciergerie opère à Saint-Tropez et Courchevel avec le même niveau d'exigence toute l'année — du chef étoilé sur la Côte d'Azur au moniteur de ski privé à Courchevel 1850.",
+    "q4": "Les séjours sont-ils entièrement personnalisables ?",
+    "a4": "Absolument. Chaque séjour est conçu sur-mesure : ménage quotidien, chef privé, soins spa, transferts héliportés, bouquets floraux à l'arrivée.",
+    "q5": "Comment fonctionne la gestion locative ?",
+    "a5": "Gestion intégrale : commercialisation haut de gamme, accueil aux standards hôteliers, maintenance et reporting mensuel. +32% de revenus locatifs en moyenne.",
+    "q6": "Quelles sont les conditions d'annulation ?",
+    "a6": "Conditions flexibles adaptées à chaque propriété. Un conseiller dédié vous présente les modalités précises lors de votre demande.",
+    "cta_h": "Une question précise ?",
+    "cta_sub": "Nos conseillers composent votre séjour sur-mesure.",
+    "cta_btn": "Parler à un conseiller",
+    "hours": "Lun – Ven · 9h – 19h"
+  },
+  "nl": {
+    "label": "Newsletter privée",
+    "h1": "Accédez à notre collection",
+    "h2": "en avant-première",
+    "sub": "Nouvelles propriétés, disponibilités exclusives, actualités Saint-Tropez & Courchevel.",
+    "b1": "Disponibilités 48h avant le grand public",
+    "b2": "Offres membres exclusives",
+    "b3": "Conseiller dédié à votre compte",
+    "destlbl": "Destination",
+    "consent": "J'accepte de recevoir les communications d'Azur Home Collection",
+    "cta": "Rejoindre la liste privée",
+    "sending": "Envoi…",
+    "success": "✓ Bienvenue dans la liste privée !",
+    "legal": "En vous inscrivant, vous acceptez nos",
+    "cgv": "CGU",
+    "priv": "politique de confidentialité",
+    "unsub": "Désabonnement en 1 clic."
+  },
+  "cf": {
+    "label": "Commençons ensemble",
+    "h1": "Construisons ensemble",
+    "h2": "une expérience à la hauteur de vos villas.",
+    "p": "Que vous soyez locataire en quête d'une villa d'exception ou propriétaire souhaitant confier votre bien — notre équipe vous accompagne.",
+    "wa": "Parler à un expert",
+    "explore": "Explorer la collection"
+  },
+  "ft": {
+    "services": "Services",
+    "destinations": "Destinations",
+    "company": "Société",
+    "contact": "Contact",
+    "legal": "Mentions légales",
+    "priv": "Confidentialité",
+    "cgv": "CGV",
+    "by": "Conçu & développé par",
+    "wa": "WhatsApp →"
+  },
+  "modal": {
+    "eyebrow": "Brochure privée",
+    "title": "Recevoir la brochure"
+  },
+  "form": {
+    "fullname": "Nom complet",
+    "name_ph": "Votre nom",
+    "phone": "Téléphone",
+    "dates": "Dates envisagées",
+    "dates_ph": "Ex : juillet 2026, 2 semaines",
+    "submit": "Recevoir par WhatsApp →",
+    "rgpd": "RGPD · Données protégées · Réponse sous 15 min"
+  },
+  "maj": {
+    "online": "Votre concierge · En ligne",
+    "welcome": "Bienvenue 👋 Comment puis-je sublimer votre séjour ?",
+    "q1": "Comment pouvons-nous sublimer votre séjour ?",
+    "c_rent": "🏖️ Louer une villa",
+    "c_sell": "🏡 Vendre un bien",
+    "c_conc": "✨ Conciergerie",
+    "q2_rent": "Quelle destination vous inspire ?",
+    "dest_st": "🌊 Saint-Tropez",
+    "dest_cour": "🏔️ Courchevel",
+    "dest_both": "Les deux",
+    "q2_sell": "Quel type de bien ?",
+    "sell_villa": "🏡 Villa",
+    "sell_apt": "🏢 Appartement",
+    "q2_conc": "Quel service ?",
+    "conc_chef": "🍽️ Chef privé",
+    "conc_trans": "🚁 Transport",
+    "conc_well": "💆 Bien-être",
+    "conc_xp": "🎭 Expériences",
+    "q3": "Comment souhaitez-vous être contacté ?",
+    "wa": "💬 WhatsApp",
+    "callback": "📞 Rappel",
+    "brochure": "📋 Brochure",
+    "q4": "Vos coordonnées",
+    "send": "Envoyer →",
+    "back": "← Retour",
+    "rgpd": "RGPD · Réponse sous 15 min",
+    "done": "Votre demande est prise en charge.",
+    "done_sub": "Un expert vous contacte sous 15 minutes.",
+    "wa_now": "Parler sur WhatsApp →",
+    "bot_1a": "Parfait ! Quelle destination vous inspire ?",
+    "bot_1b": "Très bien. Quel type de bien souhaitez-vous vendre ?",
+    "bot_1c": "Avec plaisir. Quel service vous intéresse ?",
+    "bot_2": "Comment souhaitez-vous être contacté ?",
+    "bot_3": "Merci. Renseignez vos coordonnées :",
+    "bot_confirm": "Merci ! Un expert Azur Home vous contacte sous 15 minutes.",
+    "wa_greeting": "Bonjour, je suis intéressé(e) par :",
+    "wa_intent_rent": "Location de villa",
+    "wa_intent_sell": "Vente immobilière",
+    "wa_intent_conc": "Services de conciergerie",
+    "wa_dest_label": "Destination :",
+    "wa_dest_villa": "Villa",
+    "wa_dest_apt": "Appartement",
+    "wa_closing": "Pouvez-vous me contacter ?"
+  },
+  "mob": {
+    "wa": "WhatsApp · 2h",
+    "villas": "Voir les villas"
+  },
+  "am": {
+    "poolinf": "Piscine débordement",
+    "pool": "Piscine",
+    "seaview": "Vue mer",
+    "skiinout": "Ski-in ski-out",
+    "spapriv": "Spa privatif",
+    "cellar": "Cave à vins",
+    "domain": "Domaine privé",
+    "gym": "Salle de sport"
+  }
+}

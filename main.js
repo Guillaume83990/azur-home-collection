@@ -1,516 +1,824 @@
 /* ============================================================
-   AZUR HOME COLLECTION — main.js  PREMIUM EDITION
-   ① Cinematic curtain intro + logo reveal
-   ② Custom magnetic cursor with particle trail
-   ③ Char-by-char hero title animation
-   ④ Multi-layer parallax (img / overlay / content)
-   ⑤ Text scramble on section labels & tags
-   ⑥ Magnetic buttons (elastic snap-back)
-   ⑦ Smart nav (hide on scroll down / show on up)
-   ⑧ Service cards 3D perspective tilt
-   ⑨ Villa cards clip-path wipe reveal
-   ⑩ Manifesto letter-by-letter reveal
-   ⑪ Animated stat counters
-   ⑫ Scrub parallax on hero image via ScrollTrigger
+   AZUR HOME COLLECTION v8 — main.js
+   Architecture i18n JSON · 4 langues FR/EN/DE/IT
+   Search pill + envoi email · Majordome smart flow
+   GSAP · Lenis · navigator.language auto-detect
    ============================================================ */
+'use strict';
 
-/* ══════════════════════════════════════════════
-   TRANSLATIONS
-══════════════════════════════════════════════ */
-const TRANSLATIONS = {
-    fr: {
-        'nav.rental': 'Location', 'nav.management': 'Gestion',
-        'nav.concierge': 'Conciergerie', 'nav.about': 'À propos', 'nav.contact': 'Contact',
-        'hero.tag': "Côte d'Azur · Depuis 2020",
-        'hero.title1': "L'excellence", 'hero.title2': 'au cœur', 'hero.title3': 'de chaque villa.',
-        'hero.sub': 'Gestion. Location. Conciergerie.<br>Trois services, une exigence — la vôtre.',
-        'hero.cta1': 'Nos villas', 'hero.cta2': 'Nous contacter', 'hero.scroll': 'Découvrir',
-        'stats.properties': 'Propriétés gérées', 'stats.occupancy': "Taux d'occupation", 'stats.rating': 'Note moyenne',
-        'services.label': 'Nos services', 'services.title1': 'Une maison de gestion', 'services.title2': 'hors du commun.',
-        'services.more': 'En savoir plus →',
-        'services.s1.title': 'Gestion & Entretien',
-        'services.s1.desc': 'Suivi annuel des villas : maintenance, jardins, piscines, intendance permanente. Votre propriété, protégée.',
-        'services.s2.title': 'Location Saisonnière',
-        'services.s2.desc': 'Commercialisation premium, accueil personnalisé des voyageurs et gestion complète de chaque séjour.',
-        'services.s3.title': 'Conciergerie',
-        'services.s3.desc': 'Services premium à la demande : chef privé, transferts en berline, expériences et itinéraires sur-mesure.',
-        'showcase.label': 'Sélection exclusive', 'showcase.title1': "Des villas d'exception,", 'showcase.title2': 'méticuleusement choisies.',
-        'showcase.desc': "Chaque propriété est sélectionnée pour son caractère, son emplacement et le niveau d'expérience qu'elle offre à nos voyageurs.",
-        'showcase.cta': 'Voir toutes les villas',
-        'villa.available': 'Disponible', 'villa.onrequest': 'Sur demande', 'villa.rooms': 'chambres',
-        'villa.pool': 'Piscine à débordement', 'villa.seaview': 'Vue mer', 'villa.from': 'À partir de', 'villa.night': 'nuit',
-        'manifesto.q1': 'Une relation de confiance,', 'manifesto.q2': 'un standard sans compromis.',
-        'manifesto.sub': "Discrétion, excellence et sur-mesure — les trois piliers d'Azur Home Collection depuis sa fondation.",
-        'footer.services': 'Services', 'footer.discover': 'Découvrir', 'footer.apartments': 'Appartements',
-        'footer.legal': 'Mentions légales', 'footer.privacy': 'Politique de confidentialité',
-    },
-    en: {
-        'nav.rental': 'Rentals', 'nav.management': 'Management', 'nav.concierge': 'Concierge', 'nav.about': 'About', 'nav.contact': 'Contact',
-        'hero.tag': "Côte d'Azur · Since 2020",
-        'hero.title1': 'Excellence', 'hero.title2': 'at the heart', 'hero.title3': 'of every villa.',
-        'hero.sub': 'Management. Rental. Concierge.<br>Three services, one standard — yours.',
-        'hero.cta1': 'Our villas', 'hero.cta2': 'Get in touch', 'hero.scroll': 'Discover',
-        'stats.properties': 'Properties managed', 'stats.occupancy': 'Occupancy rate', 'stats.rating': 'Average rating',
-        'services.label': 'Our services', 'services.title1': 'A property management', 'services.title2': 'firm like no other.',
-        'services.more': 'Learn more →',
-        'services.s1.title': 'Property Management',
-        'services.s1.desc': 'Year-round villa oversight: maintenance, gardens, pools, permanent on-site management. Your property, protected.',
-        'services.s2.title': 'Seasonal Rental',
-        'services.s2.desc': 'Premium marketing, personalised guest welcome and full management of every stay.',
-        'services.s3.title': 'Concierge',
-        'services.s3.desc': 'Premium on-demand services: private chef, executive transfers, bespoke experiences and itineraries.',
-        'showcase.label': 'Exclusive selection', 'showcase.title1': 'Exceptional villas,', 'showcase.title2': 'meticulously curated.',
-        'showcase.desc': "Each property is selected for its character, its location and the level of experience it offers our guests.",
-        'showcase.cta': 'View all villas',
-        'villa.available': 'Available', 'villa.onrequest': 'On request', 'villa.rooms': 'bedrooms',
-        'villa.pool': 'Infinity pool', 'villa.seaview': 'Sea view', 'villa.from': 'From', 'villa.night': 'night',
-        'manifesto.q1': 'A relationship of trust,', 'manifesto.q2': 'an uncompromising standard.',
-        'manifesto.sub': 'Discretion, excellence and bespoke service — the three pillars of Azur Home Collection since its founding.',
-        'footer.services': 'Services', 'footer.discover': 'Explore', 'footer.apartments': 'Apartments',
-        'footer.legal': 'Legal notice', 'footer.privacy': 'Privacy policy',
-    },
-    de: {
-        'nav.rental': 'Vermietung', 'nav.management': 'Verwaltung', 'nav.concierge': 'Concierge', 'nav.about': 'Über uns', 'nav.contact': 'Kontakt',
-        'hero.tag': "Côte d'Azur · Seit 2020",
-        'hero.title1': 'Exzellenz', 'hero.title2': 'im Herzen', 'hero.title3': 'jeder Villa.',
-        'hero.sub': 'Verwaltung. Vermietung. Concierge.<br>Drei Leistungen, ein Anspruch — Ihrer.',
-        'hero.cta1': 'Unsere Villen', 'hero.cta2': 'Kontakt aufnehmen', 'hero.scroll': 'Entdecken',
-        'stats.properties': 'Verwaltete Objekte', 'stats.occupancy': 'Auslastungsquote', 'stats.rating': 'Durchschnittsnote',
-        'services.label': 'Unsere Leistungen', 'services.title1': 'Eine Hausverwaltung', 'services.title2': 'der besonderen Art.',
-        'services.more': 'Mehr erfahren →',
-        'services.s1.title': 'Verwaltung & Pflege',
-        'services.s1.desc': 'Ganzjährige Villenbetreuung: Wartung, Gärten, Pools, permanente Hausmeisterdienste. Ihr Eigentum, geschützt.',
-        'services.s2.title': 'Saisionale Vermietung',
-        'services.s2.desc': 'Premium-Vermarktung, persönlicher Gästeempfang und vollständige Betreuung jedes Aufenthalts.',
-        'services.s3.title': 'Concierge-Service',
-        'services.s3.desc': 'Premium-Services auf Anfrage: Privatkoch, Limousinen-Transfer, individuelle Erlebnisse und Reiserouten.',
-        'showcase.label': 'Exklusive Auswahl', 'showcase.title1': 'Außergewöhnliche Villen,', 'showcase.title2': 'sorgfältig ausgewählt.',
-        'showcase.desc': "Jede Immobilie wird nach Charakter, Lage und Erlebnisqualität für unsere Gäste ausgewählt.",
-        'showcase.cta': 'Alle Villen entdecken',
-        'villa.available': 'Verfügbar', 'villa.onrequest': 'Auf Anfrage', 'villa.rooms': 'Schlafzimmer',
-        'villa.pool': 'Infinity-Pool', 'villa.seaview': 'Meerblick', 'villa.from': 'Ab', 'villa.night': 'Nacht',
-        'manifesto.q1': 'Eine Vertrauensbeziehung,', 'manifesto.q2': 'ein kompromissloser Anspruch.',
-        'manifesto.sub': 'Diskretion, Exzellenz und Maßarbeit — die drei Säulen von Azur Home Collection seit der Gründung.',
-        'footer.services': 'Leistungen', 'footer.discover': 'Entdecken', 'footer.apartments': 'Apartments',
-        'footer.legal': 'Impressum', 'footer.privacy': 'Datenschutz',
+/* ══════════════════════════════════════════
+   i18n ENGINE — Charge les JSON externes
+   Architecture : data-t="key.subkey" → T[lang].key.subkey
+══════════════════════════════════════════ */
+let T = {};
+let lang = 'fr';
+const LANGS = ['fr', 'en', 'de', 'it'];
+
+// Résolution dot-notation : get(T, 'hero.tag')
+function get(obj, path) {
+    return path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : null), obj);
+}
+
+async function loadTranslations(l) {
+    try {
+        const r = await fetch(`translations/${l}.json`);
+        if (!r.ok) throw new Error();
+        T = await r.json();
+    } catch (e) {
+        console.warn(`Translation ${l} not found, falling back to fr`);
     }
+}
+
+async function applyLang(l) {
+    if (!LANGS.includes(l)) l = 'fr';
+    lang = l;
+    document.documentElement.lang = l;
+
+    await loadTranslations(l);
+
+    // Appliquer data-t="key.subkey" → innerHTML
+    document.querySelectorAll('[data-t]').forEach(el => {
+        const v = get(T, el.getAttribute('data-t'));
+        if (v !== null && v !== undefined) el.innerHTML = v;
+    });
+    // data-t-ph="key" → placeholder
+    document.querySelectorAll('[data-t-ph]').forEach(el => {
+        const v = get(T, el.getAttribute('data-t-ph'));
+        if (v) el.placeholder = v;
+    });
+    // Lang buttons
+    document.querySelectorAll('.lb').forEach(b => {
+        const a = b.dataset.lang === l;
+        b.classList.toggle('active', a);
+        b.setAttribute('aria-pressed', String(a));
+    });
+
+    try { localStorage.setItem('ahc_lang', l); } catch (_) { }
+}
+
+/* ══════════════════════════════════════════
+   LENIS — Smooth scroll
+══════════════════════════════════════════ */
+let lenis;
+function initLenis() {
+    if (typeof Lenis === 'undefined' || window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    lenis = new Lenis({ duration: 1.32, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true, smoothTouch: false });
+    function raf(t) { lenis.raf(t); if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.update(); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+}
+
+window.scrollToSection = function (id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (lenis) lenis.scrollTo(el, { offset: -80, duration: 1.6 });
+    else el.scrollIntoView({ behavior: 'smooth' });
 };
 
-/* ══════════════════════════════════════════════
-   i18n
-══════════════════════════════════════════════ */
-let currentLang = 'fr';
-function applyTranslations(lang) {
-    const T = TRANSLATIONS[lang]; if (!T) return;
-    currentLang = lang;
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const v = T[el.getAttribute('data-i18n')];
-        if (v !== undefined) el.innerHTML = v;
-    });
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        const active = btn.dataset.lang === lang;
-        btn.classList.toggle('active', active);
-        btn.setAttribute('aria-pressed', String(active));
-    });
-    try { localStorage.setItem('ahc_lang', lang); } catch (_) { }
-}
-
-/* ══════════════════════════════════════════════
-   SPLIT TEXT — manual char wrapping
-══════════════════════════════════════════════ */
-function splitChars(el) {
-    const text = el.textContent;
-    el.innerHTML = '';
-    el.setAttribute('aria-label', text); // a11y
-    return [...text].map(char => {
-        const wrap = document.createElement('span');
-        wrap.className = 'char';
-        wrap.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:bottom';
-        const inner = document.createElement('span');
-        inner.className = 'char-inner';
-        inner.style.cssText = 'display:inline-block;will-change:transform';
-        inner.textContent = char === ' ' ? '\u00A0' : char;
-        wrap.appendChild(inner);
-        el.appendChild(wrap);
-        return inner;
-    });
-}
-
-/* ══════════════════════════════════════════════
-   TEXT SCRAMBLE
-══════════════════════════════════════════════ */
-const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ·—';
-function scramble(el, final, ms = 1000) {
-    let f = 0;
-    const frames = Math.floor(ms / 16);
-    const chars = final.toUpperCase().split('');
-    const id = setInterval(() => {
-        el.textContent = chars.map((ch, i) => {
-            if (ch === ' ') return ' ';
-            if (f / frames > i / chars.length + 0.25) return final[i];
-            return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
-        }).join('');
-        if (++f > frames) { el.textContent = final; clearInterval(id); }
-    }, 16);
-}
-
-/* ══════════════════════════════════════════════
-   MAGNETIC CURSOR + TRAIL
-══════════════════════════════════════════════ */
-function initCursor() {
-    if (!window.matchMedia('(hover:hover)').matches) return;
-    const dot = document.getElementById('cursor');
-    const ring = document.getElementById('cursor-follower');
-    if (!dot || !ring) return;
-
-    let mx = 0, my = 0, rx = 0, ry = 0;
-
-    // Build particle trail
-    const TRAIL = 7;
-    const particles = Array.from({ length: TRAIL }, (_, i) => {
-        const p = document.createElement('div');
-        p.className = 'cursor-trail';
-        p.style.cssText = `position:fixed;border-radius:50%;pointer-events:none;z-index:9997;
-      width:${5 - i * 0.5}px;height:${5 - i * 0.5}px;
-      background:rgba(215,206,178,${0.4 - i * 0.05});transform:translate(-50%,-50%);`;
-        document.body.appendChild(p);
-        return { el: p, x: 0, y: 0 };
-    });
-
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-
-    const tickC = () => {
-        // Dot — instant
-        dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-        // Ring — smooth follow
-        rx += (mx - rx) * 0.11; ry += (my - ry) * 0.11;
-        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-        // Trail — cascading lag
-        let px = mx, py = my;
-        particles.forEach((p, i) => {
-            const lag = 0.2 - i * 0.018;
-            p.x += (px - p.x) * lag; p.y += (py - p.y) * lag;
-            p.el.style.left = p.x + 'px'; p.el.style.top = p.y + 'px';
-            px = p.x; py = p.y;
-        });
-        requestAnimationFrame(tickC);
-    };
-    tickC();
-
-    // Hover states + magnetic pull
-    document.querySelectorAll('a, button, .service-card').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            dot.classList.add('cursor--hover');
-            ring.classList.add('cursor--hover');
-        });
-        el.addEventListener('mousemove', e => {
-            if (!el.matches('.btn-primary, .nav-cta, .btn-ghost')) return;
-            const r = el.getBoundingClientRect();
-            const dx = (e.clientX - (r.left + r.width / 2)) * 0.28;
-            const dy = (e.clientY - (r.top + r.height / 2)) * 0.28;
-            gsap.to(el, { x: dx, y: dy, duration: 0.35, ease: 'power2.out', overwrite: 'auto' });
-        });
-        el.addEventListener('mouseleave', () => {
-            dot.classList.remove('cursor--hover');
-            ring.classList.remove('cursor--hover');
-            if (el.matches('.btn-primary, .nav-cta, .btn-ghost')) {
-                gsap.to(el, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1,0.4)', overwrite: 'auto' });
-            }
-        });
-    });
-}
-
-/* ══════════════════════════════════════════════
-   SMART NAV — hide on down / show on up
-══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════
+   NAV
+══════════════════════════════════════════ */
 function initNav() {
     const nav = document.getElementById('nav');
     const burger = document.getElementById('burger');
-    const mMenu = document.getElementById('mobile-menu');
+    const mob = document.getElementById('mob-menu');
     if (!nav) return;
-
     let lastY = 0;
     window.addEventListener('scroll', () => {
         const y = window.scrollY;
-        nav.classList.toggle('scrolled', y > 60);
-        if (y > 220) {
-            if (y > lastY + 10) nav.classList.add('nav--hidden');
-            else if (y < lastY - 5) nav.classList.remove('nav--hidden');
-        } else {
-            nav.classList.remove('nav--hidden');
-        }
+        nav.classList.toggle('scrolled', y > 80);
+        if (y > 200) {
+            if (y > lastY + 10) nav.classList.add('hidden');
+            else if (y < lastY - 5) nav.classList.remove('hidden');
+        } else nav.classList.remove('hidden');
         lastY = y;
     }, { passive: true });
-
-    if (burger && mMenu) {
+    if (burger && mob) {
         burger.addEventListener('click', () => {
-            const open = burger.classList.toggle('open');
-            mMenu.classList.toggle('open', open);
-            mMenu.setAttribute('aria-hidden', String(!open));
-            burger.setAttribute('aria-expanded', String(open));
-            document.body.style.overflow = open ? 'hidden' : '';
+            const o = burger.classList.toggle('open');
+            mob.classList.toggle('open', o);
+            mob.setAttribute('aria-hidden', String(!o));
+            burger.setAttribute('aria-expanded', String(o));
+            document.body.style.overflow = o ? 'hidden' : '';
         });
-        mMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-            burger.classList.remove('open');
-            mMenu.classList.remove('open');
-            mMenu.setAttribute('aria-hidden', 'true');
-            burger.setAttribute('aria-expanded', 'false');
+        mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            burger.classList.remove('open'); mob.classList.remove('open');
+            mob.setAttribute('aria-hidden', 'true'); burger.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
         }));
     }
 }
 
-/* ══════════════════════════════════════════════
-   MULTI-LAYER PARALLAX
-══════════════════════════════════════════════ */
-function initParallax() {
-    const wrap = document.querySelector('.hero-img-wrap');
-    const overlay = document.querySelector('.hero-overlay');
-    const content = document.querySelector('.hero-content');
-    const stats = document.getElementById('hero-stats');
-    if (!wrap || window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-
-    window.addEventListener('scroll', () => {
-        const s = Math.min(window.scrollY, window.innerHeight);
-        const pct = s / window.innerHeight;
-        wrap.style.transform = `scale(1.08) translateY(${s * 0.3}px)`;
-        if (overlay) {
-            const d = Math.min(.96, .96 + pct * .03);
-            overlay.style.background = `
-        linear-gradient(to top,rgba(26,25,22,${d}) 0%,rgba(26,25,22,${.45 + pct * .2}) 45%,rgba(26,25,22,${.15 + pct * .35}) 100%),
-        linear-gradient(to right,rgba(26,25,22,.35) 0%,transparent 55%)`;
-        }
-        if (content) {
-            content.style.transform = `translateY(${s * 0.14}px)`;
-            content.style.opacity = String(Math.max(0, 1 - pct * 2.2));
-        }
-        if (stats) {
-            stats.style.transform = `translateX(${s * 0.05}px)`;
-            stats.style.opacity = String(Math.max(0, 1 - pct * 2.5));
-        }
-    }, { passive: true });
-}
-
-/* ══════════════════════════════════════════════
-   3D CARD TILT
-══════════════════════════════════════════════ */
-function initTilt() {
-    if (!window.matchMedia('(hover:hover)').matches) return;
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.style.transformStyle = 'preserve-3d';
-        card.addEventListener('mousemove', e => {
-            const r = card.getBoundingClientRect();
-            const x = (e.clientX - r.left) / r.width - 0.5;
-            const y = (e.clientY - r.top) / r.height - 0.5;
-            gsap.to(card, {
-                rotateY: x * 10, rotateX: -y * 10,
-                transformPerspective: 900, duration: 0.35,
-                ease: 'power2.out', overwrite: 'auto',
-            });
-        });
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-                rotateX: 0, rotateY: 0,
-                duration: 0.8, ease: 'elastic.out(1,0.5)', overwrite: 'auto',
-            });
-        });
-    });
-}
-
-/* ══════════════════════════════════════════════
-   GSAP — all scroll animations
-══════════════════════════════════════════════ */
-function initGSAP() {
-    if (typeof gsap === 'undefined') return;
-    if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
-
+/* ══════════════════════════════════════════
+   INTRO — Logo réel + animation GSAP
+══════════════════════════════════════════ */
+function initIntro() {
+    const top = document.querySelector('.intro-top');
+    const bot = document.querySelector('.intro-bot');
+    const logo = document.querySelector('.intro-logo');
+    const intro = document.getElementById('intro');
+    if (!top || !bot || typeof gsap === 'undefined') { intro?.remove(); startHero(); return; }
     const reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if (reduced) { intro?.remove(); startHero(); return; }
+    gsap.set(logo, { opacity: 0, scale: .9 });
+    const tl = gsap.timeline({ onComplete: () => { intro?.remove(); startHero(); } });
+    tl.to(logo, { opacity: 1, scale: 1, duration: .6, ease: 'power3.out' })
+        .to({}, { duration: .95 })
+        .to(top, { yPercent: -100, duration: 1.1, ease: 'power4.inOut' })
+        .to(bot, { yPercent: 100, duration: 1.1, ease: 'power4.inOut' }, '<')
+        .to(logo, { opacity: 0, scale: .88, duration: .35, ease: 'power2.in' }, '-=.55');
+}
 
-    /* ─── CINEMATIC INTRO ─── */
-    const curtainT = document.querySelector('.curtain-top');
-    const curtainB = document.querySelector('.curtain-bottom');
-    const introL = document.querySelector('.intro-logo');
+/* ══════════════════════════════════════════
+   HERO REVEAL — GSAP
+══════════════════════════════════════════ */
+function startHero() {
+    // S'assurer que le search pill est TOUJOURS visible
+    const pill = document.getElementById('search-pill');
+    if (pill) pill.style.opacity = '1';
 
-    if (curtainT && curtainB && !reduced) {
-        const tl = gsap.timeline({
-            onComplete: () => {
-                document.querySelector('.intro-overlay')?.remove();
-                animateHero();
-            }
+    if (typeof gsap === 'undefined') {
+        document.querySelectorAll('.hero-eyebrow,.h1w>*,.hero-sub').forEach(el => {
+            el.style.opacity = '1'; el.style.transform = 'none'; el.style.filter = 'none';
         });
-        tl.set('.intro-overlay', { visibility: 'visible' })
-            .from('.intro-dot', { scale: 0, opacity: 0, duration: 0.5, ease: 'back.out(3)' })
-            .from(introL, { opacity: 0, y: 24, duration: 0.9, ease: 'power3.out' }, '-=0.1')
-            .to({}, { duration: 0.9 })
-            .to(curtainT, { yPercent: -100, duration: 1.2, ease: 'power4.inOut' })
-            .to(curtainB, { yPercent: 100, duration: 1.2, ease: 'power4.inOut' }, '<')
-            .to(introL, { opacity: 0, scale: 0.85, duration: 0.4, ease: 'power2.in' }, '-=0.6');
-    } else {
-        document.querySelector('.intro-overlay')?.remove();
-        animateHero();
+        return;
     }
+    const tl = gsap.timeline({ delay: .08 });
+    tl.from('.hero-eyebrow', { opacity: 0, y: 12, duration: .7, ease: 'power3.out' })
+        .to('.h1w>*', { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1.05, stagger: .17, ease: 'power4.out' }, '-=.25')
+        .from('.hero-sub', { opacity: 0, y: 16, duration: .9, ease: 'power3.out' }, '-=.35');
+    // search-pill déjà visible (opacity:1 en CSS)
 
-    /* ─── HERO ─── */
-    function animateHero() {
-        if (reduced) {
-            document.querySelectorAll('.hero-tag, .hero-sub, #hero-actions, #hero-stats, #scroll-indicator')
-                .forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
-            document.querySelectorAll('.hero-title .line')
-                .forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+    if (typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to('#hpx', { scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.5 }, yPercent: 20, ease: 'none' });
+
+        // Brand
+        gsap.from('.bi-left>*,.bi-right', { scrollTrigger: { trigger: '.brand', start: 'top 72%' }, opacity: 0, y: 28, duration: .85, stagger: .1, ease: 'power3.out' });
+        gsap.from('.bv', { scrollTrigger: { trigger: '.brand-values', start: 'top 74%' }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
+        gsap.from('.sv-item', { scrollTrigger: { trigger: '.services-row', start: 'top 74%' }, opacity: 0, y: 22, duration: .8, stagger: .12, ease: 'power3.out' });
+
+        // Villas
+        gsap.from('.villa', { scrollTrigger: { trigger: '.villas', start: 'top 75%' }, opacity: 0, y: 30, duration: .9, stagger: .14, ease: 'power3.out' });
+
+        // Destinations
+        gsap.from('.dest', { scrollTrigger: { trigger: '.dests-grid', start: 'top 74%' }, clipPath: 'inset(0 100% 0 0)', duration: 1.1, stagger: .18, ease: 'power4.inOut' });
+
+        // Conc + Owners
+        gsap.from('.conc-img', { scrollTrigger: { trigger: '.conc', start: 'top 70%' }, clipPath: 'inset(0 100% 0 0)', duration: 1.1, ease: 'power4.inOut' });
+        gsap.from('.conc-text>*', { scrollTrigger: { trigger: '.conc', start: 'top 70%' }, opacity: 0, y: 26, duration: .85, stagger: .1, ease: 'power3.out' });
+        gsap.from('.ow-text>*', { scrollTrigger: { trigger: '.owners', start: 'top 70%' }, opacity: 0, y: 26, duration: .85, stagger: .1, ease: 'power3.out' });
+        gsap.from('.ow-img', { scrollTrigger: { trigger: '.ow-img', start: 'top 70%' }, clipPath: 'inset(0 100% 0 0)', duration: 1.1, ease: 'power4.inOut' });
+
+        // Trust count-up
+        document.querySelectorAll('.tg-n').forEach(el => {
+            const txt = el.textContent.trim(), num = parseFloat(txt);
+            if (isNaN(num)) return;
+            const suf = txt.replace(String(num), ''), obj = { v: 0 };
+            ScrollTrigger.create({
+                trigger: el, start: 'top 85%', once: true,
+                onEnter: () => gsap.to(obj, { v: num, duration: 2, ease: 'power3.out', onUpdate: () => { el.textContent = Math.round(obj.v) + suf; } })
+            });
+        });
+
+        // FAQ + NL
+        gsap.from('.faq-head>*', { scrollTrigger: { trigger: '.faq', start: 'top 74%' }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
+        gsap.from('.faq-item', { scrollTrigger: { trigger: '.faq-list', start: 'top 74%' }, opacity: 0, y: 18, duration: .7, stagger: .07, ease: 'power3.out' });
+        gsap.from('.nl-text>*', { scrollTrigger: { trigger: '.newsletter', start: 'top 72%' }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
+        gsap.from('.nl-form', { scrollTrigger: { trigger: '.nl-form', start: 'top 78%' }, opacity: 0, y: 18, duration: .85, ease: 'power3.out' });
+        gsap.from('.cf-inner>*', { scrollTrigger: { trigger: '.cta-final', start: 'top 72%' }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
+    }
+}
+
+/* ══════════════════════════════════════════
+   SEARCH PILL — 2 étapes + envoi WhatsApp/email
+══════════════════════════════════════════ */
+let searchStep = 1;
+let searchData = {};
+
+window.showDestDrop = function () { document.getElementById('sp-dest-drop')?.classList.add('open'); };
+window.hideDestDrop = function () { setTimeout(() => document.getElementById('sp-dest-drop')?.classList.remove('open'), 200); };
+window.setDest = function (val) { const i = document.getElementById('sp-dest'); if (i) i.value = val; };
+
+/* ════════════════════════════════════════
+   SEARCH PILL — 2 étapes + envoi email réel via EmailJS
+   EmailJS : gratuit jusqu'à 200 emails/mois, sans backend
+   ════════════════════════════════════════ */
+// ⚙️ CONFIG EmailJS — À remplir avec vos identifiants EmailJS
+// 1. Créer un compte sur emailjs.com (gratuit)
+// 2. Créer un "Email Service" (Gmail ou autre)
+// 3. Créer un "Email Template" avec les variables ci-dessous
+// 4. Remplir les 3 constantes :
+const EMAILJS_SERVICE_ID = 'service_XXXXXXX';   // ← Votre Service ID EmailJS
+const EMAILJS_TEMPLATE_ID = 'template_XXXXXXX';  // ← Votre Template ID EmailJS
+const EMAILJS_PUBLIC_KEY = 'XXXXXXXXXXXXXXXXXXXX'; // ← Votre Public Key EmailJS
+
+// Template EmailJS suggéré (créez-le sur emailjs.com) :
+// Sujet : 🏖️ Nouvelle demande — {{villa_dest}} — {{client_name}}
+// Corps :
+// Nouvelle demande de réservation reçue via azurhomecollection.com
+//
+// 👤 Client : {{client_name}}
+// 📧 Email : {{client_email}}
+// 📞 Téléphone : {{client_phone}}
+//
+// 📍 Destination : {{villa_dest}}
+// 📅 Arrivée : {{checkin}}
+// 📅 Départ : {{checkout}}
+// 👥 Voyageurs : {{guests}}
+//
+// → Répondre directement à {{client_email}}
+
+window.submitSearch = async function (e) {
+    e.preventDefault();
+    const dest = document.getElementById('sp-dest')?.value?.trim();
+    const checkin = document.getElementById('sp-in')?.value;
+    const checkout = document.getElementById('sp-out')?.value;
+    const guests = document.getElementById('sp-guests')?.value;
+
+    if (searchStep === 1) {
+        // Valider qu'au moins la destination est renseignée
+        if (!dest && !checkin && !guests) {
+            document.getElementById('sp-dest')?.focus();
             return;
         }
-
-        // Split title chars BEFORE animating
-        document.querySelectorAll('.hero-title .line').forEach(line => splitChars(line));
-
-        // Scramble tag
-        const tagSpan = document.querySelector('.hero-tag span:last-child');
-        if (tagSpan) scramble(tagSpan, tagSpan.textContent, 900);
-
-        const tl = gsap.timeline({ delay: 0.05 });
-        tl.from('.hero-tag', { opacity: 0, y: 16, duration: 0.7, ease: 'power3.out' })
-            .from('.hero-title .char-inner', {
-                yPercent: 130, opacity: 0,
-                duration: 1.05, stagger: { amount: 0.65, from: 'start' },
-                ease: 'power4.out',
-            }, '-=0.35')
-            .from('.hero-sub', { opacity: 0, y: 22, duration: 0.9, ease: 'power3.out' }, '-=0.3')
-            .from('#hero-actions > *', { opacity: 0, y: 18, duration: 0.7, stagger: 0.12, ease: 'power3.out' }, '-=0.5')
-            .from('.stat', { opacity: 0, x: 32, duration: 0.7, stagger: 0.1, ease: 'power3.out' }, '-=0.45')
-            .from('.stat-divider', { scaleY: 0, transformOrigin: 'center', duration: 0.5, stagger: 0.1, ease: 'power2.out' }, '<')
-            .from('#scroll-indicator', { opacity: 0, y: 12, duration: 0.8, ease: 'power2.out' }, '-=0.3');
+        searchData = { dest: dest || 'Golfe de Saint-Tropez', checkin, checkout, guests };
+        const step2 = document.getElementById('sp-step2');
+        const btn = document.getElementById('sp-btn-txt');
+        if (step2) { step2.style.display = 'flex'; }
+        if (btn) { btn.textContent = 'Confirmer →'; }
+        searchStep = 2;
+        gtag('event', 'search_step1', { event_category: 'Lead', event_label: searchData.dest });
+        // Scroll doux vers la pill si nécessaire
+        document.getElementById('search-pill')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
     }
 
-    if (typeof ScrollTrigger === 'undefined' || reduced) return;
+    // ── Étape 2 : Récupérer les coordonnées
+    const name = document.getElementById('sp-name')?.value?.trim();
+    const email = document.getElementById('sp-email')?.value?.trim();
+    const phone = document.getElementById('sp-phone')?.value?.trim();
 
-    /* ─── SECTION LABEL SCRAMBLE ─── */
-    document.querySelectorAll('.section-label').forEach(el => {
-        const orig = el.textContent;
-        ScrollTrigger.create({
-            trigger: el, start: 'top 82%', once: true,
-            onEnter: () => scramble(el, orig, 1000),
+    if (!name || !email || !phone) {
+        // Feedback visuel si champs manquants
+        [['sp-name', name], ['sp-email', email], ['sp-phone', phone]].forEach(([id, val]) => {
+            if (!val) document.getElementById(id)?.classList.add('sp-error');
+        });
+        return;
+    }
+
+    // Formater les dates lisiblement
+    const fmtDate = d => {
+        if (!d) return '—';
+        const [y, m, mo] = d.split('-');
+        const months = { '01': 'jan', '02': 'fév', '03': 'mar', '04': 'avr', '05': 'mai', '06': 'juin', '07': 'juil', '08': 'aoû', '09': 'sep', '10': 'oct', '11': 'nov', '12': 'déc' };
+        return `${parseInt(mo)} ${months[m]} ${y}`;
+    };
+
+    // Calcul durée
+    let dureeStr = '';
+    if (searchData.checkin && searchData.checkout) {
+        const d1 = new Date(searchData.checkin), d2 = new Date(searchData.checkout);
+        const nuits = Math.round((d2 - d1) / 86400000);
+        if (nuits > 0) dureeStr = ` (${nuits} nuit${nuits > 1 ? 's' : ''})`;
+    }
+
+    const templateParams = {
+        client_name: name,
+        client_email: email,
+        client_phone: phone,
+        villa_dest: searchData.dest || 'Non précisé',
+        checkin: fmtDate(searchData.checkin),
+        checkout: fmtDate(searchData.checkout),
+        duree: dureeStr,
+        guests: searchData.guests || 'Non précisé',
+        reply_to: email,
+        // Message formaté complet pour le template email
+        full_message:
+            `Nouvelle demande de réservation reçue via azurhomecollection.com\n\n` +
+            `👤 ${name}\n📧 ${email}\n📞 ${phone}\n\n` +
+            `📍 Destination : ${searchData.dest || 'Non précisé'}\n` +
+            `📅 Arrivée : ${fmtDate(searchData.checkin)}\n` +
+            `📅 Départ : ${fmtDate(searchData.checkout)}${dureeStr}\n` +
+            `👥 Voyageurs : ${searchData.guests || 'Non précisé'}`
+    };
+
+    // ── Bouton en état chargement
+    const btn = document.getElementById('sp-btn');
+    if (btn) { btn.style.opacity = '.6'; btn.style.pointerEvents = 'none'; }
+
+    gtag('event', 'search_submit', { event_category: 'Lead', event_label: searchData.dest, value: 1 });
+
+    try {
+        // ── Envoi via EmailJS
+        if (window.emailjs && EMAILJS_SERVICE_ID !== 'service_XXXXXXX') {
+            await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+        } else {
+            // Fallback : ouvrir client mail natif (mailto:) si EmailJS non configuré
+            const subject = encodeURIComponent(`🏖️ Demande réservation — ${searchData.dest} — ${name}`);
+            const body = encodeURIComponent(templateParams.full_message);
+            window.location.href = `mailto:guillaumindany@gmail.com?subject=${subject}&body=${body}`;
+        }
+
+        // ── Succès : afficher le message de confirmation
+        const pill = document.getElementById('search-pill');
+        const ok = document.getElementById('search-ok');
+        if (pill) pill.style.display = 'none';
+        if (ok) { ok.style.display = 'flex'; ok.classList.add('visible'); }
+
+        // Reset complet après 6 secondes
+        setTimeout(() => {
+            if (pill) { pill.style.display = ''; searchStep = 1; }
+            const step2 = document.getElementById('sp-step2');
+            if (step2) { step2.style.display = 'none'; }
+            if (ok) { ok.style.display = 'none'; ok.classList.remove('visible'); }
+            const btxt = document.getElementById('sp-btn-txt');
+            if (btxt) { btxt.textContent = get(T, 'search.btn') || 'Rechercher'; }
+            if (btn) { btn.style.opacity = ''; btn.style.pointerEvents = ''; }
+            document.getElementById('search-pill')?.reset?.();
+        }, 6000);
+
+    } catch (err) {
+        console.error('EmailJS error:', err);
+        // Fallback WhatsApp si EmailJS échoue
+        const msg = encodeURIComponent(templateParams.full_message);
+        window.open(`https://wa.me/+33621084443?text=${msg}`, '_blank');
+        if (btn) { btn.style.opacity = ''; btn.style.pointerEvents = ''; }
+    }
+};
+
+/* ══════════════════════════════════════════
+   FILTRES VILLAS
+══════════════════════════════════════════ */
+let activeDest = 'all', activeAm = new Set(), minGuests = 1;
+
+window.toggleAmenFilter = function () {
+    const drop = document.getElementById('famen-drop');
+    const toggle = document.getElementById('famen-toggle');
+    if (!drop) return;
+    const open = !drop.hidden;
+    drop.hidden = open;
+    toggle?.classList.toggle('open', !open);
+};
+
+function applyVillaFilters() {
+    const villas = document.querySelectorAll('.villa');
+    villas.forEach(v => {
+        const dest = v.dataset.dest || '';
+        const am = v.dataset.am || '';
+        const guests = parseInt(v.dataset.guests || '0');
+        let show = (activeDest === 'all' || dest === activeDest) && guests >= minGuests;
+        activeAm.forEach(a => { if (!am.includes(a)) show = false; });
+        v.classList.toggle('hidden', !show);
+    });
+    gtag('event', 'filter_apply', { event_category: 'Filters', event_label: activeDest });
+}
+
+window.resetFilters = function () {
+    activeDest = 'all'; activeAm.clear(); minGuests = 1;
+    document.querySelectorAll('.fp').forEach(p => { p.classList.remove('fp--on'); if (p.dataset.v === 'all') p.classList.add('fp--on'); });
+    document.querySelectorAll('.fam').forEach(b => b.classList.remove('on'));
+    document.getElementById('fag-n').textContent = '1';
+    applyVillaFilters();
+};
+
+function initFilters() {
+    // Destination pills
+    document.querySelectorAll('.fp[data-f="dest"]').forEach(p => {
+        p.addEventListener('click', () => {
+            activeDest = p.dataset.v;
+            document.querySelectorAll('.fp[data-f="dest"]').forEach(x => x.classList.remove('fp--on'));
+            p.classList.add('fp--on');
+            applyVillaFilters();
         });
     });
 
-    /* ─── SERVICES ─── */
-    gsap.from('.services-header', {
-        scrollTrigger: { trigger: '.services-strip', start: 'top 72%' },
-        opacity: 0, y: 55, duration: 1.1, ease: 'power4.out',
-    });
-    gsap.from('.service-card', {
-        scrollTrigger: { trigger: '.services-grid', start: 'top 72%' },
-        opacity: 0, y: 80, duration: 1.0,
-        stagger: { amount: 0.45, from: 'start' }, ease: 'power4.out',
-    });
-
-    /* ─── SHOWCASE ─── */
-    gsap.from('.showcase-meta > *', {
-        scrollTrigger: { trigger: '.showcase', start: 'top 68%' },
-        opacity: 0, y: 42, duration: 0.95, stagger: 0.13, ease: 'power3.out',
+    // Amenity buttons
+    document.querySelectorAll('.fam').forEach(b => {
+        b.addEventListener('click', () => {
+            const am = b.dataset.am;
+            if (activeAm.has(am)) { activeAm.delete(am); b.classList.remove('on'); }
+            else { activeAm.add(am); b.classList.add('on'); }
+            applyVillaFilters();
+        });
     });
 
-    // Villa cards — clip-path wipe
-    gsap.from('.villa-card', {
-        scrollTrigger: { trigger: '.showcase-cards', start: 'top 74%' },
-        clipPath: 'inset(0 100% 0 0)',
-        opacity: 0,
-        duration: 1.2, stagger: 0.25, ease: 'power4.inOut',
+    // Guests +/-
+    const nEl = document.getElementById('fag-n');
+    document.getElementById('fag-p')?.addEventListener('click', () => {
+        minGuests = Math.min(20, minGuests + 1);
+        if (nEl) nEl.textContent = minGuests;
+        applyVillaFilters();
+    });
+    document.getElementById('fag-m')?.addEventListener('click', () => {
+        minGuests = Math.max(1, minGuests - 1);
+        if (nEl) nEl.textContent = minGuests;
+        applyVillaFilters();
     });
 
-    /* ─── MANIFESTO — char by char ─── */
-    ScrollTrigger.create({
-        trigger: '.manifesto', start: 'top 62%', once: true,
-        onEnter: () => {
-            const bq = document.querySelector('.manifesto blockquote');
-            if (!bq) return;
-            const lines = [...bq.querySelectorAll('span[data-i18n], em[data-i18n]')];
-            const allChars = [];
-            lines.forEach(line => allChars.push(...splitChars(line)));
-            gsap.from(allChars, {
-                yPercent: 115, opacity: 0, duration: 0.95,
-                stagger: { amount: 0.9, from: 'start' }, ease: 'power4.out',
-            });
+    // Close amenity drop on outside click
+    document.addEventListener('click', e => {
+        const drop = document.getElementById('famen-drop');
+        const toggle = document.getElementById('famen-toggle');
+        if (drop && !drop.contains(e.target) && e.target !== toggle) {
+            drop.hidden = true; toggle?.classList.remove('open');
         }
     });
-
-    gsap.from(['.manifesto-mark', '.manifesto-line', '.manifesto-sub'], {
-        scrollTrigger: { trigger: '.manifesto', start: 'top 65%' },
-        opacity: 0, y: 30, duration: 1, stagger: 0.14, ease: 'power3.out',
-    });
-
-    /* ─── STAT COUNTERS ─── */
-    document.querySelectorAll('.stat-num[data-target]').forEach(el => {
-        const target = parseFloat(el.dataset.target);
-        const suffix = el.dataset.suffix || '';
-        const obj = { v: 0 };
-        ScrollTrigger.create({
-            trigger: el, start: 'top 87%', once: true,
-            onEnter: () => gsap.to(obj, {
-                v: target, duration: 2.4, ease: 'power3.out',
-                onUpdate: () => { el.textContent = Math.round(obj.v) + suffix; },
-            }),
-        });
-    });
-
-    /* ─── HERO IMAGE scrub parallax ─── */
-    gsap.to('.hero-img-wrap', {
-        scrollTrigger: {
-            trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.5,
-        },
-        yPercent: 22, ease: 'none',
-    });
-
-    /* ─── FOOTER ─── */
-    gsap.from('.footer-logo, .footer-col', {
-        scrollTrigger: { trigger: '.footer', start: 'top 84%' },
-        opacity: 0, y: 28, duration: 0.85, stagger: 0.1, ease: 'power3.out',
-    });
-
-    /* ─── MANIFESTO LINE ─── */
-    gsap.from('.manifesto-line', {
-        scrollTrigger: { trigger: '.manifesto-line', start: 'top 80%' },
-        scaleX: 0, transformOrigin: 'center',
-        duration: 1.4, ease: 'power4.out',
-    });
 }
 
-/* ══════════════════════════════════════════════
-   VH FIX (mobile browser chrome)
-══════════════════════════════════════════════ */
-function setVh() {
-    document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
+/* ══════════════════════════════════════════
+   MODALE BROCHURE
+══════════════════════════════════════════ */
+let currentProp = '';
+window.openBrochure = function (prop) {
+    currentProp = prop;
+    const m = document.getElementById('modal');
+    const mp = document.getElementById('modal-prop');
+    if (!m) return;
+    if (mp) mp.textContent = prop;
+    m.classList.add('open'); m.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    gtag('event', 'brochure_open', { event_category: 'Lead', event_label: prop });
+};
+function closeModal() {
+    const m = document.getElementById('modal');
+    if (!m) return;
+    m.classList.remove('open'); m.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+window.submitBrochure = function (e) {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    gtag('event', 'brochure_submit', { event_category: 'Conversion', event_label: currentProp, value: 1 });
+    const msg = encodeURIComponent(`${get(T, 'maj.wa_greeting') || 'Bonjour'} brochure ${currentProp}.\n${data.name} · ${data.email}\n${data.phone || ''}\n${data.dates || ''}`);
+    window.open(`https://wa.me/+33621084443?text=${msg}`, '_blank');
+    closeModal();
+};
+
+/* ══════════════════════════════════════════
+   FAQ TOGGLE
+══════════════════════════════════════════ */
+window.toggleFaq = function (btn) {
+    const item = btn.closest('.faq-item');
+    const panel = item?.querySelector('.faq-a');
+    if (!item || !panel) return;
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        const p = b.closest('.faq-item')?.querySelector('.faq-a');
+        if (p) {
+            if (typeof gsap !== 'undefined') gsap.to(p, { height: 0, opacity: 0, duration: .3, ease: 'power2.inOut', onComplete: () => { p.hidden = true; p.style.height = ''; } });
+            else p.hidden = true;
+        }
+    });
+    if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        panel.hidden = false;
+        if (typeof gsap !== 'undefined') gsap.fromTo(panel, { height: 0, opacity: 0 }, { height: 'auto', opacity: 1, duration: .4, ease: 'power2.out' });
+        gtag('event', 'faq_open', { event_category: 'FAQ' });
+    }
+};
+
+/* ══════════════════════════════════════════
+   NEWSLETTER
+══════════════════════════════════════════ */
+window.submitNL = function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('nl-submit');
+    const data = Object.fromEntries(new FormData(form));
+    if (!data.consent) return;
+    if (btn) { btn.disabled = true; btn.querySelector('span').textContent = get(T, 'nl.sending') || '…'; }
+    gtag('event', 'newsletter_subscribe', { event_category: 'Lead', event_label: data.destination, value: 1 });
+    setTimeout(() => {
+        if (btn) { btn.style.background = '#2ECC71'; btn.querySelector('span').textContent = get(T, 'nl.success') || '✓'; }
+    }, 800);
+};
+
+/* ══════════════════════════════════════════
+   MAJORDOME — Smart Flow
+══════════════════════════════════════════ */
+let majOpen = false;
+let flowState = { step: '0', intent: '', dest: '', contact: '' };
+const WA = '+33621084443';
+const FLOW = { '0': { rent: '1a', sell: '1b', conc: '1c' }, '1a': { st: '2', cour: '2', both: '2' }, '1b': { 'villa-sell': '2', 'apt-sell': '2' }, '1c': { chef: '2', transfer: '2', wellness: '2', xp: '2' }, '2': { wa: 'wa', callback: '3', brochure: '3' } };
+const PROG = { '0': 10, '1a': 35, '1b': 35, '1c': 35, '2': 65, '3': 85, '4': 100 };
+
+function addMsg(txt, isBot = true) {
+    const msgs = document.getElementById('maj-msgs'); if (!msgs) return;
+    const d = document.createElement('div'); d.className = isBot ? 'mm-b' : 'mm-u';
+    const p = document.createElement('p'); p.innerHTML = txt; d.appendChild(p);
+    msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+}
+function showStep(id) {
+    document.querySelectorAll('.mj-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('mjs-' + id)?.classList.add('active');
+    const bar = document.getElementById('maj-bar'); if (bar) bar.style.width = (PROG[id] || 10) + '%';
+}
+function buildWAMsg() {
+    const il = { rent: get(T, 'maj.wa_intent_rent'), sell: get(T, 'maj.wa_intent_sell'), conc: get(T, 'maj.wa_intent_conc') };
+    const dl = { st: 'Saint-Tropez', cour: 'Courchevel', both: 'Saint-Tropez & Courchevel', 'villa-sell': get(T, 'maj.wa_dest_villa'), 'apt-sell': get(T, 'maj.wa_dest_apt') };
+    let m = `${get(T, 'maj.wa_greeting') || 'Bonjour'} ${il[flowState.intent] || flowState.intent}`;
+    if (flowState.dest) m += `\n${get(T, 'maj.wa_dest_label') || 'Destination:'} ${dl[flowState.dest] || flowState.dest}`;
+    m += `\n\n${get(T, 'maj.wa_closing') || 'Pouvez-vous me contacter ?'}`;
+    return encodeURIComponent(m);
 }
 
-/* ══════════════════════════════════════════════
-   INIT
-══════════════════════════════════════════════ */
-document.addEventListener('DOMContentLoaded', () => {
+window.flowNext = function (choice) {
+    const step = flowState.step;
+    const nextMap = FLOW[step] || {};
+    const next = nextMap[choice];
+    if (step === '0') flowState.intent = choice;
+    if (['1a', '1b', '1c'].includes(step)) flowState.dest = choice;
+    if (step === '2') flowState.contact = choice;
+    // User bubble
+    const btn = document.querySelector(`.mj-step.active button[onclick*="${choice}"]`);
+    if (btn) addMsg(btn.textContent.trim(), false);
+    gtag('event', 'maj_step', { event_category: 'Majordome', event_label: `${step}_${choice}` });
+    // WA redirect
+    if (next === 'wa') {
+        gtag('event', 'maj_wa_redirect', { event_category: 'Lead', value: 1 });
+        setTimeout(() => {
+            addMsg(get(T, 'maj.wa_now') || 'WhatsApp →');
+            setTimeout(() => window.open(`https://wa.me/${WA}?text=${buildWAMsg()}`, '_blank'), 700);
+        }, 400);
+        flowState.step = '4'; setTimeout(() => showStep('4'), 1200); return;
+    }
+    if (!next) return;
+    flowState.step = next;
+    const replyKeys = { '1a': 'maj.bot_1a', '1b': 'maj.bot_1b', '1c': 'maj.bot_1c', '2': 'maj.bot_2', '3': 'maj.bot_3' };
+    const reply = get(T, replyKeys[next]);
+    if (reply) setTimeout(() => addMsg(reply), 350);
+    setTimeout(() => showStep(next), 650);
+};
 
-    setVh();
-    window.addEventListener('resize', setVh, { passive: true });
+window.flowBack = function () {
+    const back = { '1a': '0', '1b': '0', '1c': '0', '2': '1a', '3': '2' };
+    const prev = back[flowState.step];
+    if (prev !== undefined) { flowState.step = prev; showStep(prev); }
+};
 
-    // Language
-    let saved = 'fr';
-    try { saved = localStorage.getItem('ahc_lang') || 'fr'; } catch (_) { }
-    const bl = navigator.language?.slice(0, 2);
-    applyTranslations(TRANSLATIONS[saved] ? saved : (TRANSLATIONS[bl] ? bl : 'fr'));
+window.submitMaj = function (e) {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    addMsg(`${data.name} · ${data.contact}`, false);
+    gtag('event', 'maj_lead_capture', { event_category: 'Conversion', event_label: flowState.intent, value: 1 });
+    flowState.step = '4';
+    setTimeout(() => {
+        addMsg(get(T, 'maj.bot_confirm') || 'Merci ! Un expert vous contacte sous 15 min.');
+        showStep('4');
+        const waf = document.getElementById('mj-wa-final');
+        if (waf) {
+            const msg = encodeURIComponent(`${get(T, 'maj.wa_greeting') || 'Bonjour'} ${data.name} (${data.contact}).`);
+            waf.onclick = () => { window.open(`https://wa.me/${WA}?text=${msg}`, '_blank'); gtag('event', 'maj_wa_final', { event_category: 'Lead', value: 1 }); };
+        }
+    }, 500);
+};
 
-    document.querySelectorAll('.lang-btn').forEach(btn =>
-        btn.addEventListener('click', () => {
-            if (btn.dataset.lang && btn.dataset.lang !== currentLang)
-                applyTranslations(btn.dataset.lang);
-        })
-    );
+window.redirectToWA = function () {
+    gtag('event', 'maj_wa_final', { event_category: 'Lead', value: 1 });
+    window.open(`https://wa.me/${WA}?text=${buildWAMsg()}`, '_blank');
+};
+
+function openMajPanel() {
+    const panel = document.getElementById('maj-panel');
+    const btn = document.getElementById('maj-btn');
+    const icoO = document.querySelector('.mj-o');
+    const icoC = document.querySelector('.mj-c');
+    const notif = document.querySelector('.maj-notif');
+    if (!panel) return;
+    majOpen = true;
+    panel.classList.add('open'); panel.setAttribute('aria-hidden', 'false');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+    if (icoO) icoO.style.display = 'none'; if (icoC) icoC.style.display = 'block';
+    if (notif) notif.style.display = 'none';
+    const msgs = document.getElementById('maj-msgs');
+    if (msgs && msgs.children.length === 0) setTimeout(() => addMsg(get(T, 'maj.welcome') || 'Bienvenue 👋'), 350);
+}
+function closeMajPanel() {
+    const panel = document.getElementById('maj-panel');
+    const btn = document.getElementById('maj-btn');
+    const icoO = document.querySelector('.mj-o');
+    const icoC = document.querySelector('.mj-c');
+    if (!panel) return;
+    majOpen = false;
+    panel.classList.remove('open'); panel.setAttribute('aria-hidden', 'true');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    if (icoO) icoO.style.display = 'flex'; if (icoC) icoC.style.display = 'none';
+}
+window.openMaj = openMajPanel;
+window.toggleMaj = function () { majOpen ? closeMajPanel() : openMajPanel(); };
+
+function initMajordome() {
+    const xBtn = document.getElementById('maj-x');
+    if (xBtn) xBtn.addEventListener('click', closeMajPanel);
+    setTimeout(() => { if (!majOpen) { openMajPanel(); gtag('event', 'maj_auto_open', { event_category: 'Majordome' }); } }, 10000);
+}
+
+/* ══════════════════════════════════════════
+   INIT — DOMContentLoaded
+══════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════
+   MODALE LEAD — Capture leads depuis search pill
+══════════════════════════════════════════ */
+window.openLeadModal = function () {
+    const modal = document.getElementById('lead-modal');
+    if (!modal) return;
+
+    // Récupérer les données de la search pill
+    const dest = document.getElementById('sp-dest')?.value?.trim();
+    const checkin = document.getElementById('sp-in')?.value;
+    const checkout = document.getElementById('sp-out')?.value;
+    const guests = document.getElementById('sp-guests')?.value;
+
+    // Construire le récap visuel
+    const recap = document.getElementById('lm-recap');
+    if (recap) {
+        const fmtDate = d => {
+            if (!d) return null;
+            const [y, m, mo] = d.split('-');
+            const months = ['jan', 'fév', 'mar', 'avr', 'mai', 'juin', 'juil', 'aoû', 'sep', 'oct', 'nov', 'déc'];
+            return `${parseInt(mo)} ${months[parseInt(m) - 1]} ${y}`;
+        };
+        let items = [];
+        if (dest) items.push(`<div class="lm-recap-item">📍 <strong>${dest}</strong></div>`);
+        if (checkin) items.push(`<div class="lm-recap-item">📅 <strong>${fmtDate(checkin)}</strong></div>`);
+        if (checkout) {
+            items.push(`<span class="lm-recap-dot">→</span>`);
+            items.push(`<div class="lm-recap-item"><strong>${fmtDate(checkout)}</strong></div>`);
+        }
+        if (guests && guests !== '2') items.push(`<div class="lm-recap-item">👥 <strong>${guests} personnes</strong></div>`);
+        recap.innerHTML = items.join('<span class="lm-recap-dot">·</span>');
+        // Nettoyer les points entre les flèches
+        recap.innerHTML = recap.innerHTML.replace(/<span class="lm-recap-dot">·<\/span><span class="lm-recap-dot">→<\/span>/g, '<span class="lm-recap-dot">→</span>');
+    }
+
+    // Stocker les données pour l'envoi
+    window._searchData = { dest, checkin, checkout, guests };
+
+    // Reset formulaire + afficher état form
+    document.getElementById('lm-form-wrap').style.display = '';
+    document.getElementById('lm-confirm').style.display = 'none';
+    document.getElementById('lm-form')?.reset();
+    document.querySelectorAll('.lm-inp').forEach(i => i.classList.remove('error'));
+
+    // Ouvrir
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('lm-name')?.focus(), 300);
+
+    gtag('event', 'lead_modal_open', { event_category: 'Lead', event_label: dest || 'no-dest' });
+};
+
+window.closeLeadModal = function () {
+    const modal = document.getElementById('lead-modal');
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+};
+
+window.submitLead = async function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('lm-name')?.value?.trim();
+    const email = document.getElementById('lm-email')?.value?.trim();
+    const phone = document.getElementById('lm-phone')?.value?.trim();
+    const msg = document.getElementById('lm-msg')?.value?.trim();
+    const sd = window._searchData || {};
+
+    // Validation
+    let valid = true;
+    [['lm-name', name], ['lm-email', email], ['lm-phone', phone]].forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (!val) { el?.classList.add('error'); valid = false; }
+        else el?.classList.remove('error');
+    });
+    if (!valid) return;
+
+    // Bouton en chargement
+    const btn = document.getElementById('lm-submit');
+    const txt = document.getElementById('lm-submit-txt');
+    if (btn) btn.disabled = true;
+    if (txt) txt.textContent = 'Envoi en cours…';
+
+    // Formater les dates
+    const fmtDate = d => {
+        if (!d) return '—';
+        const [y, m, mo] = d.split('-');
+        const months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+        return `${parseInt(mo)} ${months[parseInt(m) - 1]} ${y}`;
+    };
+
+    // Calcul durée
+    let dureeStr = '';
+    if (sd.checkin && sd.checkout) {
+        const nuits = Math.round((new Date(sd.checkout) - new Date(sd.checkin)) / 86400000);
+        if (nuits > 0) dureeStr = `${nuits} nuit${nuits > 1 ? 's' : ''}`;
+    }
+
+    const templateParams = {
+        client_name: name,
+        client_email: email,
+        client_phone: phone,
+        villa_dest: sd.dest || 'Golfe de Saint-Tropez',
+        checkin: fmtDate(sd.checkin),
+        checkout: fmtDate(sd.checkout),
+        duree: dureeStr,
+        guests: sd.guests || '—',
+        message: msg || '—',
+        reply_to: email,
+        full_message:
+            `🏖️ NOUVELLE DEMANDE — azurhomecollection.com\n\n` +
+            `👤 ${name}\n📧 ${email}\n📞 ${phone}\n\n` +
+            `📍 Destination : ${sd.dest || 'Golfe de Saint-Tropez'}\n` +
+            `📅 Arrivée : ${fmtDate(sd.checkin)}\n` +
+            `📅 Départ : ${fmtDate(sd.checkout)}` +
+            (dureeStr ? ` (${dureeStr})` : '') + `\n` +
+            `👥 Voyageurs : ${sd.guests || '—'}\n` +
+            (msg ? `\n💬 Message : ${msg}` : '')
+    };
+
+    gtag('event', 'lead_submit', { event_category: 'Conversion', event_label: sd.dest || 'no-dest', value: 1 });
+
+    try {
+        // Envoi EmailJS
+        if (window.emailjs && typeof EMAILJS_SERVICE_ID !== 'undefined' && EMAILJS_SERVICE_ID !== 'service_XXXXXXX') {
+            await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+        } else {
+            // Fallback mailto si EmailJS pas configuré
+            const subj = encodeURIComponent(`🏖️ Demande — ${sd.dest || 'Saint-Tropez'} — ${name}`);
+            const body = encodeURIComponent(templateParams.full_message);
+            window.open(`mailto:guillaumindany@gmail.com?subject=${subj}&body=${body}`);
+        }
+
+        // ── Afficher la confirmation luxe
+        document.getElementById('lm-form-wrap').style.display = 'none';
+        const confirm = document.getElementById('lm-confirm');
+        if (confirm) {
+            confirm.style.display = '';
+            // Prénom seulement
+            const firstName = name.split(' ')[0];
+            const nameEl = document.getElementById('lm-conf-name');
+            if (nameEl) nameEl.textContent = firstName;
+            // Relancer l'animation check
+            const circle = confirm.querySelector('.lm-check-circle');
+            const tick = confirm.querySelector('.lm-check-tick');
+            if (circle) { circle.style.animation = 'none'; void circle.offsetWidth; circle.style.animation = ''; }
+            if (tick) { tick.style.animation = 'none'; void tick.offsetWidth; tick.style.animation = ''; }
+        }
+
+    } catch (err) {
+        console.error('Send error:', err);
+        // Fallback WhatsApp
+        const waMsg = encodeURIComponent(templateParams.full_message);
+        window.open(`https://wa.me/+33621084443?text=${waMsg}`, '_blank');
+        if (btn) btn.disabled = false;
+        if (txt) txt.textContent = 'Envoyer ma demande';
+    }
+};
+
+document.addEventListener('DOMContentLoaded', async () => {
+    // VH fix
+    document.documentElement.style.setProperty('--vh', (window.innerHeight * .01) + 'px');
+    window.addEventListener('resize', () => document.documentElement.style.setProperty('--vh', (window.innerHeight * .01) + 'px'), { passive: true });
+
+    // ── Détection automatique de langue (navigator.language)
+    let initLang = 'fr';
+    try { initLang = localStorage.getItem('ahc_lang') || 'fr'; } catch (_) { }
+    if (!LANGS.includes(initLang)) {
+        const bl = (navigator.language || 'fr').slice(0, 2).toLowerCase();
+        initLang = LANGS.includes(bl) ? bl : 'fr';
+    }
+
+    // Charger la langue initiale
+    await applyLang(initLang);
+
+    // ── Boutons de langue
+    document.querySelectorAll('.lb').forEach(btn => btn.addEventListener('click', async () => {
+        if (btn.dataset.lang && btn.dataset.lang !== lang) {
+            await applyLang(btn.dataset.lang);
+            gtag('event', 'lang_switch', { event_category: 'UX', event_label: btn.dataset.lang });
+        }
+    }));
 
     initNav();
-    initCursor();
-    initParallax();
-    initTilt();
+    initFilters();
+    initMajordome();
+    initLenis();
 
-    const waitGSAP = () => {
-        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') initGSAP();
-        else requestAnimationFrame(waitGSAP);
-    };
-    requestAnimationFrame(waitGSAP);
+    // Modal close
+    document.getElementById('modal-bg')?.addEventListener('click', closeModal);
+    document.getElementById('modal-x')?.addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeMajPanel(); closeLeadModal(); } });
+
+    // Intro + GSAP
+    if (typeof gsap !== 'undefined') {
+        if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
+        initIntro();
+    } else {
+        document.getElementById('intro')?.remove();
+        startHero();
+    }
 });

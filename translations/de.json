@@ -1,0 +1,273 @@
+{
+  "nav": {
+    "location": "Mieten",
+    "gestion": "Verwaltung",
+    "concierge": "Concierge",
+    "about": "Über uns",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "book": "Kontakt",
+    "riviera": "Französische Riviera",
+    "alps": "Französische Alpen"
+  },
+  "hero": {
+    "tag": "Côte d'Azur · Französische Alpen · Seit 2020",
+    "sub": "Außergewöhnliche Villen, ausgewählt mit der Strenge eines Fünf-Sterne-Service.",
+    "cta1": "Kollektion erkunden",
+    "cta2": "Mit Concierge sprechen",
+    "scroll": "Scrollen"
+  },
+  "h1": {
+    "l1": "Exzellenz",
+    "l2": "als einziges",
+    "l3": "Ziel."
+  },
+  "search": {
+    "dest": "Reiseziel",
+    "dest_ph": "Saint-Tropez, Courchevel…",
+    "checkin": "Anreise",
+    "checkout": "Abreise",
+    "guests": "Reisende",
+    "guests_ph": "Anzahl der Personen",
+    "btn": "Suchen",
+    "title": "Planen Sie Ihren Aufenthalt",
+    "success": "Ihre Anfrage wurde gesendet. Wir melden uns innerhalb von 2h.",
+    "name": "Ihr Name",
+    "phone": "Telefon",
+    "name_ph": "Vorname Nachname",
+    "phone_ph": "+33 6 xx xx xx xx"
+  },
+  "brand": {
+    "label": "Wer wir sind",
+    "h1": "Höchste Ansprüche,",
+    "h2": "drei dedizierte Services.",
+    "p": "Azur Home Collection ist keine Immobilienagentur. Es ist ein Luxus-Hospitality-Unternehmen — konzipiert wie ein Fünf-Sterne-Hotel, angewandt auf private Villen."
+  },
+  "val": {
+    "excellence": "Exzellenz",
+    "excellence_p": "Ein kompromissloser Standard bei jedem Detail.",
+    "discret": "Diskretion",
+    "discret_p": "Eine Vertrauensbeziehung mit unseren Eigentümern.",
+    "surmesure": "Maßgeschneidert",
+    "surmesure_p": "Jede Villa, jeder Aufenthalt individuell gedacht."
+  },
+  "sv": {
+    "gestion_h": "Verwaltung & Pflege",
+    "gestion_p": "Jährliche Villa-Betreuung: Wartung, Gärten, Pools, permanente Hauswirtschaft.",
+    "location_h": "Saisonale Vermietung",
+    "location_p": "Vermarktung, Gästeempfang und vollständige Aufenthaltsbetreuung.",
+    "conc_h": "Concierge",
+    "conc_p": "Premium-Services auf Anfrage: Privatkoch, Transfers, maßgeschneiderte Erlebnisse.",
+    "discover": "Entdecken →"
+  },
+  "coll": {
+    "label": "Exklusive Auswahl",
+    "h1": "Eine Kollektion",
+    "h2": "sorgfältig ausgewählt",
+    "all": "Alle Objekte ansehen",
+    "cta": "Alle Objekte ansehen"
+  },
+  "filter": {
+    "all": "Alle",
+    "dest": "Reiseziel",
+    "guests": "Reisende",
+    "amen": "Ausstattung",
+    "pool": "Pool",
+    "sea": "Meerblick",
+    "ski": "Ski direkt",
+    "spa": "Spa",
+    "gym": "Fitness",
+    "prestige": "Prestige Kollektion",
+    "reset": "Zurücksetzen"
+  },
+  "villa": {
+    "guests": "Pers.",
+    "rooms": "Zi.",
+    "brochure": "Broschüre",
+    "see": "Ansehen →",
+    "on_request": "Auf Anfrage"
+  },
+  "aqserena": {
+    "desc": "Eingebettet in die Höhen von Canebiers bietet diese Architekten-Villa einen atemberaubenden Blick auf die Bucht von Saint-Tropez. Ihr Infinity-Pool verschmilzt bei Sonnenuntergang mit dem Mittelmeer."
+  },
+  "bastide": {
+    "desc": "Ein außergewöhnliches 2-Hektar-Anwesen in Ramatuelle zwischen Pinienwald und Weinbergen. Die Bastide des Pins verkörpert die geheimnisvolle Provence, nur wenige Minuten vom Dorf Saint-Tropez entfernt."
+  },
+  "emeraude": {
+    "desc": "Der Gipfel des alpinen Luxus in Courchevel 1850. Dieses außergewöhnliche Chalet verfügt über direkten Ski-in ski-out-Zugang und einen 200m² Spa für Aufenthalte von absoluter Eleganz."
+  },
+  "boreal": {
+    "desc": "Mitten in Courchevel 1850 verbindet das Chalet Boréal authentische Bergarchitektur mit Fünf-Sterne-Ausstattung. Ski-in ski-out, Prestige-Weinkeller und dedizierter Concierge-Service."
+  },
+  "dests": {
+    "label": "Unsere Reiseziele",
+    "h1": "Meer & Berg,",
+    "h2": "derselbe Standard.",
+    "st_p": "Canebiers · Les Parcs · Ramatuelle · Gassin",
+    "cour_p": "1850 · Le Praz · Village · Moriond",
+    "cta": "Erkunden →"
+  },
+  "cx": {
+    "label": "Concierge",
+    "h1": "Erlebnisse",
+    "h2": "bis ins kleinste Detail gedacht",
+    "p": "Von der Ankunft bis zum Sternerestaurant, vom privaten Spa bis zur Sunset-Yacht — unser Team orchestriert jeden Moment mit der Präzision eines Fünf-Sterne-Hoteldirektors.",
+    "chef": "Privatkoch & Gastronomie",
+    "yacht": "Yacht & private Transfers",
+    "spa": "In-Villa Spa & Wellness",
+    "heli": "Hubschrauber & Privatluftfahrt",
+    "xp": "Exklusive Erlebnisse",
+    "cta": "Concierge entdecken"
+  },
+  "ow": {
+    "label": "Eigentümer",
+    "h1": "Vertrauen Sie Ihre Villa",
+    "h2": "5-Sterne-Experten an",
+    "p": "Unser Team übernimmt vollständig die Verwaltung und Vermarktung Ihrer Immobilie. Optimierte Einnahmen. Absolute Diskretion.",
+    "l1": "Vollständige & optimierte Mietverwaltung",
+    "l2": "Gästeempfang nach Hotelstandards",
+    "l3": "Detaillierte & transparente Monatsberichte",
+    "l4": "Premium-Wartung & Instandhaltung",
+    "kpi": "Durchschnittliche Einnahmen vs Eigenverwaltung",
+    "cta": "Meine Immobilie anvertrauen"
+  },
+  "trust": {
+    "label": "Unser Engagement",
+    "h1": "Ein Standard",
+    "h2": "ohne Kompromisse",
+    "avis": "Verifizierte 5★-Bewertungen",
+    "villas": "Außergewöhnliche Objekte",
+    "reply": "Garantierte Antwortzeit",
+    "note": "Zufriedenheitsbewertung"
+  },
+  "faq": {
+    "label": "Häufige Fragen",
+    "h1": "Alles was Sie",
+    "h2": "wissen möchten",
+    "q1": "Was ist in der Anmietung einer Villa enthalten?",
+    "a1": "Jede Villa umfasst täglichen Reinigungsservice, hochwertiges Hotelbettwäsche und Concierge 24/7. Die meisten Objekte verfügen über private Pools und Panoramaterrassen.",
+    "q2": "Wann ist der beste Zeitpunkt für die Buchung?",
+    "a2": "Wir empfehlen eine Buchung zwischen September und November. Treten Sie unserer privaten Liste bei für Frühzugang.",
+    "q3": "Decken Ihre Services beide Destinationen ab?",
+    "a3": "Ja. Unser Concierge-Team ist in Saint-Tropez und Courchevel mit demselben Exzellenzanspruch tätig.",
+    "q4": "Sind Aufenthalte vollständig individualisierbar?",
+    "a4": "Absolut. Jeder Aufenthalt wird maßgeschneidert: Reinigung, Privatkoch, Spa, Transfers.",
+    "q5": "Wie funktioniert die Mietverwaltung?",
+    "a5": "Umfassende Verwaltung: Vermarktung, Empfang, Wartung und Monatsberichte. +32% Mieteinnahmen im Durchschnitt.",
+    "q6": "Welche Stornierungsbedingungen gelten?",
+    "a6": "Flexible Bedingungen für jedes Objekt. Ein persönlicher Berater stellt Ihnen die Konditionen vor.",
+    "cta_h": "Eine spezifische Frage?",
+    "cta_sub": "Unsere Berater gestalten Ihren maßgeschneiderten Aufenthalt.",
+    "cta_btn": "Mit einem Berater sprechen",
+    "hours": "Mo – Fr · 9–19 Uhr"
+  },
+  "nl": {
+    "label": "Privater Newsletter",
+    "h1": "Erhalten Sie Zugang zu unserer Kollektion",
+    "h2": "vor allen anderen",
+    "sub": "Neue Objekte, exklusive Verfügbarkeiten, Neuigkeiten aus Saint-Tropez & Courchevel.",
+    "b1": "Verfügbarkeiten 48h vor dem Publikum",
+    "b2": "Exklusive Mitgliederangebote",
+    "b3": "Persönlicher Berater",
+    "destlbl": "Bevorzugtes Reiseziel",
+    "consent": "Ich stimme zu, Mitteilungen zu erhalten",
+    "cta": "Der privaten Liste beitreten",
+    "sending": "Wird gesendet…",
+    "success": "✓ Willkommen!",
+    "legal": "Mit der Anmeldung stimmen Sie unseren",
+    "cgv": "AGB",
+    "priv": "Datenschutzrichtlinien",
+    "unsub": "Abmeldung in 1 Klick."
+  },
+  "cf": {
+    "label": "Fangen wir gemeinsam an",
+    "h1": "Lassen Sie uns gemeinsam",
+    "h2": "eine Erfahrung auf Augenhöhe Ihrer Villen schaffen.",
+    "p": "Ob Sie eine außergewöhnliche Villa suchen oder Ihre Immobilie übergeben möchten — unser Team begleitet Sie.",
+    "wa": "Mit einem Experten sprechen",
+    "explore": "Kollektion erkunden"
+  },
+  "ft": {
+    "services": "Services",
+    "destinations": "Reiseziele",
+    "company": "Unternehmen",
+    "contact": "Kontakt",
+    "legal": "Impressum",
+    "priv": "Datenschutz",
+    "cgv": "AGB",
+    "by": "Entworfen & entwickelt von",
+    "wa": "WhatsApp →"
+  },
+  "modal": {
+    "eyebrow": "Private Broschüre",
+    "title": "Broschüre erhalten"
+  },
+  "form": {
+    "fullname": "Vollständiger Name",
+    "name_ph": "Ihr Name",
+    "phone": "Telefon",
+    "dates": "Geplante Daten",
+    "dates_ph": "z.B. Juli 2026, 2 Wochen",
+    "submit": "Per WhatsApp erhalten →",
+    "rgpd": "DSGVO · Daten geschützt · Antwort in 15 Min"
+  },
+  "maj": {
+    "online": "Ihr Concierge · Online",
+    "welcome": "Willkommen 👋 Wie darf ich Ihren Aufenthalt veredeln?",
+    "q1": "Wie können wir Ihren Aufenthalt veredeln?",
+    "c_rent": "🏖️ Villa mieten",
+    "c_sell": "🏡 Immobilie verkaufen",
+    "c_conc": "✨ Concierge",
+    "q2_rent": "Welches Reiseziel?",
+    "dest_st": "🌊 Saint-Tropez",
+    "dest_cour": "🏔️ Courchevel",
+    "dest_both": "Beide",
+    "q2_sell": "Welche Art?",
+    "sell_villa": "🏡 Villa",
+    "sell_apt": "🏢 Wohnung",
+    "q2_conc": "Welcher Service?",
+    "conc_chef": "🍽️ Privatkoch",
+    "conc_trans": "🚁 Transport",
+    "conc_well": "💆 Wellness",
+    "conc_xp": "🎭 Erlebnisse",
+    "q3": "Wie möchten Sie kontaktiert werden?",
+    "wa": "💬 WhatsApp",
+    "callback": "📞 Rückruf",
+    "brochure": "📋 Broschüre",
+    "q4": "Ihre Kontaktdaten",
+    "send": "Senden →",
+    "back": "← Zurück",
+    "rgpd": "DSGVO · Antwort in 15 Min",
+    "done": "Ihre Anfrage ist eingegangen.",
+    "done_sub": "Ein Experte kontaktiert Sie in 15 Minuten.",
+    "wa_now": "Jetzt auf WhatsApp →",
+    "bot_1a": "Perfekt! Welches Reiseziel?",
+    "bot_1b": "Sehr gut. Welche Art von Immobilie?",
+    "bot_1c": "Gerne. Welcher Service?",
+    "bot_2": "Wie möchten Sie kontaktiert werden?",
+    "bot_3": "Bitte geben Sie Ihre Kontaktdaten ein:",
+    "bot_confirm": "Vielen Dank! Ein Experte kontaktiert Sie in 15 Minuten.",
+    "wa_greeting": "Hallo, ich interessiere mich für:",
+    "wa_intent_rent": "Villamiete",
+    "wa_intent_sell": "Immobilienverkauf",
+    "wa_intent_conc": "Concierge-Services",
+    "wa_dest_label": "Reiseziel:",
+    "wa_dest_villa": "Villa",
+    "wa_dest_apt": "Wohnung",
+    "wa_closing": "Könnten Sie mich bitte kontaktieren?"
+  },
+  "mob": {
+    "wa": "WhatsApp · 2h",
+    "villas": "Villen ansehen"
+  },
+  "am": {
+    "poolinf": "Infinity-Pool",
+    "pool": "Pool",
+    "seaview": "Meerblick",
+    "skiinout": "Ski-in ski-out",
+    "spapriv": "Privater Spa",
+    "cellar": "Weinkeller",
+    "domain": "Privates Anwesen",
+    "gym": "Fitness"
+  }
+}
