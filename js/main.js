@@ -1,60 +1,11 @@
 /* ============================================================
-   AZUR HOME COLLECTION v8 — main.js
-   Architecture i18n JSON · 4 langues FR/EN/DE/IT
-   Search pill + envoi email · Majordome smart flow
-   GSAP · Lenis · navigator.language auto-detect
+   AZUR HOME COLLECTION — js/main.js
+   Fichier JS GLOBAL partagé par toutes les pages et langues
+   Fonctions : nav · intro GSAP · search pill · majordome
+                modale brochure · FAQ · newsletter · lead modal
+   Pages spécifiques : charger js/[page].js en plus
    ============================================================ */
 'use strict';
-
-/* ══════════════════════════════════════════
-   i18n ENGINE — Charge les JSON externes
-   Architecture : data-t="key.subkey" → T[lang].key.subkey
-══════════════════════════════════════════ */
-let T = {};
-let lang = 'fr';
-const LANGS = ['fr', 'en', 'de', 'it'];
-
-// Résolution dot-notation : get(T, 'hero.tag')
-function get(obj, path) {
-    return path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : null), obj);
-}
-
-async function loadTranslations(l) {
-    try {
-        const r = await fetch(`translations/${l}.json`);
-        if (!r.ok) throw new Error();
-        T = await r.json();
-    } catch (e) {
-        console.warn(`Translation ${l} not found, falling back to fr`);
-    }
-}
-
-async function applyLang(l) {
-    if (!LANGS.includes(l)) l = 'fr';
-    lang = l;
-    document.documentElement.lang = l;
-
-    await loadTranslations(l);
-
-    // Appliquer data-t="key.subkey" → innerHTML
-    document.querySelectorAll('[data-t]').forEach(el => {
-        const v = get(T, el.getAttribute('data-t'));
-        if (v !== null && v !== undefined) el.innerHTML = v;
-    });
-    // data-t-ph="key" → placeholder
-    document.querySelectorAll('[data-t-ph]').forEach(el => {
-        const v = get(T, el.getAttribute('data-t-ph'));
-        if (v) el.placeholder = v;
-    });
-    // Lang buttons
-    document.querySelectorAll('.lb').forEach(b => {
-        const a = b.dataset.lang === l;
-        b.classList.toggle('active', a);
-        b.setAttribute('aria-pressed', String(a));
-    });
-
-    try { localStorage.setItem('ahc_lang', l); } catch (_) { }
-}
 
 /* ══════════════════════════════════════════
    LENIS — Smooth scroll
@@ -332,7 +283,7 @@ window.submitSearch = async function (e) {
             if (step2) { step2.style.display = 'none'; }
             if (ok) { ok.style.display = 'none'; ok.classList.remove('visible'); }
             const btxt = document.getElementById('sp-btn-txt');
-            if (btxt) { btxt.textContent = get(T, 'search.btn') || 'Rechercher'; }
+            if (btxt) { btxt.textContent = 'Rechercher' || 'Rechercher'; }
             if (btn) { btn.style.opacity = ''; btn.style.pointerEvents = ''; }
             document.getElementById('search-pill')?.reset?.();
         }, 6000);
@@ -346,84 +297,7 @@ window.submitSearch = async function (e) {
     }
 };
 
-/* ══════════════════════════════════════════
-   FILTRES VILLAS
-══════════════════════════════════════════ */
-let activeDest = 'all', activeAm = new Set(), minGuests = 1;
-
-window.toggleAmenFilter = function () {
-    const drop = document.getElementById('famen-drop');
-    const toggle = document.getElementById('famen-toggle');
-    if (!drop) return;
-    const open = !drop.hidden;
-    drop.hidden = open;
-    toggle?.classList.toggle('open', !open);
-};
-
-function applyVillaFilters() {
-    const villas = document.querySelectorAll('.villa');
-    villas.forEach(v => {
-        const dest = v.dataset.dest || '';
-        const am = v.dataset.am || '';
-        const guests = parseInt(v.dataset.guests || '0');
-        let show = (activeDest === 'all' || dest === activeDest) && guests >= minGuests;
-        activeAm.forEach(a => { if (!am.includes(a)) show = false; });
-        v.classList.toggle('hidden', !show);
-    });
-    gtag('event', 'filter_apply', { event_category: 'Filters', event_label: activeDest });
-}
-
-window.resetFilters = function () {
-    activeDest = 'all'; activeAm.clear(); minGuests = 1;
-    document.querySelectorAll('.fp').forEach(p => { p.classList.remove('fp--on'); if (p.dataset.v === 'all') p.classList.add('fp--on'); });
-    document.querySelectorAll('.fam').forEach(b => b.classList.remove('on'));
-    document.getElementById('fag-n').textContent = '1';
-    applyVillaFilters();
-};
-
-function initFilters() {
-    // Destination pills
-    document.querySelectorAll('.fp[data-f="dest"]').forEach(p => {
-        p.addEventListener('click', () => {
-            activeDest = p.dataset.v;
-            document.querySelectorAll('.fp[data-f="dest"]').forEach(x => x.classList.remove('fp--on'));
-            p.classList.add('fp--on');
-            applyVillaFilters();
-        });
-    });
-
-    // Amenity buttons
-    document.querySelectorAll('.fam').forEach(b => {
-        b.addEventListener('click', () => {
-            const am = b.dataset.am;
-            if (activeAm.has(am)) { activeAm.delete(am); b.classList.remove('on'); }
-            else { activeAm.add(am); b.classList.add('on'); }
-            applyVillaFilters();
-        });
-    });
-
-    // Guests +/-
-    const nEl = document.getElementById('fag-n');
-    document.getElementById('fag-p')?.addEventListener('click', () => {
-        minGuests = Math.min(20, minGuests + 1);
-        if (nEl) nEl.textContent = minGuests;
-        applyVillaFilters();
-    });
-    document.getElementById('fag-m')?.addEventListener('click', () => {
-        minGuests = Math.max(1, minGuests - 1);
-        if (nEl) nEl.textContent = minGuests;
-        applyVillaFilters();
-    });
-
-    // Close amenity drop on outside click
-    document.addEventListener('click', e => {
-        const drop = document.getElementById('famen-drop');
-        const toggle = document.getElementById('famen-toggle');
-        if (drop && !drop.contains(e.target) && e.target !== toggle) {
-            drop.hidden = true; toggle?.classList.remove('open');
-        }
-    });
-}
+/* Filtres villas — gérés par location.js sur la page catalogue */
 
 /* ══════════════════════════════════════════
    MODALE BROCHURE
@@ -449,7 +323,7 @@ window.submitBrochure = function (e) {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
     gtag('event', 'brochure_submit', { event_category: 'Conversion', event_label: currentProp, value: 1 });
-    const msg = encodeURIComponent(`${get(T, 'maj.wa_greeting') || 'Bonjour'} brochure ${currentProp}.\n${data.name} · ${data.email}\n${data.phone || ''}\n${data.dates || ''}`);
+    const msg = encodeURIComponent(`${'Bonjour' || 'Bonjour'} brochure ${currentProp}.\n${data.name} · ${data.email}\n${data.phone || ''}\n${data.dates || ''}`);
     window.open(`https://wa.me/+33621084443?text=${msg}`, '_blank');
     closeModal();
 };
@@ -487,10 +361,10 @@ window.submitNL = function (e) {
     const btn = document.getElementById('nl-submit');
     const data = Object.fromEntries(new FormData(form));
     if (!data.consent) return;
-    if (btn) { btn.disabled = true; btn.querySelector('span').textContent = get(T, 'nl.sending') || '…'; }
+    if (btn) { btn.disabled = true; btn.querySelector('span').textContent = 'Envoi…'; }
     gtag('event', 'newsletter_subscribe', { event_category: 'Lead', event_label: data.destination, value: 1 });
     setTimeout(() => {
-        if (btn) { btn.style.background = '#2ECC71'; btn.querySelector('span').textContent = get(T, 'nl.success') || '✓'; }
+        if (btn) { btn.style.background = '#2ECC71'; btn.querySelector('span').textContent = '✓ Inscrit !'; }
     }, 800);
 };
 
@@ -515,11 +389,11 @@ function showStep(id) {
     const bar = document.getElementById('maj-bar'); if (bar) bar.style.width = (PROG[id] || 10) + '%';
 }
 function buildWAMsg() {
-    const il = { rent: get(T, 'maj.wa_intent_rent'), sell: get(T, 'maj.wa_intent_sell'), conc: get(T, 'maj.wa_intent_conc') };
-    const dl = { st: 'Saint-Tropez', cour: 'Courchevel', both: 'Saint-Tropez & Courchevel', 'villa-sell': get(T, 'maj.wa_dest_villa'), 'apt-sell': get(T, 'maj.wa_dest_apt') };
-    let m = `${get(T, 'maj.wa_greeting') || 'Bonjour'} ${il[flowState.intent] || flowState.intent}`;
-    if (flowState.dest) m += `\n${get(T, 'maj.wa_dest_label') || 'Destination:'} ${dl[flowState.dest] || flowState.dest}`;
-    m += `\n\n${get(T, 'maj.wa_closing') || 'Pouvez-vous me contacter ?'}`;
+    const il = { rent: 'Location de villa', sell: 'Vente immobilière', conc: 'Conciergerie' };
+    const dl = { st: 'Saint-Tropez', cour: 'Courchevel', both: 'Saint-Tropez & Courchevel', 'villa-sell': 'Villa', 'apt-sell': 'Appartement' };
+    let m = `${'Bonjour' || 'Bonjour'} ${il[flowState.intent] || flowState.intent}`;
+    if (flowState.dest) m += `\n${'Destination :' || 'Destination:'} ${dl[flowState.dest] || flowState.dest}`;
+    m += `\n\n${'Pouvez-vous me contacter ?'}`;
     return encodeURIComponent(m);
 }
 
@@ -538,16 +412,21 @@ window.flowNext = function (choice) {
     if (next === 'wa') {
         gtag('event', 'maj_wa_redirect', { event_category: 'Lead', value: 1 });
         setTimeout(() => {
-            addMsg(get(T, 'maj.wa_now') || 'WhatsApp →');
+            addMsg('WhatsApp →');
             setTimeout(() => window.open(`https://wa.me/${WA}?text=${buildWAMsg()}`, '_blank'), 700);
         }, 400);
         flowState.step = '4'; setTimeout(() => showStep('4'), 1200); return;
     }
     if (!next) return;
     flowState.step = next;
-    const replyKeys = { '1a': 'maj.bot_1a', '1b': 'maj.bot_1b', '1c': 'maj.bot_1c', '2': 'maj.bot_2', '3': 'maj.bot_3' };
-    const reply = get(T, replyKeys[next]);
-    if (reply) setTimeout(() => addMsg(reply), 350);
+    const replies = {
+        '1a': 'Parfait ! Quelle destination vous inspire ?',
+        '1b': 'Très bien. Quel type de bien ?',
+        '1c': 'Avec plaisir. Quel service souhaitez-vous ?',
+        '2': 'Comment souhaitez-vous être contacté ?',
+        '3': 'Renseignez vos coordonnées :'
+    };
+    if (replies[next]) setTimeout(() => addMsg(replies[next]), 350);
     setTimeout(() => showStep(next), 650);
 };
 
@@ -564,11 +443,11 @@ window.submitMaj = function (e) {
     gtag('event', 'maj_lead_capture', { event_category: 'Conversion', event_label: flowState.intent, value: 1 });
     flowState.step = '4';
     setTimeout(() => {
-        addMsg(get(T, 'maj.bot_confirm') || 'Merci ! Un expert vous contacte sous 15 min.');
+        addMsg('Merci ! Un expert vous contacte sous 15 min.');
         showStep('4');
         const waf = document.getElementById('mj-wa-final');
         if (waf) {
-            const msg = encodeURIComponent(`${get(T, 'maj.wa_greeting') || 'Bonjour'} ${data.name} (${data.contact}).`);
+            const msg = encodeURIComponent(`${'Bonjour' || 'Bonjour'} ${data.name} (${data.contact}).`);
             waf.onclick = () => { window.open(`https://wa.me/${WA}?text=${msg}`, '_blank'); gtag('event', 'maj_wa_final', { event_category: 'Lead', value: 1 }); };
         }
     }, 500);
@@ -592,7 +471,7 @@ function openMajPanel() {
     if (icoO) icoO.style.display = 'none'; if (icoC) icoC.style.display = 'block';
     if (notif) notif.style.display = 'none';
     const msgs = document.getElementById('maj-msgs');
-    if (msgs && msgs.children.length === 0) setTimeout(() => addMsg(get(T, 'maj.welcome') || 'Bienvenue 👋'), 350);
+    if (msgs && msgs.children.length === 0) setTimeout(() => addMsg('Bienvenue 👋 Comment puis-je sublimer votre séjour ?'), 350);
 }
 function closeMajPanel() {
     const panel = document.getElementById('maj-panel');
@@ -779,32 +658,14 @@ window.submitLead = async function (e) {
     }
 };
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     // VH fix
     document.documentElement.style.setProperty('--vh', (window.innerHeight * .01) + 'px');
     window.addEventListener('resize', () => document.documentElement.style.setProperty('--vh', (window.innerHeight * .01) + 'px'), { passive: true });
 
-    // ── Détection automatique de langue (navigator.language)
-    let initLang = 'fr';
-    try { initLang = localStorage.getItem('ahc_lang') || 'fr'; } catch (_) { }
-    if (!LANGS.includes(initLang)) {
-        const bl = (navigator.language || 'fr').slice(0, 2).toLowerCase();
-        initLang = LANGS.includes(bl) ? bl : 'fr';
-    }
 
-    // Charger la langue initiale
-    await applyLang(initLang);
-
-    // ── Boutons de langue
-    document.querySelectorAll('.lb').forEach(btn => btn.addEventListener('click', async () => {
-        if (btn.dataset.lang && btn.dataset.lang !== lang) {
-            await applyLang(btn.dataset.lang);
-            gtag('event', 'lang_switch', { event_category: 'UX', event_label: btn.dataset.lang });
-        }
-    }));
 
     initNav();
-    initFilters();
     initMajordome();
     initLenis();
 
@@ -813,12 +674,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('modal-x')?.addEventListener('click', closeModal);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeMajPanel(); closeLeadModal(); } });
 
-    // Intro + GSAP
-    if (typeof gsap !== 'undefined') {
-        if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
-        initIntro();
+    // Intro + GSAP — uniquement sur la page index (présence de #hpx)
+    const isIndex = !!document.getElementById('hpx');
+    if (isIndex) {
+        if (typeof gsap !== 'undefined') {
+            if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
+            initIntro();
+        } else {
+            document.getElementById('intro')?.remove();
+            startHero();
+        }
     } else {
+        // Sur les autres pages, supprimer l'intro si présente
         document.getElementById('intro')?.remove();
-        startHero();
     }
 });

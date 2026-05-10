@@ -40,7 +40,7 @@
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');</script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -56,19 +56,19 @@
     <header class="nav" id="nav">
         <a class="nav-logo" href="/"><img src="images/logo.jpeg" alt="Azur Home Collection" class="nav-logo-img" /></a>
         <nav class="nav-links">
-            <a href="/location" data-t="nav.location">Location</a>
-            <a href="/gestion" data-t="nav.gestion">Gestion</a>
-            <a href="/conciergerie" data-t="nav.concierge">Conciergerie</a>
-            <a href="/a-propos" data-t="nav.about">À propos</a>
+            <a href="location.html" data-t="nav.location">Location</a>
+            <a href="gestion.html" data-t="nav.gestion">Gestion</a>
+            <a href="conciergerie.html" data-t="nav.concierge">Conciergerie</a>
+            <a href="a-propos.html" data-t="nav.about">À propos</a>
             <a href="/blog" data-t="nav.blog">Blog</a>
-            <a href="/contact" data-t="nav.contact">Contact</a>
+            <a href="contact.html" data-t="nav.contact">Contact</a>
         </nav>
         <div class="nav-right">
             <div class="lang-sel">
-                <button class="lb active" data-lang="fr">Fr</button><span>·</span>
-                <button class="lb" data-lang="en">En</button><span>·</span>
-                <button class="lb" data-lang="de">De</button><span>·</span>
-                <button class="lb" data-lang="it">It</button>
+                <button class="lb active">Fr</button><span>·</span>
+                <button class="lb" onclick="window.location='/en/'">En</button><span>·</span>
+                <button class="lb" onclick="window.location='/de/'">De</button><span>·</span>
+                <button class="lb" onclick="window.location='/it/'">It</button>
             </div>
             <button class="nav-cta" id="nav-cta" onclick="openMaj();gtag('event','nav_cta',{event_category:'Nav'})"
                 data-t="nav.book">Nous contacter</button>
@@ -79,7 +79,7 @@
 
     <div class="mob-menu" id="mob-menu" aria-hidden="true">
         <nav>
-            <a href="/location" data-t="nav.location">Location</a>
+            <a href="location.html" data-t="nav.location">Location</a>
             <a href="/gestion" data-t="nav.gestion">Gestion</a>
             <a href="/conciergerie" data-t="nav.concierge">Conciergerie</a>
             <a href="/a-propos" data-t="nav.about">À propos</a>
@@ -87,10 +87,10 @@
             <a href="/contact" data-t="nav.contact">Contact</a>
         </nav>
         <div class="mob-lang">
-            <button class="lb active" data-lang="fr">Fr</button>
-            <button class="lb" data-lang="en">En</button>
-            <button class="lb" data-lang="de">De</button>
-            <button class="lb" data-lang="it">It</button>
+            <button class="lb active">Fr</button>
+            <button class="lb" onclick="window.location='/en/'">En</button>
+            <button class="lb" onclick="window.location='/de/'">De</button>
+            <button class="lb" onclick="window.location='/it/'">It</button>
         </div>
     </div>
 
@@ -214,8 +214,8 @@
                 <div class="sv-item"><span class="svi-n">02</span>
                     <h3 data-t="sv.location_h">Location Saisonnière</h3>
                     <div class="svi-line"></div>
-                    <p data-t="sv.location_p">Commercialisation et gestion complète des séjours.</p><a href="/location"
-                        data-t="sv.discover">Découvrir →</a>
+                    <p data-t="sv.location_p">Commercialisation et gestion complète des séjours.</p><a
+                        href="location.html" data-t="sv.discover">Découvrir →</a>
                 </div>
                 <div class="sv-item"><span class="svi-n">03</span>
                     <h3 data-t="sv.conc_h">Conciergerie</h3>
@@ -232,7 +232,7 @@
         <div class="coll-header coll-header--simple">
             <div class="chs-top">
                 <span class="eyebrow dark" data-t="coll.label">Sélection exclusive</span>
-                <a href="/location" class="chs-link"
+                <a href="location.html" class="chs-link"
                     onclick="gtag('event','view_all_biens',{event_category:'Collection'})">
                     <span data-t="coll.all">Voir tous nos biens</span>
                     <svg width="16" height="8" viewBox="0 0 16 8" fill="none" aria-hidden="true">
@@ -611,7 +611,7 @@
             <div class="cf-btns">
                 <a href="https://wa.me/+33621084443" class="btn-sand" target="_blank" rel="noopener"
                     data-t="cf.wa">Parler à un expert</a>
-                <a href="/location" class="btn-ghost-light" data-t="cf.explore">Explorer la collection</a>
+                <a href="location.html" class="btn-ghost-light" data-t="cf.explore">Explorer la collection</a>
             </div>
             <div class="cf-contacts"><a href="tel:+33621084443">Guillaume · +33 6 21 08 44 43</a><span>·</span><a
                     href="tel:+33625156663">Mike · +33 6 25 15 66 63</a></div>
@@ -627,15 +627,15 @@
             </div>
             <nav class="ft-nav">
                 <div class="fn-col">
-                    <h4 data-t="ft.services">Services</h4><a href="/location" data-t="nav.location">Location</a><a
+                    <h4 data-t="ft.services">Services</h4><a href="location.html" data-t="nav.location">Location</a><a
                         href="/gestion" data-t="nav.gestion">Gestion</a><a href="/conciergerie"
                         data-t="nav.concierge">Conciergerie</a>
                 </div>
                 <div class="fn-col">
                     <h4 data-t="ft.destinations">Destinations</h4><a
-                        href="/location?destination=saint-tropez">Saint-Tropez</a><a
-                        href="/location?destination=gassin">Gassin</a><a
-                        href="/location?destination=ramatuelle">Ramatuelle</a>
+                        href="location.html?zone=saint-tropez">Saint-Tropez</a><a
+                        href="location.html?zone=gassin">Gassin</a><a
+                        href="location.html?zone=ramatuelle">Ramatuelle</a>
                 </div>
                 <div class="fn-col">
                     <h4 data-t="ft.company">Société</h4><a href="/a-propos" data-t="nav.about">À propos</a><a
@@ -878,7 +878,7 @@
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
