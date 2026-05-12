@@ -28,12 +28,12 @@
 ════════════════════════════════ */
 .ap-hero {
     position: relative;
-    height: 88vh;
-    min-height: 560px;
-    max-height: 900px;
+    height: 72vh;
+    min-height: 500px;
+    max-height: 800px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     overflow: hidden;
 }
 
@@ -55,40 +55,50 @@
 .ap-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg,
-            rgba(12, 11, 9, .88) 0%,
-            rgba(12, 11, 9, .55) 50%,
-            rgba(12, 11, 9, .22) 100%);
+    background: linear-gradient(135deg, rgba(12, 11, 9, .90) 0%, rgba(12, 11, 9, .58) 45%, rgba(12, 11, 9, .20) 100%);
 }
 
 .ap-hero-content {
     position: relative;
     z-index: 2;
-    padding: 100px var(--pad) 60px;
+    padding: 88px var(--pad) 48px;
     max-width: var(--maxw);
     margin: 0 auto;
     width: 100%;
 }
 
+/* ── Breadcrumb hero — identique location ── */
 .ap-breadcrumb {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 9px;
+    gap: 10px;
+    font-size: 8.5px;
     font-weight: 300;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, .35);
+    color: rgba(255, 255, 255, .75);
     margin-bottom: 28px;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .6);
 }
 
 .ap-breadcrumb a {
-    color: inherit;
+    color: rgba(255, 255, 255, .75);
+    text-decoration: none;
     transition: color .3s;
 }
 
 .ap-breadcrumb a:hover {
     color: var(--sand);
+}
+
+.ap-breadcrumb span:last-child {
+    color: #fff;
+    font-weight: 400;
+}
+
+.ap-breadcrumb span[aria-hidden] {
+    color: rgba(255, 255, 255, .5);
+    font-size: 11px;
 }
 
 .ap-eyebrow {
@@ -112,7 +122,7 @@
     letter-spacing: -.022em;
     color: #fff;
     margin-bottom: 22px;
-    max-width: 680px;
+    max-width: 640px;
 }
 
 .ap-h1-line {
@@ -461,7 +471,7 @@
     font-weight: 300;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, .4);
+    color: rgba(255, 255, 255, .35);
     white-space: nowrap;
 }
 
@@ -505,7 +515,7 @@
 }
 
 .ap-cta-inner {
-    max-width: 600px;
+    max-width: 640px;
     margin: 0 auto;
     padding: 0 var(--pad);
     display: flex;
@@ -613,11 +623,18 @@
 
 @media (max-width: 768px) {
     .ap-hero {
-        height: 75vh;
+        position: relative;
+        height: 72vh;
+        min-height: 500px;
+        max-height: 800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: hidden;
     }
 
     .ap-h1 {
-        font-size: clamp(28px, 8vw, 44px);
+        font-size: clamp(40px, 5.5vw, 80px);
     }
 
     .ap-full-img {
