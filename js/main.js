@@ -11,12 +11,7 @@
    LENIS — Smooth scroll
 ══════════════════════════════════════════ */
 let lenis;
-function initLenis() {
-    if (typeof Lenis === 'undefined' || window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-    lenis = new Lenis({ duration: 1.32, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true, smoothTouch: false });
-    function raf(t) { lenis.raf(t); if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.update(); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-}
+function initLenis() { /* Smooth scroll désactivé — natif CSS scroll-behavior:smooth */ }
 
 window.scrollToSection = function (id) {
     const el = document.getElementById(id);

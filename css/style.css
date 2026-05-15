@@ -1,5 +1,9 @@
+html {
+    scroll-behavior: smooth;
+}
+
 /* ============================================================
-   AZUR VILLA PRESTIGE — css/style.css
+   AZUR HOME COLLECTION — css/style.css
    Fichier CSS GLOBAL partagé par toutes les pages et langues
    Palette : crème #F5F0E8 · Iron Grey #4C5760 · Sand Dune #D7CEB2
    Ne pas modifier sans impact sur toutes les pages
