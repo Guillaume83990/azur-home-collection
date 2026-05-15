@@ -1,5 +1,5 @@
 /* ============================================================
-   AZUR HOME COLLECTION — css/style.css
+   AZUR VILLA PRESTIGE — css/style.css
    Fichier CSS GLOBAL partagé par toutes les pages et langues
    Palette : crème #F5F0E8 · Iron Grey #4C5760 · Sand Dune #D7CEB2
    Ne pas modifier sans impact sur toutes les pages
@@ -86,43 +86,284 @@ textarea {
     position: fixed;
     inset: 0;
     z-index: 9000;
-    pointer-events: none
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    pointer-events: none;
 }
 
-.intro-top,
-.intro-bot {
+/* ── Fond sombre luxe ── */
+.intro-bg {
+    position: absolute;
+    inset: 0;
+    background: #0C0B09;
+    will-change: transform;
+}
+
+/* ── Grain texture ── */
+.intro-grain {
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: .35;
+    pointer-events: none;
+    z-index: 1;
+    animation: grain 1.2s steps(2) infinite;
+}
+
+@keyframes grain {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(-2%, -3%);
+    }
+
+    50% {
+        transform: translate(1%, 2%);
+    }
+
+    75% {
+        transform: translate(3%, -1%);
+    }
+}
+
+/* ── Lignes horizontales ── */
+.intro-line {
     position: absolute;
     left: 0;
     right: 0;
-    height: 50%;
-    background: var(--cream)
+    height: 1px;
+    background: rgba(215, 206, 178, .18);
+    transform: scaleX(0);
+    z-index: 2;
 }
 
-.intro-top {
-    top: 0
+.intro-line--top {
+    top: 18%;
+    transform-origin: left;
 }
 
-.intro-bot {
-    bottom: 0
+.intro-line--bot {
+    bottom: 18%;
+    transform-origin: right;
 }
 
-.intro-logo {
+/* ── Corps central ── */
+.intro-body {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    text-align: center;
+}
+
+/* ── Eyebrow ── */
+.intro-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    opacity: 0;
+}
+
+.ie-text {
+    font-family: var(--sans);
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(215, 206, 178, .55);
+    white-space: nowrap;
+}
+
+.ie-dash {
+    width: 32px;
+    height: 1px;
+    background: rgba(215, 206, 178, .3);
+    flex-shrink: 0;
+}
+
+/* ── Nom de marque ── */
+.intro-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 40px;
+}
+
+.intro-brand-line {
+    overflow: hidden;
+    line-height: 1.1;
+}
+
+.ibl-mask {
+    display: block;
+    overflow: hidden;
+}
+
+.ibl-word {
+    display: block;
+    font-family: var(--serif);
+    font-size: clamp(52px, 8vw, 110px);
+    font-weight: 300;
+    letter-spacing: -.02em;
+    color: #fff;
+    line-height: 1.08;
+    transform: translateY(105%);
+    will-change: transform;
+}
+
+.intro-brand-line--em .ibl-word {
+    font-style: italic;
+    color: var(--sand);
+    font-size: clamp(42px, 6.5vw, 90px);
+}
+
+/* ── Séparateur ── */
+.intro-sep {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+    opacity: 0;
+}
+
+.is-line--l,
+.is-line--r {
+    height: 1px;
+    background: rgba(215, 206, 178, .3);
+    transform: scaleX(0);
+    transform-origin: center;
+}
+
+.is-line--l {
+    width: 80px;
+    transform-origin: right;
+}
+
+.is-line--r {
+    width: 80px;
+    transform-origin: left;
+}
+
+.is-diamond {
+    width: 5px;
+    height: 5px;
+    background: var(--sand2);
+    border-radius: 0;
+    transform: rotate(45deg) scale(0);
+    flex-shrink: 0;
+}
+
+/* ── Tagline ── */
+.intro-tagline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+}
+
+.intro-tagline span {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .45);
+}
+
+.it-dot {
+    color: var(--sand2) !important;
+    font-size: 14px !important;
+    letter-spacing: 0 !important;
+}
+
+/* ── Compteur circulaire ── */
+.intro-counter {
     position: absolute;
-    inset: 0;
+    bottom: -140px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88px;
+    height: 88px;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1;
-    opacity: 0
+    opacity: 0;
 }
 
-.intro-logo-img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 8px 32px rgba(76, 87, 96, .15)
+.ic-circle {
+    width: 88px;
+    height: 88px;
+    position: absolute;
 }
+
+.ic-pct {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 300;
+    color: rgba(215, 206, 178, .7);
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Footer ── */
+.intro-footer {
+    position: absolute;
+    bottom: 32px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0;
+    z-index: 3;
+}
+
+.intro-footer span {
+    font-family: var(--sans);
+    font-size: 7.5px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .28);
+}
+
+.if-sep {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(215, 206, 178, .3);
+    flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .ibl-word {
+        font-size: clamp(38px, 10vw, 68px);
+    }
+
+    .intro-brand-line--em .ibl-word {
+        font-size: clamp(30px, 8vw, 54px);
+    }
+
+    .intro-counter {
+        bottom: -100px;
+    }
+}
+
 
 /* ── NAV ── */
 .nav {
@@ -139,8 +380,50 @@ textarea {
     background: rgba(245, 240, 232, .95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    transition: height .5s var(--ease2), transform .4s var(--ease2);
+    border-bottom: 1px solid var(--borders);
+    transition: height .5s var(--ease2), transform .4s var(--ease2), background .4s, border-color .4s;
+}
+
+/* Nav transparente sur les pages avec hero photo — avant scroll */
+.nav--transparent {
+    background: rgba(12, 11, 9, .0) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom-color: transparent !important;
+}
+
+.nav--transparent .nav-links a {
+    color: rgba(255, 255, 255, .85) !important;
+}
+
+.nav--transparent .nav-links a:hover {
+    color: var(--sand) !important;
+}
+
+.nav--transparent .nav-link--active {
+    color: #fff !important;
+    border-bottom-color: rgba(255, 255, 255, .7) !important;
+}
+
+.nav--transparent .lb {
+    color: rgba(255, 255, 255, .65) !important;
+}
+
+.nav--transparent .lb.active {
+    color: #fff !important;
+}
+
+.nav--transparent .lb:hover {
+    color: var(--sand) !important;
+}
+
+.nav--transparent .nav-cta {
+    border-color: rgba(255, 255, 255, .55) !important;
+    color: rgba(255, 255, 255, .9) !important;
+}
+
+.nav--transparent .nav-cta:hover {
+    background: rgba(255, 255, 255, .12) !important;
 }
 
 .nav.hidden {
@@ -3055,11 +3338,11 @@ option {
     }
 
     .sticky-mob {
-        display: grid
+        display: none !important
     }
 
     .maj {
-        bottom: 74px
+        bottom: 24px
     }
 
     .maj-panel {

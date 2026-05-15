@@ -33,6 +33,27 @@ function initNav() {
     const burger = document.getElementById('burger');
     const mob = document.getElementById('mob-menu');
     if (!nav) return;
+
+    /* ── Nav transparente sur hero ── */
+    var hasHero = !!(
+        document.querySelector('.loc-hero') ||
+        document.querySelector('.ges-hero') ||
+        document.querySelector('.cx-hero') ||
+        document.querySelector('.ap-hero') ||
+        document.querySelector('.ct-hero') ||
+        document.querySelector('.hero')
+    );
+    if (hasHero) {
+        nav.classList.add('nav--transparent');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 60) {
+                nav.classList.remove('nav--transparent');
+            } else {
+                nav.classList.add('nav--transparent');
+            }
+        }, { passive: true });
+    }
+
     let lastY = 0;
     window.addEventListener('scroll', () => {
         const y = window.scrollY;
@@ -63,25 +84,110 @@ function initNav() {
    INTRO — Logo réel + animation GSAP
 ══════════════════════════════════════════ */
 function initIntro() {
-    const top = document.querySelector('.intro-top');
-    const bot = document.querySelector('.intro-bot');
-    const logo = document.querySelector('.intro-logo');
-    const intro = document.getElementById('intro');
-    if (!top || !bot || typeof gsap === 'undefined') { intro?.remove(); startHero(); return; }
-    const reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-    if (reduced) { intro?.remove(); startHero(); return; }
-    gsap.set(logo, { opacity: 0, scale: .9 });
-    const tl = gsap.timeline({ onComplete: () => { intro?.remove(); startHero(); } });
-    tl.to(logo, { opacity: 1, scale: 1, duration: .6, ease: 'power3.out' })
-        .to({}, { duration: .95 })
-        .to(top, { yPercent: -100, duration: 1.1, ease: 'power4.inOut' })
-        .to(bot, { yPercent: 100, duration: 1.1, ease: 'power4.inOut' }, '<')
-        .to(logo, { opacity: 0, scale: .88, duration: .35, ease: 'power2.in' }, '-=.55');
+    var intro = document.getElementById('intro');
+    var bg = document.getElementById('intro-bg');
+    var ilTop = document.getElementById('il-top');
+    var ilBot = document.getElementById('il-bot');
+    var eyebrow = document.getElementById('intro-eyebrow');
+    var ibw1 = document.getElementById('ibw-1');
+    var ibw2 = document.getElementById('ibw-2');
+    var sep = document.getElementById('intro-sep');
+    var tagline = document.getElementById('intro-tagline');
+    var counter = document.getElementById('intro-counter');
+    var icPct = document.getElementById('ic-pct');
+    var icArc = document.querySelector('.ic-arc');
+    var footer = document.getElementById('intro-footer');
+
+    if (!intro || typeof gsap === 'undefined') {
+        if (intro) intro.remove();
+        startHero(); return;
+    }
+    if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) {
+        intro.remove(); startHero(); return;
+    }
+
+    /* Arc SVG — longueur totale du cercle r=56 → 2πr ≈ 352 */
+    var arcLen = 352;
+    if (icArc) gsap.set(icArc, { strokeDashoffset: arcLen });
+
+    /* ── Objet compteur 0→100 ── */
+    var pctObj = { v: 0 };
+
+    var tl = gsap.timeline({
+        onComplete: function () {
+            /* Exit — fondu et collapse vers le haut */
+            gsap.to([tagline, eyebrow, sep], {
+                opacity: 0, y: -12, duration: .35, stagger: .05, ease: 'power2.in'
+            });
+            gsap.to([ibw1, ibw2], {
+                y: '-105%', duration: .65, stagger: .08, ease: 'power4.in', delay: .1
+            });
+            gsap.to([ilTop, ilBot], {
+                scaleX: 0, duration: .5, stagger: .06, ease: 'power3.in', delay: .2
+            });
+            gsap.to([footer, counter], {
+                opacity: 0, duration: .3, delay: .1
+            });
+            gsap.to(bg, {
+                scaleY: 0,
+                transformOrigin: 'center top',
+                duration: .9,
+                ease: 'power4.inOut',
+                delay: .45,
+                onComplete: function () {
+                    intro.remove();
+                    startHero();
+                }
+            });
+        }
+    });
+
+    /* ── ENTRÉE ── */
+
+    /* 0.0s — Lignes horizontales slide depuis les bords */
+    tl.to(ilTop, { scaleX: 1, duration: 1.1, ease: 'power3.inOut' }, 0)
+        .to(ilBot, { scaleX: 1, duration: 1.1, ease: 'power3.inOut', delay: .1 }, 0)
+
+        /* 0.3s — Compteur apparaît + arc tourne + chiffre monte */
+        .to(counter, { opacity: 1, duration: .4, ease: 'power2.out' }, .3)
+        .to(pctObj, {
+            v: 100, duration: 1.9, ease: 'power1.inOut',
+            onUpdate: function () {
+                var v = Math.round(pctObj.v);
+                if (icPct) icPct.textContent = v;
+                if (icArc) gsap.set(icArc, { strokeDashoffset: arcLen - (arcLen * v / 100) });
+            }
+        }, .3)
+
+        /* 0.5s — Eyebrow fade + slide */
+        .to(eyebrow, { opacity: 1, y: 0, duration: .7, ease: 'power3.out' }, .5)
+
+        /* 0.8s — Nom "Azur" reveal depuis le bas */
+        .to(ibw1, { y: '0%', duration: .9, ease: 'power4.out' }, .8)
+
+        /* 1.0s — "Villa Prestige" italique */
+        .to(ibw2, { y: '0%', duration: .9, ease: 'power4.out' }, 1.05)
+
+        /* 1.4s — Séparateur diamant + lignes */
+        .to(sep, { opacity: 1, duration: .4 }, 1.4)
+        .to('.is-line--l', { scaleX: 1, duration: .6, ease: 'power3.out' }, 1.4)
+        .to('.is-line--r', { scaleX: 1, duration: .6, ease: 'power3.out' }, 1.5)
+        .to('.is-diamond', { scale: 1, duration: .4, ease: 'back.out(3)' }, 1.7)
+
+        /* 1.8s — Tagline */
+        .to(tagline, { opacity: 1, y: 0, duration: .6, ease: 'power3.out' }, 1.8)
+
+        /* 2.0s — Footer */
+        .to(footer, { opacity: 1, y: 0, duration: .6, ease: 'power3.out' }, 2.0)
+
+        /* 2.5s — Pause contemplative */
+        .to({}, { duration: 1.1 })
+
+        /* Fin → onComplete déclenche l'exit */
+        ;
 }
 
-/* ══════════════════════════════════════════
-   HERO REVEAL — GSAP
-══════════════════════════════════════════ */
+
 function startHero() {
     // S'assurer que le search pill est TOUJOURS visible
     const pill = document.getElementById('search-pill');
@@ -267,7 +373,7 @@ window.submitSearch = async function (e) {
             // Fallback : ouvrir client mail natif (mailto:) si EmailJS non configuré
             const subject = encodeURIComponent(`🏖️ Demande réservation — ${searchData.dest} — ${name}`);
             const body = encodeURIComponent(templateParams.full_message);
-            window.location.href = `mailto:guillaumindany@gmail.com?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:contact@azurvillaprestige.com?subject=${subject}&body=${body}`;
         }
 
         // ── Succès : afficher le message de confirmation
@@ -292,7 +398,7 @@ window.submitSearch = async function (e) {
         console.error('EmailJS error:', err);
         // Fallback WhatsApp si EmailJS échoue
         const msg = encodeURIComponent(templateParams.full_message);
-        window.open(`https://wa.me/+33621084443?text=${msg}`, '_blank');
+        window.open(`https://wa.me/+33600000001?text=${msg}`, '_blank');
         if (btn) { btn.style.opacity = ''; btn.style.pointerEvents = ''; }
     }
 };
@@ -324,7 +430,7 @@ window.submitBrochure = function (e) {
     const data = Object.fromEntries(new FormData(e.target));
     gtag('event', 'brochure_submit', { event_category: 'Conversion', event_label: currentProp, value: 1 });
     const msg = encodeURIComponent(`${'Bonjour' || 'Bonjour'} brochure ${currentProp}.\n${data.name} · ${data.email}\n${data.phone || ''}\n${data.dates || ''}`);
-    window.open(`https://wa.me/+33621084443?text=${msg}`, '_blank');
+    window.open(`https://wa.me/+33600000001?text=${msg}`, '_blank');
     closeModal();
 };
 
@@ -373,7 +479,7 @@ window.submitNL = function (e) {
 ══════════════════════════════════════════ */
 let majOpen = false;
 let flowState = { step: '0', intent: '', dest: '', contact: '' };
-const WA = '+33621084443';
+const WA = '+33600000001';
 const FLOW = { '0': { rent: '1a', sell: '1b', conc: '1c' }, '1a': { st: '2', cour: '2', both: '2' }, '1b': { 'villa-sell': '2', 'apt-sell': '2' }, '1c': { chef: '2', transfer: '2', wellness: '2', xp: '2' }, '2': { wa: 'wa', callback: '3', brochure: '3' } };
 const PROG = { '0': 10, '1a': 35, '1b': 35, '1c': 35, '2': 65, '3': 85, '4': 100 };
 
@@ -629,7 +735,7 @@ window.submitLead = async function (e) {
             // Fallback mailto si EmailJS pas configuré
             const subj = encodeURIComponent(`🏖️ Demande — ${sd.dest || 'Saint-Tropez'} — ${name}`);
             const body = encodeURIComponent(templateParams.full_message);
-            window.open(`mailto:guillaumindany@gmail.com?subject=${subj}&body=${body}`);
+            window.open(`mailto:contact@azurvillaprestige.com?subject=${subj}&body=${body}`);
         }
 
         // ── Afficher la confirmation luxe
@@ -652,7 +758,7 @@ window.submitLead = async function (e) {
         console.error('Send error:', err);
         // Fallback WhatsApp
         const waMsg = encodeURIComponent(templateParams.full_message);
-        window.open(`https://wa.me/+33621084443?text=${waMsg}`, '_blank');
+        window.open(`https://wa.me/+33600000001?text=${waMsg}`, '_blank');
         if (btn) btn.disabled = false;
         if (txt) txt.textContent = 'Envoyer ma demande';
     }
