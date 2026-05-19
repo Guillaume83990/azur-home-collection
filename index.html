@@ -21,22 +21,14 @@
         type="application/ld+json">{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Azur Villa Prestige","url":"https://www.azurvillaprestige.com","telephone":"+33600000001","priceRange":"€€€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"47"}}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
+    <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@200;300;400&display=swap"
-        rel="stylesheet" />
-    <!-- EmailJS SDK — envoi email sans backend -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>
-        // Initialiser EmailJS avec votre Public Key
-        (function () {
-            const EMAILJS_PUBLIC_KEY = 'XXXXXXXXXXXXXXXXXXXX'; // ← Même clé que dans main.js
-            if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'XXXXXXXXXXXXXXXXXXXX') {
-                emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-            }
-        })();
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@200;300;400&display=swap"
+            rel="stylesheet" />
+    </noscript>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');</script>
     <link rel="stylesheet" href="css/style.css" />
@@ -128,15 +120,15 @@
         </nav>
         <div class="nav-right">
             <div class="lang-sel">
-                <button class="lb active">Fr</button><span>·</span>
-                <button class="lb" onclick="window.location='/en/'">En</button><span>·</span>
-                <button class="lb" onclick="window.location='/de/'">De</button><span>·</span>
-                <button class="lb" onclick="window.location='/it/'">It</button>
+                <button class="lb active" aria-label="Français" aria-current="true">Fr</button><span>·</span>
+                <button class="lb" onclick="window.location='/en/'" aria-label="English">En</button><span>·</span>
+                <button class="lb" onclick="window.location='/de/'" aria-label="Deutsch">De</button><span>·</span>
+                <button class="lb" onclick="window.location='/it/'" aria-label="Italiano">It</button>
             </div>
             <button class="nav-cta" id="nav-cta" onclick="openMaj();gtag('event','nav_cta',{event_category:'Nav'})"
-                data-t="nav.book">Nous contacter</button>
-            <button class="burger" id="burger" aria-expanded="false"
-                aria-label="Menu"><span></span><span></span></button>
+                aria-label="Nous contacter" data-t="nav.book" aria-label="Nous contacter">Nous contacter</button>
+            <button class="burger" id="burger" aria-expanded="false" aria-label="Ouvrir le menu"
+                aria-controls="mob-menu"><span></span><span></span></button>
         </div>
     </header>
 
@@ -146,14 +138,14 @@
             <a href="gestion.html">Gestion</a>
             <a href="conciergerie.html">Conciergerie</a>
             <a href="a-propos.html">À propos</a>
-            <a href="blog.html">Blog</a>
+
             <a href="contact.html">Contact</a>
         </nav>
         <div class="mob-lang">
-            <button class="lb active">Fr</button>
-            <button class="lb" onclick="window.location='/en/'">En</button>
-            <button class="lb" onclick="window.location='/de/'">De</button>
-            <button class="lb" onclick="window.location='/it/'">It</button>
+            <button class="lb active" aria-label="Français" aria-current="true">Fr</button>
+            <button class="lb" onclick="window.location='/en/'" aria-label="English">En</button>
+            <button class="lb" onclick="window.location='/de/'" aria-label="Deutsch">De</button>
+            <button class="lb" onclick="window.location='/it/'" aria-label="Italiano">It</button>
         </div>
     </div>
 
@@ -187,8 +179,9 @@
                 <div class="sp-field">
                     <label class="sp-lbl" data-t="search.dest">Destination</label>
                     <div class="sp-input-wrap">
-                        <input type="text" class="sp-inp" id="sp-dest" placeholder="Saint-Tropez, Ramatuelle, Gassin…"
-                            autocomplete="off" onfocus="showDestDrop()" onblur="hideDestDrop()" autocomplete="off" />
+                        <input type="text" class="sp-inp" id="sp-dest" aria-label="Destination"
+                            placeholder="Saint-Tropez, Ramatuelle, Gassin…" autocomplete="off" onfocus="showDestDrop()"
+                            onblur="hideDestDrop()" autocomplete="off" />
                         <div class="sp-dest-drop" id="sp-dest-drop">
                             <button type="button" onmousedown="setDest('Saint-Tropez')">🌊 Saint-Tropez</button>
                             <button type="button" onmousedown="setDest('Ramatuelle')">🌿 Ramatuelle</button>
@@ -201,14 +194,15 @@
                 <div class="sp-sep"></div>
                 <div class="sp-field sp-field--dates">
                     <label class="sp-lbl" data-t="search.checkin">Arrivée</label>
-                    <input type="date" class="sp-inp sp-date" id="sp-in" />
+                    <input type="date" class="sp-inp sp-date" id="sp-in" aria-label="Date d'arrivée" />
                     <span class="sp-arr">→</span>
                     <input type="date" class="sp-inp sp-date" id="sp-out" />
                 </div>
                 <div class="sp-sep"></div>
                 <div class="sp-field">
                     <label class="sp-lbl" data-t="search.guests">Voyageurs</label>
-                    <input type="number" class="sp-inp sp-guests" id="sp-guests" min="1" max="30" placeholder="2" />
+                    <input type="number" class="sp-inp sp-guests" id="sp-guests" min="1" max="30" placeholder="2"
+                        aria-label="Voyageurs" aria-label="Nombre de voyageurs" aria-label="Nombre de voyageurs" />
                 </div>
                 <div class="sp-sep"></div>
 
@@ -272,7 +266,7 @@
                     <h3 data-t="sv.gestion_h">Gestion & Entretien</h3>
                     <div class="svi-line"></div>
                     <p data-t="sv.gestion_p">Suivi annuel des villas : maintenance, jardins, piscines.</p><a
-                        href="gestion.html" data-t="sv.discover">Découvrir →</a>
+                        href="/gestion" data-t="sv.discover">Découvrir →</a>
                 </div>
                 <div class="sv-item"><span class="svi-n">02</span>
                     <h3 data-t="sv.location_h">Location Saisonnière</h3>
@@ -283,7 +277,7 @@
                 <div class="sv-item"><span class="svi-n">03</span>
                     <h3 data-t="sv.conc_h">Conciergerie</h3>
                     <div class="svi-line"></div>
-                    <p data-t="sv.conc_p">Chef privé, transferts, expériences sur-mesure.</p><a href="conciergerie"
+                    <p data-t="sv.conc_p">Chef privé, transferts, expériences sur-mesure.</p><a href="/conciergerie"
                         data-t="sv.discover">Découvrir →</a>
                 </div>
             </div>
@@ -312,7 +306,7 @@
 
             <!-- VILLA 1 — Architecture contemporaine, minimaliste & épurée -->
             <article class="villa" data-dest="saint-tropez" data-am="pool sea spa">
-                <a href="/location/villa-aqua-serena" class="v-img">
+                <a href="villa.html?id=villa-aqua-serena" class="v-img">
                     <picture>
                         <source srcset="images/villa-aqua-serena.webp" type="image/webp" />
                         <img src="images/villa-aqua-serena.webp"
@@ -342,6 +336,7 @@
                     </div>
                     <div class="vi-r">
                         <button class="vi-broch" onclick="openBrochure('Villa Aqua Serena');event.stopPropagation()"
+                            aria-label="Brochure Villa Aqua Serena" aria-label="Recevoir la brochure Villa Aqua Serena"
                             data-t="villa.brochure">Brochure</button>
                         <a href="villa.html?id=villa-aqua-serena" class="vi-see" data-t="villa.see">Voir →</a>
                     </div>
@@ -350,7 +345,7 @@
 
             <!-- VILLA 2 — Bastide provençale, pierre et authenticité luxueuse -->
             <article class="villa" data-dest="saint-tropez" data-am="pool sea">
-                <a href="/location/bastide-des-pins" class="v-img">
+                <a href="villa.html?id=bastide-des-pins" class="v-img">
                     <picture>
                         <source srcset="images/bastide-des-pins.webp" type="image/webp" />
                         <img src="images/bastide-des-pins.webp" alt="Bastide des Pins — domaine provençal Ramatuelle"
@@ -379,6 +374,7 @@
                     </div>
                     <div class="vi-r">
                         <button class="vi-broch" onclick="openBrochure('Bastide des Pins');event.stopPropagation()"
+                            aria-label="Brochure Bastide des Pins" aria-label="Recevoir la brochure Bastide des Pins"
                             data-t="villa.brochure">Brochure</button>
                         <a href="villa.html?id=bastide-des-pins" class="vi-see" data-t="villa.see">Voir →</a>
                     </div>
@@ -387,7 +383,7 @@
 
             <!-- VILLA 3 — Villa moderne vue mer, design intérieur haut couture -->
             <article class="villa" data-dest="saint-tropez" data-am="pool sea gym">
-                <a href="/location/villa-horizon" class="v-img">
+                <a href="villa.html?id=villa-horizon" class="v-img">
                     <picture>
                         <source srcset="images/villa-horizon.webp" type="image/webp" />
                         <img src="images/villa-horizon.webp" alt="Villa Horizon — Gassin vue panoramique Saint-Tropez"
@@ -416,6 +412,7 @@
                     </div>
                     <div class="vi-r">
                         <button class="vi-broch" onclick="openBrochure('Villa Horizon');event.stopPropagation()"
+                            aria-label="Brochure Villa Horizon" aria-label="Recevoir la brochure Villa Horizon"
                             data-t="villa.brochure">Brochure</button>
                         <a href="villa.html?id=villa-horizon" class="vi-see" data-t="villa.see">Voir →</a>
                     </div>
@@ -424,12 +421,11 @@
 
             <!-- VILLA 4 — Mas provençal rénové, charme authentique cinq étoiles -->
             <article class="villa" data-dest="saint-tropez" data-am="pool">
-                <a href="/location/mas-des-oliviers" class="v-img">
+                <a href="villa.html?id=mas-des-oliviers" class="v-img">
                     <picture>
-                        <source srcset="images/villa-mas-des-oliviers.webp" type="image/webp" />
-                        <img src="images/villa-mas-des-oliviers.webp"
-                            alt="Mas des Oliviers — Grimaud authenticité luxueuse" loading="lazy" decoding="async"
-                            width="1400" height="780" />
+                        <source srcset="images/bastide-des-pins.webp" type="image/webp" />
+                        <img src="images/bastide-des-pins.webp" alt="Mas des Oliviers — Grimaud authenticité luxueuse"
+                            loading="lazy" decoding="async" width="1400" height="780" />
                     </picture>
                     <div class="v-ov"></div>
                 </a>
@@ -454,6 +450,7 @@
                     </div>
                     <div class="vi-r">
                         <button class="vi-broch" onclick="openBrochure('Mas des Oliviers');event.stopPropagation()"
+                            aria-label="Brochure Mas des Oliviers" aria-label="Recevoir la brochure Mas des Oliviers"
                             data-t="villa.brochure">Brochure</button>
                         <a href="villa.html?id=mas-des-oliviers" class="vi-see" data-t="villa.see">Voir →</a>
                     </div>
@@ -686,26 +683,26 @@
     <footer class="footer">
         <div class="ft-top">
             <div class="ft-brand">
-                <img src="images/logo.png" alt="Azur Villa Prestige" class="ft-logo-img" />
+                <img src="images/logo.png" alt="Azur Villa Prestige" class="ft-logo-img" loading="lazy" />
                 <p class="ftb-sub">Property Management · Seasonal Rental<br>Saint-Tropez · Ramatuelle · Gassin</p>
             </div>
             <nav class="ft-nav">
                 <div class="fn-col">
-                    <h4 data-t="ft.services">Services</h4><a href="location.html" data-t="nav.location">Location</a><a
+                    <h3 class="fn-col-title">Services</h3><a href="location.html" data-t="nav.location">Location</a><a
                         href="gestion.html">Gestion</a><a href="conciergerie.html">Conciergerie</a>
                 </div>
                 <div class="fn-col">
-                    <h4 data-t="ft.destinations">Destinations</h4><a
+                    <h3 class="fn-col-title">Destinations</h3><a
                         href="location.html?zone=saint-tropez">Saint-Tropez</a><a
                         href="location.html?zone=gassin">Gassin</a><a
                         href="location.html?zone=ramatuelle">Ramatuelle</a>
                 </div>
                 <div class="fn-col">
-                    <h4 data-t="ft.company">Société</h4><a href="a-propos.html">À propos</a><a
+                    <h3 class="fn-col-title">Société</h3><a href="a-propos.html">À propos</a><a
                         href="contact.html">Contact</a><a href="blog.html">Blog</a>
                 </div>
                 <div class="fn-col">
-                    <h4 data-t="ft.contact">Contact</h4><a href="tel:+33600000001">Pascal<br>+33 6 00 00 00 01</a><a
+                    <h3 class="fn-col-title">Contact</h3><a href="tel:+33600000001">Pascal<br>+33 6 00 00 00 01</a><a
                         href="tel:+33600000002">Isabelle<br>+33 6 00 00 00 02</a><a
                         href="mailto:contact@azurvillaprestige.com">Email</a><a href="https://wa.me/+33600000001"
                         target="_blank" data-t="ft.wa">WhatsApp →</a>
@@ -731,7 +728,7 @@
                     <p class="modal-ey" data-t="modal.eyebrow">Brochure privée</p>
                     <h2 data-t="modal.title">Recevoir la brochure</h2>
                     <p class="modal-prop" id="modal-prop"></p>
-                </div><button class="modal-x" id="modal-x">×</button>
+                </div><button class="modal-x" id="modal-x" aria-label="Fermer">×</button>
             </div>
             <form class="mf" id="mf" onsubmit="submitBrochure(event)">
                 <div class="mf-r"><label data-t="form.fullname">Nom</label><input type="text" name="name" required
@@ -941,6 +938,10 @@
         </div>
     </div>
 
+    <!-- Scripts déplacés en fin de page pour ne pas bloquer le rendu -->
+    <!-- Scripts non-bloquants — chargés après le contenu visible -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 
