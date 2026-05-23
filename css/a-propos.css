@@ -28,9 +28,7 @@
 ════════════════════════════════ */
 .ap-hero {
     position: relative;
-    height: 72vh;
-    min-height: 500px;
-    max-height: 800px;
+    min-height: 620px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -61,10 +59,11 @@
 .ap-hero-content {
     position: relative;
     z-index: 2;
-    padding: 88px var(--pad) 48px;
+    padding: 88px var(--pad) 64px;
     max-width: var(--maxw);
     margin: 0 auto;
     width: 100%;
+    flex: 1;
 }
 
 /* ── Breadcrumb hero — identique location ── */
@@ -146,10 +145,11 @@
 .ap-sub {
     font-size: clamp(13px, 1.3vw, 15px);
     font-weight: 200;
-    color: rgba(255, 255, 255, .55);
+    color: rgba(255, 255, 255, .62);
     line-height: 1.9;
     max-width: 520px;
     opacity: 0;
+    margin-top: 4px;
 }
 
 /* ════════════════════════════════
@@ -624,9 +624,7 @@
 @media (max-width: 768px) {
     .ap-hero {
         position: relative;
-        height: 72vh;
-        min-height: 500px;
-        max-height: 800px;
+        min-height: 620px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -692,9 +690,157 @@
 }
 
 /* ── Galerie responsive ── */
+
+@media (max-width: 768px) {
+    .ap-hero {
+        min-height: auto;
+    }
+
+    .ap-hero-content {
+        padding: 88px var(--pad) 48px;
+    }
+
+    .ap-h1 {
+        font-size: clamp(32px, 9vw, 52px);
+    }
+
+    .ap-sub {
+        font-size: 13px;
+    }
+
+    .ap-full-img {
+        height: 260px;
+    }
+
+    .ap-manifeste {
+        padding: 72px 0;
+    }
+
+    .ap-valeurs {
+        padding: 72px 0;
+    }
+
+    .ap-valeurs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ap-equipe {
+        padding: 72px 0;
+    }
+
+    .ap-chiffres {
+        padding: 64px 0;
+    }
+
+    .ap-chiffre {
+        padding: 0 20px;
+    }
+
+    .ap-cta {
+        padding: 80px 0;
+    }
+
+    .ap-cta-btns {
+        flex-direction: column;
+    }
+
+    .ap-cta-btns .btn-sand,
+    .ap-cta-btns .btn-ghost-light {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .ap-manifeste-inner {
+        gap: 40px;
+    }
+
+    .ap-manifeste-img picture {
+        height: 320px;
+    }
+
+    .ap-manifeste-quote {
+        left: 0;
+        bottom: -16px;
+    }
+}
+
 @media (max-width: 768px) {
     .ap-galerie-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 260px);
+        grid-template-rows: repeat(4, 220px);
     }
+
+    .ap-galerie-item {
+        height: 220px;
+    }
+}
+
+/* FOOTER — titres colonnes identiques location/gestion/conciergerie */
+.fn-col-title {
+    font-size: 7.5px;
+    font-weight: 400;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--khaki);
+    margin-bottom: 4px
+}
+
+/* ════════════════════════════════
+   RESPONSIVE 480px
+════════════════════════════════ */
+@media (max-width: 480px) {
+    .ap-h1 {
+        font-size: clamp(32px, 9vw, 48px);
+    }
+
+    .ap-manifeste {
+        padding: 64px 0;
+    }
+
+    .ap-valeurs {
+        padding: 64px 0;
+    }
+
+    .ap-equipe {
+        padding: 64px 0;
+    }
+
+    .ap-chiffres {
+        padding: 64px 0;
+    }
+
+    .ap-cta {
+        padding: 80px 0;
+    }
+
+    .ap-membre-body {
+        padding: 28px 20px;
+    }
+
+    .ap-chiffre {
+        padding: 0 12px;
+    }
+
+    .ap-full-img {
+        height: 220px;
+    }
+}
+
+/* CTA à propos — contraste sur fond crème */
+.ap-cta .eyebrow.light {
+    color: var(--khaki);
+    letter-spacing: 4px;
+}
+
+.ap-cta h2 {
+    color: var(--iron);
+}
+
+.ap-cta h2 em {
+    color: var(--steel);
+}
+
+.ap-cta>.ap-cta-inner>p {
+    color: var(--dim);
+    opacity: 1;
 }

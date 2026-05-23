@@ -1,33 +1,30 @@
 /* ============================================================
    AZUR HOME COLLECTION — css/gestion.css
-   Page gestion propriétaires · Styles spécifiques
+   Full responsive · PageSpeed 100
    ============================================================ */
 
-/* ── Nav active ── */
 .nav-link--active {
     color: var(--iron) !important;
     border-bottom: 1.5px solid var(--iron);
-    padding-bottom: 2px;
+    padding-bottom: 2px
 }
 
-/* ════════════════════════════════
-   HERO
-════════════════════════════════ */
+/* HERO */
 .ges-hero {
     position: relative;
     height: 72vh;
-    min-height: 500px;
-    max-height: 800px;
+    min-height: 600px;
+    max-height: none;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    overflow: hidden;
+    justify-content: space-between;
+    overflow: hidden
 }
 
 .ges-hero-media {
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: 0
 }
 
 .ges-hero-img {
@@ -36,25 +33,25 @@
     object-fit: cover;
     object-position: center 40%;
     transform: scale(1.08);
-    will-change: transform;
+    will-change: transform
 }
 
 .ges-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(12, 11, 9, .90) 0%, rgba(12, 11, 9, .58) 45%, rgba(12, 11, 9, .20) 100%);
+    background: linear-gradient(135deg, rgba(12, 11, 9, .90) 0%, rgba(12, 11, 9, .58) 45%, rgba(12, 11, 9, .20) 100%)
 }
 
 .ges-hero-content {
     position: relative;
     z-index: 2;
-    padding: 88px var(--pad) 48px;
+    padding: 88px var(--pad) 32px;
     max-width: var(--maxw);
     margin: 0 auto;
     width: 100%;
+    flex: 1
 }
 
-/* ── Breadcrumb hero gestion — identique location ── */
 .ges-breadcrumb {
     display: flex;
     align-items: center;
@@ -65,37 +62,27 @@
     text-transform: uppercase;
     color: rgba(255, 255, 255, .75);
     margin-bottom: 28px;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, .6);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .6)
 }
 
 .ges-breadcrumb a {
     color: rgba(255, 255, 255, .75);
     text-decoration: none;
-    transition: color .3s;
+    transition: color .3s
 }
 
 .ges-breadcrumb a:hover {
-    color: var(--sand);
+    color: var(--sand)
 }
 
 .ges-breadcrumb span:last-child {
     color: #fff;
-    font-weight: 400;
+    font-weight: 400
 }
 
 .ges-breadcrumb span[aria-hidden] {
     color: rgba(255, 255, 255, .5);
-    font-size: 11px;
-}
-
-.ges-breadcrumb span:last-child {
-    color: #fff;
-    font-weight: 400;
-}
-
-.ges-breadcrumb span[aria-hidden] {
-    color: rgba(255, 255, 255, .5);
-    font-size: 11px;
+    font-size: 11px
 }
 
 .ges-eyebrow {
@@ -108,7 +95,7 @@
     text-transform: uppercase;
     color: rgba(255, 255, 255, .48);
     margin-bottom: 22px;
-    opacity: 0;
+    opacity: 0
 }
 
 .ges-h1 {
@@ -119,26 +106,25 @@
     letter-spacing: -.02em;
     color: #fff;
     margin-bottom: 22px;
-    max-width: 640px;
+    max-width: 640px
 }
 
 .ges-h1-line {
     display: block;
     overflow: hidden;
-    line-height: 1.18;
+    line-height: 1.18
 }
 
 .ges-h1-w {
     display: block;
     transform: translateY(110%);
     opacity: 0;
-    will-change: transform, opacity;
+    will-change: transform, opacity
 }
 
 .ges-h1 em {
     font-style: italic;
-    color: var(--sand);
-    text-shadow: 0 2px 20px rgba(0, 0, 0, .4);
+    color: var(--sand)
 }
 
 .ges-sub {
@@ -148,22 +134,18 @@
     line-height: 1.85;
     max-width: 540px;
     margin-bottom: 32px;
-    opacity: 0;
+    opacity: 0
 }
 
 .ges-hero-ctas {
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
-    opacity: 0;
+    opacity: 0
 }
 
-/* KPIs flottants en bas du hero */
 .ges-hero-kpis {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
     z-index: 3;
     background: rgba(253, 250, 246, .97);
     backdrop-filter: blur(16px);
@@ -175,6 +157,7 @@
     padding: 0 var(--pad);
     height: 100px;
     opacity: 0;
+    flex-shrink: 0
 }
 
 .ghk-item {
@@ -182,7 +165,7 @@
     flex-direction: column;
     align-items: center;
     gap: 4px;
-    padding: 0 40px;
+    padding: 0 40px
 }
 
 .ghk-n {
@@ -190,7 +173,7 @@
     font-size: clamp(28px, 3.5vw, 44px);
     font-weight: 300;
     color: var(--iron);
-    line-height: 1;
+    line-height: 1
 }
 
 .ghk-l {
@@ -199,42 +182,38 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--khaki);
-    white-space: nowrap;
+    white-space: nowrap
 }
 
 .ghk-sep {
     width: 1px;
     height: 40px;
     background: var(--borders);
-    flex-shrink: 0;
+    flex-shrink: 0
 }
 
-/* ════════════════════════════════
-   SECTIONS communes
-════════════════════════════════ */
+/* WRAP */
 .ges-wrap {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 0 var(--pad);
+    padding: 0 var(--pad)
 }
 
-/* ════════════════════════════════
-   PROMESSE
-════════════════════════════════ */
+/* PROMESSE */
 .ges-promesse {
     background: var(--cream);
-    padding: 120px 0;
+    padding: 120px 0
 }
 
 .ges-promesse-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
-    align-items: center;
+    align-items: center
 }
 
 .gp-left h2 {
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .gp-left p {
@@ -243,35 +222,35 @@
     color: var(--dim);
     line-height: 1.9;
     margin-bottom: 16px;
-    max-width: 460px;
+    max-width: 460px
 }
 
 .gp-left a {
     margin-top: 8px;
+    display: inline-block
 }
 
 .gp-right {
-    position: relative;
+    position: relative
 }
 
 .gp-img-wrap {
     overflow: hidden;
     height: 680px;
-    position: relative;
+    position: relative
 }
 
 .gp-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1.2s cubic-bezier(.16, 1, .3, 1);
+    transition: transform 1.2s cubic-bezier(.16, 1, .3, 1)
 }
 
 .gp-img-wrap:hover .gp-img {
-    transform: scale(1.03);
+    transform: scale(1.03)
 }
 
-/* Badge flottant */
 .gp-badge {
     position: absolute;
     bottom: -20px;
@@ -282,7 +261,7 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    box-shadow: 0 12px 40px rgba(76, 87, 96, .22);
+    box-shadow: 0 12px 40px rgba(76, 87, 96, .22)
 }
 
 .gp-badge-n {
@@ -290,7 +269,7 @@
     font-size: 36px;
     font-weight: 300;
     color: var(--sand);
-    line-height: 1;
+    line-height: 1
 }
 
 .gp-badge-l {
@@ -299,26 +278,80 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, .6);
-    line-height: 1.5;
+    line-height: 1.5
 }
 
-/* ════════════════════════════════
-   SERVICES
-════════════════════════════════ */
+/* GALERIE */
+.ges-galerie {
+    background: var(--white);
+    overflow: hidden
+}
+
+.ges-galerie-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    height: 680px
+}
+
+.gg-right-col {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px
+}
+
+.gg-item {
+    position: relative;
+    overflow: hidden
+}
+
+.gg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(.16, 1, .3, 1)
+}
+
+.gg-item:hover .gg-img {
+    transform: scale(1.04);
+    filter: brightness(1.08) saturate(1.05)
+}
+
+.gg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(12, 11, 9, .30);
+    display: flex;
+    align-items: flex-end;
+    padding: 22px 24px;
+    transition: background .5s ease
+}
+
+.gg-item:hover .gg-overlay {
+    background: rgba(12, 11, 9, 0)
+}
+
+.gg-label {
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .85)
+}
+
+/* SERVICES */
 .ges-services {
     background: var(--white);
-    padding: 120px 0;
-    position: relative;
-    z-index: 1;
+    padding: 120px 0
 }
 
 .ges-services-head {
     text-align: center;
-    margin-bottom: 64px;
+    margin-bottom: 64px
 }
 
 .ges-services-head h2 {
-    margin-bottom: 14px;
+    margin-bottom: 14px
 }
 
 .ges-services-sub {
@@ -326,13 +359,13 @@
     font-weight: 300;
     color: var(--dim);
     max-width: 480px;
-    margin: 0 auto;
+    margin: 0 auto
 }
 
 .ges-services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    gap: 2px
 }
 
 .gs-card {
@@ -343,7 +376,7 @@
     gap: 0;
     transition: background .3s;
     position: relative;
-    overflow: hidden;
+    overflow: hidden
 }
 
 .gs-card::before {
@@ -356,15 +389,15 @@
     background: var(--sand);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform .5s cubic-bezier(.16, 1, .3, 1);
+    transition: transform .5s cubic-bezier(.16, 1, .3, 1)
 }
 
 .gs-card:hover {
-    background: var(--cream2);
+    background: var(--cream2)
 }
 
 .gs-card:hover::before {
-    transform: scaleX(1);
+    transform: scaleX(1)
 }
 
 .gs-card-icon {
@@ -376,7 +409,7 @@
     align-items: center;
     justify-content: center;
     border: 1px solid var(--borders);
-    flex-shrink: 0;
+    flex-shrink: 0
 }
 
 .gs-card h3 {
@@ -385,7 +418,7 @@
     font-weight: 300;
     color: var(--iron);
     margin-bottom: 14px;
-    line-height: 1.2;
+    line-height: 1.2
 }
 
 .gs-card>p {
@@ -394,7 +427,7 @@
     color: var(--dim);
     line-height: 1.82;
     margin-bottom: 20px;
-    flex: 1;
+    flex: 1
 }
 
 .gs-list {
@@ -403,7 +436,7 @@
     flex-direction: column;
     gap: 7px;
     border-top: 1px solid var(--borders);
-    padding-top: 16px;
+    padding-top: 16px
 }
 
 .gs-list li {
@@ -412,7 +445,7 @@
     color: var(--khaki);
     letter-spacing: .5px;
     padding-left: 14px;
-    position: relative;
+    position: relative
 }
 
 .gs-list li::before {
@@ -420,35 +453,33 @@
     position: absolute;
     left: 0;
     color: var(--sand2);
-    font-size: 10px;
+    font-size: 10px
 }
 
-/* ════════════════════════════════
-   PROCESSUS
-════════════════════════════════ */
+/* PROCESSUS */
 .ges-process {
     background: var(--iron);
     padding: 120px 0;
     position: relative;
-    overflow: hidden;
+    overflow: hidden
 }
 
 .ges-process::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(215, 206, 178, .07) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 30% 50%, rgba(215, 206, 178, .07) 0%, transparent 60%)
 }
 
 .ges-process-head {
     text-align: center;
     margin-bottom: 64px;
     position: relative;
-    z-index: 1;
+    z-index: 1
 }
 
 .ges-process-head h2 {
-    margin-bottom: 0;
+    margin-bottom: 0
 }
 
 .ges-steps {
@@ -457,6 +488,9 @@
     gap: 0;
     position: relative;
     z-index: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0
 }
 
 .ges-step {
@@ -467,11 +501,11 @@
     padding: 44px 36px;
     background: rgba(255, 255, 255, .05);
     border: 1px solid rgba(215, 206, 178, .12);
-    transition: background .4s;
+    transition: background .4s
 }
 
 .ges-step:hover {
-    background: rgba(255, 255, 255, .09);
+    background: rgba(255, 255, 255, .09)
 }
 
 .ges-step-n {
@@ -480,7 +514,7 @@
     font-weight: 300;
     color: rgba(215, 206, 178, .2);
     line-height: 1;
-    margin-bottom: 16px;
+    margin-bottom: 16px
 }
 
 .ges-step h3 {
@@ -488,14 +522,14 @@
     font-size: 18px;
     font-weight: 300;
     color: #fff;
-    margin-bottom: 12px;
+    margin-bottom: 12px
 }
 
 .ges-step p {
     font-size: 12.5px;
     font-weight: 300;
     color: rgba(255, 255, 255, .5);
-    line-height: 1.8;
+    line-height: 1.8
 }
 
 .ges-step-arrow {
@@ -507,24 +541,51 @@
     padding: 0 4px;
     margin-top: 60px;
     flex-shrink: 0;
+    list-style: none
 }
 
-/* ════════════════════════════════
-   TÉMOIGNAGES
-════════════════════════════════ */
+/* TÉMOIGNAGES */
 .ges-temoignages {
     background: var(--cream2);
-    padding: 120px 0;
+    padding: 120px 0
+}
+
+.ges-temo-head {
+    margin-bottom: 56px
 }
 
 .ges-temoignages h2 {
-    margin-bottom: 52px;
+    margin-bottom: 52px
+}
+
+.ges-temo-feature {
+    display: grid;
+    grid-template-columns: 440px 1fr;
+    gap: 3px;
+    margin-bottom: 3px;
+    min-height: 480px
+}
+
+.ges-temo-img {
+    overflow: hidden;
+    position: relative
+}
+
+.ges-temo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(.16, 1, .3, 1)
+}
+
+.ges-temo-img:hover img {
+    transform: scale(1.03)
 }
 
 .ges-temoignages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
+    gap: 3px
 }
 
 .ges-temo {
@@ -535,12 +596,12 @@
     flex-direction: column;
     gap: 0;
     border-left: 2px solid transparent;
-    transition: border-color .4s, box-shadow .4s;
+    transition: border-color .4s, box-shadow .4s
 }
 
 .ges-temo:hover {
     border-color: var(--sand);
-    box-shadow: 0 8px 32px rgba(76, 87, 96, .08);
+    box-shadow: 0 8px 32px rgba(76, 87, 96, .08)
 }
 
 .ges-temo-stars {
@@ -548,7 +609,7 @@
     font-size: 13px;
     letter-spacing: 3px;
     margin-bottom: 18px;
-    display: block;
+    display: block
 }
 
 .ges-temo p {
@@ -559,7 +620,7 @@
     color: var(--iron);
     line-height: 1.7;
     flex: 1;
-    margin-bottom: 24px;
+    margin-bottom: 24px
 }
 
 .ges-temo footer {
@@ -567,354 +628,21 @@
     flex-direction: column;
     gap: 3px;
     padding-top: 18px;
-    border-top: 1px solid var(--borders);
+    border-top: 1px solid var(--borders)
 }
 
 .ges-temo-name {
     font-size: 11px;
     font-weight: 400;
     color: var(--iron);
-    letter-spacing: .5px;
+    letter-spacing: .5px
 }
 
 .ges-temo-villa {
     font-size: 9.5px;
     font-weight: 300;
     color: var(--khaki);
-    letter-spacing: 1px;
-}
-
-/* ════════════════════════════════
-   FAQ
-════════════════════════════════ */
-.ges-faq {
-    background: var(--cream);
-    padding: 120px 0;
-}
-
-.ges-faq-grid {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 80px;
-    align-items: start;
-}
-
-.ges-faq-left h2 {
-    margin-bottom: 16px;
-}
-
-.ges-faq-left>p {
-    font-size: 13.5px;
-    font-weight: 300;
-    color: var(--dim);
-    line-height: 1.82;
-    margin-bottom: 28px;
-}
-
-.ges-faq-list {
-    display: flex;
-    flex-direction: column;
-}
-
-/* ════════════════════════════════
-   CTA FINAL
-════════════════════════════════ */
-.ges-cta {
-    background: var(--iron);
-    padding: 120px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.ges-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, rgba(215, 206, 178, .08) 0%, transparent 65%);
-}
-
-.ges-cta-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 0 var(--pad);
-}
-
-.ges-cta h2 {
-    color: #fff;
-    margin-bottom: 16px;
-}
-
-.ges-cta h2 em {
-    color: var(--sand);
-}
-
-.ges-cta>.ges-cta-inner>p {
-    font-size: 14px;
-    font-weight: 200;
-    color: rgba(255, 255, 255, .55);
-    line-height: 1.85;
-    margin-bottom: 36px;
-}
-
-.ges-cta-btns {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-bottom: 28px;
-}
-
-.ges-cta-contacts {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    font-size: 11px;
-    color: rgba(255, 255, 255, .35);
-    flex-wrap: wrap;
-}
-
-.ges-cta-contacts a {
-    color: rgba(255, 255, 255, .45);
-    transition: color .3s;
-}
-
-.ges-cta-contacts a:hover {
-    color: var(--sand);
-}
-
-.ges-cta-contacts span {
-    color: rgba(255, 255, 255, .18);
-}
-
-/* ════════════════════════════════
-   RESPONSIVE
-════════════════════════════════ */
-@media (max-width: 1100px) {
-    .ges-promesse-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-    }
-
-    .gp-badge {
-        left: 0;
-        bottom: -16px;
-    }
-
-    .ges-services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .ges-steps {
-        flex-direction: column;
-        gap: 2px;
-    }
-
-    .ges-step-arrow {
-        transform: rotate(90deg);
-        margin: 0 auto;
-    }
-
-    .ges-temoignages-grid {
-        grid-template-columns: 1fr;
-        gap: 3px;
-    }
-
-    .ges-faq-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-}
-
-@media (max-width: 768px) {
-    .ges-hero-content {
-        position: relative;
-        z-index: 2;
-        padding: 88px var(--pad) 48px;
-        max-width: var(--maxw);
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .ges-h1 {
-        font-size: clamp(40px, 5.5vw, 80px);
-    }
-
-    .ges-hero-kpis {
-        height: auto;
-        flex-wrap: wrap;
-        padding: 16px var(--pad);
-        gap: 16px;
-    }
-
-    .ghk-item {
-        padding: 0 16px;
-    }
-
-    .ghk-sep {
-        display: none;
-    }
-
-    .ges-services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .ges-steps {
-        gap: 2px;
-    }
-
-    .ges-step-arrow {
-        display: none;
-    }
-
-    .ges-hero-ctas {
-        flex-direction: column;
-    }
-
-    .btn-sand,
-    .btn-ghost-light {
-        justify-content: center;
-    }
-
-    .ges-cta-btns {
-        flex-direction: column;
-    }
-
-    .gp-img-wrap {
-        height: 360px;
-    }
-
-    .ghk-n {
-        font-size: clamp(22px, 6vw, 32px);
-    }
-}
-
-@media (max-width: 480px) {
-    .ges-hero-kpis {
-        justify-content: flex-start;
-    }
-
-    .ghk-item {
-        padding: 8px 0;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    .ges-hero-img,
-    .gp-img {
-        transition: none !important;
-    }
-
-    .ges-h1-w,
-    .ges-eyebrow,
-    .ges-sub,
-    .ges-hero-ctas,
-    .ges-hero-kpis {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-}
-
-/* ════════════════════════════════
-   GALERIE 3 IMAGES
-════════════════════════════════ */
-.ges-galerie {
-    background: var(--white);
-    overflow: hidden;
-    position: relative;
-    z-index: 0;
-}
-
-.ges-galerie-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3px;
-    height: 680px;
-}
-
-.gg-right-col {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 3px;
-}
-
-.gg-item {
-    position: relative;
-    overflow: hidden;
-}
-
-.gg-item--tall {
-    /* colonne gauche pleine hauteur */
-}
-
-.gg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 1.2s cubic-bezier(.16, 1, .3, 1);
-}
-
-.gg-item:hover .gg-img {
-    transform: scale(1.04);
-}
-
-.gg-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(12, 11, 9, .90) 0%, rgba(12, 11, 9, .58) 45%, rgba(12, 11, 9, .20) 100%);
-    display: flex;
-    align-items: flex-end;
-    padding: 22px 24px;
-    opacity: 0;
-    transition: opacity .4s;
-}
-
-.gg-item:hover .gg-overlay {
-    opacity: 1;
-}
-
-.gg-label {
-    font-size: 8px;
-    font-weight: 300;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, .85);
-}
-
-/* ════════════════════════════════
-   TÉMOIGNAGE FEATURE
-════════════════════════════════ */
-.ges-temo-head {
-    margin-bottom: 56px;
-}
-
-.ges-temo-feature {
-    display: grid;
-    grid-template-columns: 440px 1fr;
-    gap: 3px;
-    margin-bottom: 3px;
-    min-height: 480px;
-}
-
-.ges-temo-img {
-    overflow: hidden;
-    position: relative;
-}
-
-.ges-temo-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 1.2s cubic-bezier(.16, 1, .3, 1);
-}
-
-.ges-temo-img:hover img {
-    transform: scale(1.03);
+    letter-spacing: 1px
 }
 
 .ges-temo--large {
@@ -922,11 +650,11 @@
     padding: 52px 48px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center
 }
 
 .ges-temo--large .ges-temo-stars {
-    color: var(--sand2);
+    color: var(--sand2)
 }
 
 .ges-temo--large p {
@@ -937,72 +665,385 @@
     color: rgba(255, 255, 255, .9);
     line-height: 1.7;
     flex: 1;
-    margin-bottom: 32px;
+    margin-bottom: 32px
 }
 
 .ges-temo--large .ges-temo-name {
     color: var(--sand);
     font-size: 12px;
-    letter-spacing: 1px;
+    letter-spacing: 1px
 }
 
 .ges-temo--large .ges-temo-villa {
     color: rgba(255, 255, 255, .35);
     font-size: 9.5px;
-    letter-spacing: 1px;
+    letter-spacing: 1px
 }
 
 .ges-temo--large footer {
-    border-top: 1px solid rgba(215, 206, 178, .15);
+    border-top: 1px solid rgba(215, 206, 178, .15)
 }
 
-/* Responsive galerie + témoignage feature */
-@media (max-width: 900px) {
-    .ges-galerie-grid {
+/* FAQ */
+.ges-faq {
+    background: var(--cream);
+    padding: 120px 0
+}
+
+.ges-faq-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 80px;
+    align-items: start
+}
+
+.ges-faq-left h2 {
+    margin-bottom: 16px
+}
+
+.ges-faq-left>p {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--dim);
+    line-height: 1.82;
+    margin-bottom: 28px
+}
+
+.ges-faq-left>a {
+    display: inline-block
+}
+
+.ges-faq-list {
+    display: flex;
+    flex-direction: column
+}
+
+/* CTA */
+.ges-cta {
+    background: var(--iron);
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden
+}
+
+.ges-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(215, 206, 178, .08) 0%, transparent 65%)
+}
+
+.ges-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 var(--pad)
+}
+
+.ges-cta h2 {
+    color: #fff;
+    margin-bottom: 16px
+}
+
+.ges-cta h2 em {
+    color: var(--sand)
+}
+
+.ges-cta-inner>p {
+    font-size: 14px;
+    font-weight: 200;
+    color: rgba(255, 255, 255, .55);
+    line-height: 1.85;
+    margin-bottom: 36px
+}
+
+.ges-cta-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 28px
+}
+
+.ges-cta-contacts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, .35);
+    flex-wrap: wrap
+}
+
+.ges-cta-contacts a {
+    color: rgba(255, 255, 255, .45);
+    transition: color .3s
+}
+
+.ges-cta-contacts a:hover {
+    color: var(--sand)
+}
+
+.ges-cta-contacts span {
+    color: rgba(255, 255, 255, .18)
+}
+
+/* FOOTER — identique à location.css */
+.fn-col-title {
+    font-size: 7.5px;
+    font-weight: 400;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--khaki);
+    margin-bottom: 4px
+}
+
+/* RESPONSIVE 1100px */
+@media(max-width:1100px) {
+    .ges-promesse-grid {
         grid-template-columns: 1fr;
-        height: auto;
+        gap: 48px
     }
 
-    .gg-right-col {
-        grid-template-rows: 280px 280px;
+    .gp-badge {
+        left: 0;
+        bottom: -16px
     }
 
-    .gg-item--tall {
-        height: 380px;
+    .gp-img-wrap {
+        height: 480px
+    }
+
+    .ges-services-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .ges-steps {
+        flex-direction: column;
+        gap: 2px
+    }
+
+    .ges-step-arrow {
+        transform: rotate(90deg);
+        margin: 0 auto
+    }
+
+    .ges-temoignages-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3px
     }
 
     .ges-temo-feature {
         grid-template-columns: 1fr;
-        min-height: auto;
+        min-height: auto
     }
 
     .ges-temo-img {
-        height: 300px;
+        height: 320px
     }
-}
 
-@media (max-width: 600px) {
+    .ges-faq-grid {
+        grid-template-columns: 1fr;
+        gap: 40px
+    }
+
     .ges-galerie-grid {
-        height: auto;
-    }
-
-    .gg-item--tall {
-        height: 280px;
+        height: auto
     }
 
     .gg-right-col {
-        grid-template-rows: 200px 200px;
+        grid-template-rows: 280px 280px
     }
 
-    .ges-temo--large {
-        padding: 32px 24px;
+    .gg-item--tall {
+        height: 380px
     }
 }
 
-/* Fix services head isolation */
-.ges-services-head {
-    text-align: center;
-    margin-bottom: 64px;
-    position: relative;
-    z-index: 1;
+/* RESPONSIVE 768px */
+@media(max-width:768px) {
+    .ges-hero {
+        height: auto;
+        max-height: none;
+        min-height: auto
+    }
+
+    .ges-hero-content {
+        padding: 96px var(--pad) 32px
+    }
+
+    .ges-h1 {
+        font-size: clamp(32px, 9vw, 52px)
+    }
+
+    .ges-sub {
+        font-size: 13px;
+        margin-bottom: 24px
+    }
+
+    .ges-hero-ctas {
+        flex-direction: column;
+        gap: 10px
+    }
+
+    .ges-hero-ctas .btn-sand,
+    .ges-hero-ctas .btn-ghost-light {
+        width: 100%;
+        justify-content: center;
+        text-align: center
+    }
+
+    .ges-hero-kpis {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 16px var(--pad);
+        gap: 16px;
+        justify-content: center
+    }
+
+    .ghk-item {
+        padding: 0 16px
+    }
+
+    .ghk-sep {
+        display: none
+    }
+
+    .ges-promesse {
+        padding: 72px 0 80px
+    }
+
+    .gp-img-wrap {
+        height: 300px
+    }
+
+    .gp-badge {
+        left: 16px;
+        bottom: -12px;
+        padding: 14px 18px
+    }
+
+    .gp-badge-n {
+        font-size: 26px
+    }
+
+    .ges-galerie-grid {
+        grid-template-columns: 1fr;
+        height: auto
+    }
+
+    .gg-item--tall {
+        height: 260px
+    }
+
+    .gg-right-col {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 180px;
+        gap: 3px
+    }
+
+    .ges-services {
+        padding: 72px 0
+    }
+
+    .ges-services-grid {
+        grid-template-columns: 1fr;
+        gap: 2px
+    }
+
+    .gs-card {
+        padding: 32px 20px
+    }
+
+    .ges-process {
+        padding: 72px 0
+    }
+
+    .ges-step {
+        padding: 24px 16px
+    }
+
+    .ges-step-arrow {
+        display: none
+    }
+
+    .ges-step-n {
+        font-size: 36px
+    }
+
+    .ges-temoignages {
+        padding: 72px 0
+    }
+
+    .ges-temo-img {
+        height: 220px
+    }
+
+    .ges-temoignages-grid {
+        grid-template-columns: 1fr
+    }
+
+    .ges-temo--large {
+        padding: 28px 20px
+    }
+
+    .ges-temo--large p {
+        font-size: 15px
+    }
+
+    .ges-faq {
+        padding: 72px 0
+    }
+
+    .ges-cta {
+        padding: 72px 0
+    }
+
+    .ges-cta-btns {
+        flex-direction: column
+    }
+
+    .ges-cta-btns .btn-sand,
+    .ges-cta-btns .btn-ghost-light {
+        width: 100%;
+        justify-content: center
+    }
+}
+
+/* RESPONSIVE 480px */
+@media(max-width:480px) {
+    .gg-right-col {
+        grid-template-columns: 1fr;
+        grid-template-rows: 160px 160px
+    }
+
+    .ghk-item {
+        padding: 0 14px
+    }
+}
+
+/* REDUCED MOTION */
+@media(prefers-reduced-motion:reduce) {
+
+    .ges-hero-img,
+    .gp-img,
+    .gg-img {
+        transition: none !important
+    }
+
+    .ges-h1-w,
+    .ges-eyebrow,
+    .ges-sub,
+    .ges-hero-ctas,
+    .ges-hero-kpis {
+        opacity: 1 !important;
+        transform: none !important
+    }
+
+    .gs-card::before {
+        transition: none !important
+    }
 }

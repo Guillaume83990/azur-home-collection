@@ -243,28 +243,25 @@ document.addEventListener('DOMContentLoaded', function () {
         { scale: 1.08 },
         { scale: 1.0, duration: 2.4, ease: 'power2.out' }
     );
-    gsap.to(heroImg, {
-        scrollTrigger: { trigger: '.vd-hero', start: 'top top', end: 'bottom top', scrub: 2 },
-        y: '18%', ease: 'none'
-    });
+    /* parallax scrub supprimé — TBT + assombrissement */
 
     /* Hero texte cascade */
     var tl = gsap.timeline({ delay: .2 });
-    tl.from('.vd-breadcrumb', { opacity: 0, y: 10, duration: .5, ease: 'power3.out' })
-        .from('.vd-badge', { opacity: 0, y: 14, duration: .5 }, '-=.2')
-        .from('.vd-h1', { opacity: 0, y: 28, duration: .7, ease: 'power4.out' }, '-=.2')
-        .from('.vd-location', { opacity: 0, y: 12, duration: .5 }, '-=.3')
-        .from('.vd-hero-specs', { opacity: 0, y: 16, duration: .6 }, '-=.2')
-        .from('.vd-hero-bar', { opacity: 0, y: 20, duration: .5 }, '-=.2');
+    tl.from('.vd-breadcrumb', { opacity: 0, y: 10, duration: .5, ease: 'power3.out', clearProps: 'all' })
+        .from('.vd-badge', { opacity: 0, y: 14, duration: .5, clearProps: 'all' }, '-=.2')
+        .from('.vd-h1', { opacity: 0, y: 28, duration: .7, ease: 'power4.out', clearProps: 'all' }, '-=.2')
+        .from('.vd-location', { opacity: 0, y: 12, duration: .5, clearProps: 'all' }, '-=.3')
+        .from('.vd-hero-specs', { opacity: 0, y: 16, duration: .6, clearProps: 'all' }, '-=.2')
+        .from('.vd-hero-bar', { opacity: 0, y: 20, duration: .5, clearProps: 'all' }, '-=.2');
 
     /* Description */
     gsap.from('#vd-desc-left > *', {
         scrollTrigger: { trigger: '#vd-desc', start: 'top 76%', once: true },
-        opacity: 0, y: 28, duration: .8, stagger: .1, ease: 'power3.out'
+        opacity: 0, y: 28, duration: .8, stagger: .1, ease: 'power3.out', clearProps: 'all'
     });
     gsap.from('#vd-desc-right > *', {
         scrollTrigger: { trigger: '#vd-desc', start: 'top 76%', once: true },
-        opacity: 0, y: 28, duration: .8, stagger: .12, delay: .2, ease: 'power3.out'
+        opacity: 0, y: 28, duration: .8, stagger: .12, delay: .2, ease: 'power3.out', clearProps: 'all'
     });
 
     /* Galerie — chaque item avec clip reveal */
@@ -273,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function () {
             { opacity: 0, y: 40 },
             {
                 scrollTrigger: { trigger: '#vd-galerie', start: 'top 80%', once: true },
-                opacity: 1, y: 0, duration: .7, delay: i * .08, ease: 'power3.out'
+                opacity: 1, y: 0, duration: .7, delay: i * .08, ease: 'power3.out', clearProps: 'all'
             }
         );
     });
@@ -281,18 +278,18 @@ document.addEventListener('DOMContentLoaded', function () {
     /* Conciergerie items */
     gsap.from('.vd-conc-item', {
         scrollTrigger: { trigger: '.vd-conc', start: 'top 78%', once: true },
-        opacity: 0, y: 24, duration: .6, stagger: .08, ease: 'power3.out'
+        opacity: 0, y: 24, duration: .6, stagger: .08, ease: 'power3.out', clearProps: 'all'
     });
 
     /* Similaires */
     gsap.from('.vd-sim-card', {
         scrollTrigger: { trigger: '.vd-similaires', start: 'top 80%', once: true },
-        opacity: 0, y: 28, duration: .7, stagger: .12, ease: 'power3.out'
+        opacity: 0, y: 28, duration: .7, stagger: .12, ease: 'power3.out', clearProps: 'all'
     });
 
     /* CTA final */
     gsap.from('.vd-cta-inner > *', {
         scrollTrigger: { trigger: '.vd-cta-final', start: 'top 78%', once: true },
-        opacity: 0, y: 24, duration: .7, stagger: .1, ease: 'power3.out'
+        opacity: 0, y: 24, duration: .7, stagger: .1, ease: 'power3.out', clearProps: 'all'
     });
 });

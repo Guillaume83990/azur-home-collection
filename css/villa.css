@@ -155,7 +155,7 @@
     font-weight: 300;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, .6);
+    color: rgba(255, 255, 255, .80);
     text-shadow: 0 1px 8px rgba(0, 0, 0, .5);
 }
 
@@ -198,7 +198,7 @@
     gap: 7px;
     font-size: 11px;
     font-weight: 300;
-    color: rgba(255, 255, 255, .65);
+    color: rgba(255, 255, 255, .90);
     text-decoration: none;
     transition: color .3s;
     letter-spacing: .5px;
@@ -209,7 +209,7 @@
 }
 
 .vd-sep {
-    color: rgba(255, 255, 255, .25);
+    color: rgba(255, 255, 255, .50);
     font-size: 16px;
 }
 
@@ -370,7 +370,7 @@
 .vd-sidebar-cta>p {
     font-size: 11px;
     font-weight: 300;
-    color: rgba(255, 255, 255, .45);
+    color: rgba(255, 255, 255, .75);
     margin-bottom: 18px;
 }
 
@@ -387,9 +387,9 @@
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
-    border-bottom: 1px solid rgba(215, 206, 178, .08);
+    border-bottom: 1px solid rgba(215, 206, 178, .15);
     font-size: 11.5px;
-    color: rgba(255, 255, 255, .55);
+    color: rgba(255, 255, 255, .80);
     text-decoration: none;
     transition: color .3s;
 }
@@ -404,7 +404,7 @@
 
 .vd-sidebar-phones span:first-child {
     font-weight: 400;
-    color: rgba(255, 255, 255, .8);
+    color: #fff;
 }
 
 /* ════════════════════════════════
@@ -473,9 +473,9 @@
 }
 
 .vd-gal-text {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 300;
-    color: var(--dim);
+    color: var(--iron);
     letter-spacing: .5px;
 }
 
@@ -500,6 +500,10 @@
     font-size: clamp(26px, 3vw, 42px);
 }
 
+.vd-conc .eyebrow.light {
+    color: var(--sand);
+}
+
 .vd-conc h2 em {
     font-style: italic;
     color: var(--sand);
@@ -513,9 +517,10 @@
 }
 
 .vd-conc-item {
-    background: rgba(255, 255, 255, .06);
+    background: rgba(255, 255, 255, .08);
     padding: 32px 20px;
     transition: background .3s;
+    border: 1px solid rgba(255, 255, 255, .06);
 }
 
 .vd-conc-item:hover {
@@ -529,9 +534,9 @@
 }
 
 .vd-conc-item p {
-    font-size: 11.5px;
+    font-size: 12px;
     font-weight: 300;
-    color: rgba(255, 255, 255, .55);
+    color: rgba(255, 255, 255, .85);
 }
 
 /* ════════════════════════════════
@@ -594,7 +599,7 @@
     font-weight: 300;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--steel);
+    color: var(--dim);
     display: block;
     margin-bottom: 6px;
 }
@@ -633,9 +638,10 @@
 }
 
 .vd-cta-inner>p {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 300;
-    color: var(--dim);
+    color: var(--iron);
+    opacity: .8;
     margin-bottom: 32px;
 }
 
@@ -739,9 +745,10 @@
 }
 
 .bm-sub {
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 300;
-    color: var(--dim);
+    color: var(--iron);
+    opacity: .75;
     line-height: 1.7;
 }
 
@@ -862,9 +869,9 @@
 }
 
 .bm-rgpd-note {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 300;
-    color: var(--khaki);
+    color: var(--dim);
     text-align: center;
 }
 
@@ -927,7 +934,7 @@
 .bm-conf-sign {
     font-size: 11px;
     font-weight: 300;
-    color: var(--khaki);
+    color: var(--dim);
     font-style: italic;
 }
 
@@ -1322,5 +1329,93 @@
     .vd-hero-bar {
         opacity: 1 !important;
         transform: none !important;
+    }
+}
+
+/* ════════════════════════════════
+   CORRECTIONS CONTRASTE SUPPLÉMENTAIRES
+════════════════════════════════ */
+/* Eyebrow conciergerie visible sur fond sombre */
+.vd-conc .eyebrow {
+    color: var(--sand) !important;
+}
+
+/* CTA final - eyebrow visible sur crème */
+.vd-cta-final .eyebrow {
+    color: var(--khaki);
+}
+
+/* vd-btn-ghost sur fond crème (CTA final) */
+.vd-cta-final .vd-btn-ghost {
+    color: var(--iron);
+    border-color: var(--iron);
+}
+
+.vd-cta-final .vd-btn-ghost:hover {
+    background: var(--iron);
+    color: #fff;
+}
+
+/* Breadcrumb hero — séparateurs */
+.vd-breadcrumb>span[aria-hidden] {
+    color: rgba(255, 255, 255, .45);
+}
+
+.vd-breadcrumb a {
+    color: rgba(255, 255, 255, .80);
+}
+
+/* Galerie légende numéro */
+.vd-gal-num {
+    color: rgba(76, 87, 96, .35);
+}
+
+/* Spec row : libellé gauche */
+.vd-spec-row span:first-child {
+    color: var(--dim);
+}
+
+/* ════════════════════════════════
+   RESPONSIVE SUPPLÉMENTAIRE 600px
+════════════════════════════════ */
+@media (max-width: 600px) {
+    .vd-hero-bar-inner {
+        padding: 12px var(--pad);
+        gap: 8px;
+    }
+
+    .vd-btn-primary {
+        font-size: 8.5px;
+        padding: 12px 16px;
+        letter-spacing: 2px;
+    }
+
+    .vd-contact-link {
+        font-size: 11.5px;
+    }
+
+    .vd-conc-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+    }
+
+    .vd-desc {
+        padding: 48px 0;
+    }
+
+    .vd-similaires {
+        padding: 48px 0;
+    }
+
+    .vd-cta-final {
+        padding: 48px 0;
+    }
+
+    .bm-form-wrap {
+        padding: 24px 16px 36px;
+    }
+
+    .bm-fields {
+        gap: 12px;
     }
 }

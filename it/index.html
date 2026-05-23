@@ -5,74 +5,151 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-        content="Azur Home Collection — Ospitalità di lusso. Ville eccezionali nel Golfo di Saint-Tropez." />
+        content="Azur Villa Prestige — Ospitalità di lusso. Ville d'eccezione nel Golfo di Saint-Tropez." />
     <meta name="theme-color" content="#F5F0E8" />
     <link rel="icon" type="image/x-icon" href="../favicon.ico" />
     <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-    <link rel="alternate" hreflang="fr" href="https://www.azurhomecollection.com/" />
-    <link rel="alternate" hreflang="en" href="https://www.azurhomecollection.com/en/" />
-    <link rel="alternate" hreflang="it" href="https://www.azurhomecollection.com/it/" />
-    <link rel="alternate" hreflang="it" href="https://www.azurhomecollection.com/it/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.azurhomecollection.com/" />
-    <meta property="og:title" content="Azur Home Collection — L'Eccellenza come Unica Destinazione" />
-    <meta property="og:image" content="../images/hero-desktop.webp" />
-    <title>Azur Home Collection — Ospitalità di Lusso · Golfo di Saint-Tropez</title>
+    <link rel="alternate" hreflang="it" href="https://www.azurvillaprestige.com/" />
+    <link rel="alternate" hreflang="en" href="https://www.azurvillaprestige.com/en/" />
+    <link rel="alternate" hreflang="de" href="https://www.azurvillaprestige.com/de/" />
+    <link rel="alternate" hreflang="it" href="https://www.azurvillaprestige.com/it/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.azurvillaprestige.com/" />
+    <meta property="og:title" content="Azur Villa Prestige — L'Eccellenza come Unica Destinazione" />
+    <meta property="og:image" content="images/hero-desktop.webp" />
+    <title>Azur Villa Prestige — Ospitalità di Lusso · Golfo di Saint-Tropez</title>
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Azur Home Collection","url":"https://www.azurhomecollection.com","telephone":"+33621084443","priceRange":"€€€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"47"}}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Azur Villa Prestige","url":"https://www.azurvillaprestige.com","telephone":"+33600000001","priceRange":"€€€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"47"}}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
+    <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@200;300;400&display=swap"
-        rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>(function () { const k = 'XXXXXXXXXXXXXXXXXXXX'; if (typeof emailjs !== 'undefined' && k !== 'XXXXXXXXXXXXXXXXXXXX') emailjs.init({ publicKey: k }); })();</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+        as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@200;300;400&display=swap"
+            rel="stylesheet" />
+    </noscript>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');</script>
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body>
 
+    <!-- INTRO CINÉMATIQUE -->
     <div class="intro" id="intro" aria-hidden="true">
-        <div class="intro-top"></div>
-        <div class="intro-bot"></div>
-        <div class="intro-logo"><img src="../images/logo.jpeg" alt="Azur Home Collection" class="intro-logo-img" />
+
+        <!-- Fond sombre -->
+        <div class="intro-bg" id="intro-bg"></div>
+
+        <!-- Grain texture overlay -->
+        <div class="intro-grain"></div>
+
+        <!-- Lignes horizontales décoratives -->
+        <div class="intro-line intro-line--top" id="il-top"></div>
+        <div class="intro-line intro-line--bot" id="il-bot"></div>
+
+        <!-- Contenu central -->
+        <div class="intro-body" id="intro-body">
+
+            <!-- Eyebrow -->
+            <div class="intro-eyebrow" id="intro-eyebrow">
+                <span class="ie-dash"></span>
+                <span class="ie-text">Golfo di Saint-Tropez</span>
+                <span class="ie-dash"></span>
+            </div>
+
+            <!-- Nom marque — 2 lignes Cormorant -->
+            <div class="intro-brand" id="intro-brand">
+                <div class="intro-brand-line" id="ibl-1">
+                    <span class="ibl-mask"><span class="ibl-word" id="ibw-1">Azur</span></span>
+                </div>
+                <div class="intro-brand-line intro-brand-line--em" id="ibl-2">
+                    <span class="ibl-mask"><em class="ibl-word" id="ibw-2">Villa Prestige</em></span>
+                </div>
+            </div>
+
+            <!-- Séparateur -->
+            <div class="intro-sep" id="intro-sep">
+                <div class="is-line is-line--l"></div>
+                <div class="is-diamond"></div>
+                <div class="is-line is-line--r"></div>
+            </div>
+
+            <!-- Tagline -->
+            <div class="intro-tagline" id="intro-tagline">
+                <span>L'eccezione</span>
+                <span class="it-dot">·</span>
+                <span>come unica bussola</span>
+            </div>
+
+            <!-- Compteur / chiffre luxe -->
+            <div class="intro-counter" id="intro-counter">
+                <svg class="ic-circle" viewBox="0 0 120 120" fill="none">
+                    <circle cx="60" cy="60" r="56" stroke="rgba(215,206,178,.2)" stroke-width=".5" />
+                    <circle class="ic-arc" cx="60" cy="60" r="56" stroke="rgba(215,206,178,.7)" stroke-width=".8"
+                        stroke-dasharray="352" stroke-dashoffset="352" stroke-linecap="round"
+                        transform="rotate(-90 60 60)" />
+                </svg>
+                <span class="ic-pct" id="ic-pct">0</span>
+            </div>
+
         </div>
+
+        <!-- Barre bas -->
+        <div class="intro-footer" id="intro-footer">
+            <span>Dal 2020</span>
+            <span class="if-sep"></span>
+            <span>Ville d'eccezione</span>
+            <span class="if-sep"></span>
+            <span>Concierge 5&#9733;</span>
+        </div>
+
     </div>
 
+    <!-- NAV -->
     <header class="nav" id="nav">
-        <a class="nav-logo" href="/it/"><img src="../images/logo.jpeg" alt="Azur Home Collection"
-                class="nav-logo-img" /></a>
+        <a class="nav-logo" href="/"><img src="../images/logo.png" alt="Azur Villa Prestige" class="nav-logo-img" /></a>
         <nav class="nav-links">
-            <a href="/it/location">Mieten</a><a href="/it/gestion">Verwaltung</a><a
-                href="/it/conciergerie">Concierge</a><a href="/it/a-propos">Chi siamo</a><a href="/it/blog">Blog</a><a
-                href="/it/contact">Contatto</a>
+            <a href="../location.html">Location</a>
+            <a href="../gestion.html">Gestion</a>
+            <a href="../conciergerie.html">Concierge</a>
+            <a href="../a-propos.html">À propos</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../blog.html">Blog</a>
         </nav>
         <div class="nav-right">
             <div class="lang-sel">
-                <button class="lb" onclick="window.location='/'">Fr</button><span>·</span>
-                <button class="lb" onclick="window.location='/en/'">En</button><span>·</span>
-                <button class="lb" onclick="window.location='/de/'">De</button><span>·</span>
-                <button class="lb active">It</button>
+                <button class="lb" aria-label="Français" onclick="window.location='../'">Fr</button><span>·</span>
+                <button class="lb" onclick="window.location='../en/'" aria-label="English">En</button><span>·</span>
+                <button class="lb" onclick="window.location='../de/'" aria-label="Deutsch">De</button><span>·</span>
+                <button class="lb" onclick="window.location='../'" aria-label="Italiano">It</button>
             </div>
-            <button class="nav-cta" id="nav-cta" onclick="openLeadModal()">Contatto</button>
-            <button class="burger" id="burger" aria-expanded="false"
-                aria-label="Menü"><span></span><span></span></button>
+            <button class="nav-cta" id="nav-cta" onclick="openMaj();gtag('event','nav_cta',{event_category:'Nav'})"
+                aria-label="Contattaci" data-t="nav.book">Contattaci</button>
+            <button class="burger" id="burger" aria-expanded="false" aria-label="Apri menu"
+                aria-controls="mob-menu"><span></span><span></span></button>
         </div>
     </header>
 
     <div class="mob-menu" id="mob-menu" aria-hidden="true">
-        <nav><a href="/it/location">Mieten</a><a href="/it/gestion">Verwaltung</a><a
-                href="/it/conciergerie">Concierge</a><a href="/it/a-propos">Chi siamo</a><a href="/it/blog">Blog</a><a
-                href="/it/contact">Contatto</a></nav>
-        <div class="mob-lang"><button class="lb" onclick="window.location='/'">Fr</button><button class="lb"
-                onclick="window.location='/en/'">En</button><button class="lb"
-                onclick="window.location='/de/'">De</button><button class="lb active">It</button></div>
+        <nav>
+            <a href="../location.html" data-t="nav.location">Location</a>
+            <a href="../gestion.html">Gestion</a>
+            <a href="../conciergerie.html">Concierge</a>
+            <a href="../a-propos.html">À propos</a>
+
+            <a href="../contact.html">Contact</a>
+        </nav>
+        <div class="mob-lang">
+            <button class="lb" aria-label="Français" onclick="window.location='../'">Fr</button>
+            <button class="lb" onclick="window.location='../en/'" aria-label="English">En</button>
+            <button class="lb" onclick="window.location='../de/'" aria-label="Deutsch">De</button>
+            <button class="lb" onclick="window.location='../'" aria-label="Italiano">It</button>
+        </div>
     </div>
 
+    <!-- HERO -->
     <section class="hero" id="hero">
         <div class="hero-media">
             <div class="hero-img-wrap" id="hpx">
@@ -80,297 +157,371 @@
                     <source media="(max-width:768px)" srcset="../images/hero-mobile.webp" type="image/webp" />
                     <source media="(max-width:1280px)" srcset="../images/hero-tablet.webp" type="image/webp" />
                     <source srcset="../images/hero-desktop.webp" type="image/webp" />
-                    <img src="../images/hero-desktop.webp" alt="Villa di lusso Côte d'Azur" class="hero-img"
+                    <img src="../images/hero-desktop.webp" alt="Villa di lusso Costa Azzurra" class="hero-img"
                         fetchpriority="high" decoding="async" width="1920" height="1080" />
                 </picture>
             </div>
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content" id="hc">
-            <p class="hero-eyebrow" id="heyebrow"><span class="he-line"></span><span>Côte d'Azur · Riviera francese ·
-                    Dal 2020</span></p>
+            <p class="hero-eyebrow" id="heyebrow"><span class="he-line"></span><span data-t="hero.tag">Côte d'Azur ·
+                    Alpes françaises · Depuis 2020</span></p>
             <h1 class="hero-h1" id="hh1">
-                <div class="h1w"><span>Eccellenza</span></div>
-                <div class="h1w"><em>als einziges</em></div>
-                <div class="h1w"><span>Ziel.</span></div>
+                <div class="h1w"><span data-t="h1.l1">Eccellenza</span></div>
+                <div class="h1w"><em data-t="h1.l2">come Unica</em></div>
+                <div class="h1w"><span data-t="h1.l3">Destinazione.</span></div>
             </h1>
-            <p class="hero-sub" id="hsub">Außergewöhnliche Villen, ausgewählt mit der Strenge eines Fünf-Sterne-Service.
-            </p>
+            <p class="hero-sub" id="hsub" data-t="hero.sub">Villas d'exception sélectionnées avec la rigueur d'un
+                service cinq étoiles.</p>
+
+            <!-- SEARCH PILL — style CSVillas/Emerald arrondi -->
             <div class="search-pill" id="search-pill">
                 <div class="sp-field">
-                    <label class="sp-lbl">Destinazione</label>
+                    <label class="sp-lbl" data-t="search.dest">Destinazione</label>
                     <div class="sp-input-wrap">
-                        <input type="text" class="sp-inp" id="sp-dest" placeholder="Saint-Tropez, Ramatuelle, Gassin…"
-                            autocomplete="off" onfocus="showDestDrop()" onblur="hideDestDrop()" />
+                        <input type="text" class="sp-inp" id="sp-dest" aria-label="Destination"
+                            placeholder="Saint-Tropez, Ramatuelle, Gassin…" autocomplete="off" onfocus="showDestDrop()"
+                            onblur="hideDestDrop()" autocomplete="off" />
                         <div class="sp-dest-drop" id="sp-dest-drop">
-                            <button type="button" onmousedown="setDest('Saint-Tropez')">🌊 Saint-Tropez</button>
-                            <button type="button" onmousedown="setDest('Ramatuelle')">🌿 Ramatuelle</button>
-                            <button type="button" onmousedown="setDest('Gassin')">🏡 Gassin</button>
-                            <button type="button" onmousedown="setDest('Les Parcs')">🌴 Les Parcs</button>
-                            <button type="button" onmousedown="setDest('Tahiti Beach')">🏖️ Tahiti Beach</button>
+                            <button type="button" onmousedown="setDest('Saint-Tropez')"
+                                aria-label="Scegli Saint-Tropez">🌊 Saint-Tropez</button>
+                            <button type="button" onmousedown="setDest('Ramatuelle')" aria-label="Scegli Ramatuelle">🌿
+                                Ramatuelle</button>
+                            <button type="button" onmousedown="setDest('Gassin')" aria-label="Scegli Gassin">🏡
+                                Gassin</button>
+                            <button type="button" onmousedown="setDest('Les Parcs')" aria-label="Scegli Les Parcs">🌴
+                                Les Parcs</button>
+                            <button type="button" onmousedown="setDest('Tahiti Beach')"
+                                aria-label="Scegli Tahiti Beach">🏖️ Tahiti Beach</button>
                         </div>
                     </div>
                 </div>
                 <div class="sp-sep"></div>
                 <div class="sp-field sp-field--dates">
-                    <label class="sp-lbl">Arrivo</label>
-                    <input type="date" class="sp-inp sp-date" id="sp-in" />
+                    <label class="sp-lbl" data-t="search.checkin">Arrivo</label>
+                    <input type="date" class="sp-inp sp-date" id="sp-in" aria-label="Data di arrivo" />
                     <span class="sp-arr">→</span>
                     <input type="date" class="sp-inp sp-date" id="sp-out" />
                 </div>
                 <div class="sp-sep"></div>
                 <div class="sp-field">
-                    <label class="sp-lbl">Ospiti</label>
-                    <input type="number" class="sp-inp sp-guests" id="sp-guests" min="1" max="30" placeholder="2" />
+                    <label class="sp-lbl" data-t="search.guests">Ospiti</label>
+                    <input type="number" class="sp-inp sp-guests" id="sp-guests" min="1" max="30" placeholder="2"
+                        aria-label="Voyageurs" aria-label="Numero di ospiti" aria-label="Numero di ospiti" />
                 </div>
                 <div class="sp-sep"></div>
-                <button type="button" class="sp-btn" id="sp-btn" onclick="openLeadModal()">
+
+                <button type="button" class="sp-btn" id="sp-btn" onclick="openLeadModal()" aria-label="Cerca una villa">
                     <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                         <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.6" />
                         <line x1="12.5" y1="12.5" x2="17.5" y2="17.5" stroke="currentColor" stroke-width="1.6"
                             stroke-linecap="round" />
                     </svg>
                 </button>
+                </form>
+            </div><!-- /search-pill -->
+            <div class="search-ok" id="search-ok" style="display:none">
+                <span>✓</span><span data-t="search.success">Votre demande a été envoyée. Nous vous contactons sous
+                    2h.</span>
             </div>
-            <div class="search-ok" id="search-ok" style="display:none"><span>✓</span><span>La sua richiesta è stata
-                    inviata. La contatteremo entro 2 ore.</span></div>
         </div>
         <div class="hero-scroll-ind" aria-hidden="true">
             <div class="hsi-track">
                 <div class="hsi-fill"></div>
-            </div><span>Scorri</span>
+            </div>
+            <span data-t="hero.scroll">Scorri</span>
         </div>
     </section>
 
+    <!-- IDENTITE -->
     <section class="brand" id="brand">
         <div class="brand-wrap">
             <div class="brand-intro">
-                <div class="bi-left"><span class="eyebrow">Chi siamo</span>
-                    <h2><span>Un'esigenza di alto livello,</span><br><em>tre servizi dedicati.</em></h2>
+                <div class="bi-left"><span class="eyebrow" data-t="brand.label">Chi siamo</span>
+                    <h2><span data-t="brand.h1">Un'esigenza di alto livello,</span><br><em data-t="brand.h2">trois
+                            services dédiés.</em></h2>
                 </div>
-                <p class="bi-right">Azur Home Collection non è un'agenzia immobiliare. È una società di ospitalità di
-                    lusso — concepita come un hotel cinque stelle, applicata alle ville private. Ogni proprietà viene
-                    selezionata, gestita e affittata secondo gli standard dell'hotellerie internazionale.</p>
+                <p class="bi-right" data-t="brand.p">Azur Villa Prestige n'est pas une agence immobilière. C'est une
+                    société d'hospitalité de luxe — pensée comme un hôtel cinq étoiles, appliquée aux villas privées.
+                    Chaque propriété est sélectionnée, gérée et louée selon les standards de l'hôtellerie
+                    internationale.</p>
             </div>
             <div class="brand-values">
                 <div class="bv"><span class="bv-n">01</span>
                     <div>
-                        <h3>Eccellenza</h3>
-                        <p>Uno standard senza compromessi su ogni dettaglio.</p>
+                        <h3 data-t="val.excellence">Eccellenza</h3>
+                        <p data-t="val.excellence_p">Uno standard senza compromessi su ogni dettaglio.</p>
                     </div>
                 </div>
                 <div class="bv"><span class="bv-n">02</span>
                     <div>
-                        <h3>Discrezione</h3>
-                        <p>Un rapporto di fiducia con i nostri proprietari.</p>
+                        <h3 data-t="val.discret">Discrezione</h3>
+                        <p data-t="val.discret_p">Un rapporto di fiducia con i nostri proprietari.</p>
                     </div>
                 </div>
                 <div class="bv"><span class="bv-n">03</span>
                     <div>
-                        <h3>Su misura</h3>
-                        <p>Ogni villa, ogni soggiorno pensati individualmente.</p>
+                        <h3 data-t="val.surmesure">Su misura</h3>
+                        <p data-t="val.surmesure_p">Ogni villa, ogni soggiorno pensato individualmente.</p>
                     </div>
                 </div>
             </div>
             <div class="services-row">
                 <div class="sv-item"><span class="svi-n">01</span>
-                    <h3>Gestione & Manutenzione</h3>
+                    <h3 data-t="sv.gestion_h">Gestione & Manutenzione</h3>
                     <div class="svi-line"></div>
-                    <p>Supervisione annuale delle ville: manutenzione, giardini, piscine.</p><a
-                        href="/it/gestion">Scopri →</a>
+                    <p data-t="sv.gestion_p">Cura annuale delle ville: manutenzione, giardini, piscine.</p><a
+                        href="../gestion.html" data-t="sv.discover">Scopri →</a>
                 </div>
                 <div class="sv-item"><span class="svi-n">02</span>
-                    <h3>Affitti Stagionali</h3>
+                    <h3 data-t="sv.location_h">Affitto Stagionale</h3>
                     <div class="svi-line"></div>
-                    <p>Commercializzazione e gestione completa dei soggiorni.</p><a href="/it/location">Scopri →</a>
+                    <p data-t="sv.location_p">Commercializzazione e gestione completa dei soggiorni.</p><a
+                        href="../location.html" aria-label="Decouvrir la location" data-t="sv.discover">Scopri →</a>
                 </div>
                 <div class="sv-item"><span class="svi-n">03</span>
-                    <h3>Concierge</h3>
+                    <h3 data-t="sv.conc_h">Concierge</h3>
                     <div class="svi-line"></div>
-                    <p>Chef privato, trasferimenti, esperienze su misura.</p><a href="/it/conciergerie">Scopri →</a>
+                    <p data-t="sv.conc_p">Chef privato, trasferimenti, esperienze su misura.</p><a
+                        href="../conciergerie.html" data-t="sv.discover">Scopri →</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- COLLECTION — 4 villas horizontales grand format -->
     <section class="collection" id="collection">
         <div class="coll-header coll-header--simple">
             <div class="chs-top">
-                <span class="eyebrow dark">Selezione esclusiva</span>
-                <a href="/it/location" class="chs-link"><span>Vedi tutte le proprietà</span><svg width="16" height="8"
-                        viewBox="0 0 16 8" fill="none" aria-hidden="true">
+                <span class="eyebrow dark" data-t="coll.label">Selezione esclusiva</span>
+                <a href="../location.html" class="chs-link"
+                    onclick="gtag('event','view_all_biens',{event_category:'Collection'})">
+                    <span data-t="coll.all">Vedi tutte le proprietà</span>
+                    <svg width="16" height="8" viewBox="0 0 16 8" fill="none" aria-hidden="true">
                         <line x1="0" y1="4" x2="13" y2="4" stroke="currentColor" stroke-width="1" />
                         <polyline points="9,1 13,4 9,7" stroke="currentColor" stroke-width="1" fill="none" />
-                    </svg></a>
+                    </svg>
+                </a>
             </div>
-            <h2><em>Una collezione</em><br><span>meticolosamente scelta</span></h2>
+            <h2><em data-t="coll.h1">Una collezione</em><br><span data-t="coll.h2">meticolosamente scelta</span></h2>
         </div>
+
+        <!-- 4 villas grand format, 2 styles contrastés, Golfe de Saint-Tropez uniquement -->
         <div class="villas" id="villas">
 
+            <!-- VILLA 1 — Architecture contemporaine, minimaliste & épurée -->
             <article class="villa" data-dest="saint-tropez" data-am="pool sea spa">
-                <a href="/it/location/villa-aqua-serena" class="v-img">
+                <a href="../villa.html?id=villa-aqua-serena" class="v-img" aria-label="Photo de Villa Aqua Serena">
                     <picture>
-                        <source srcset="../images/villa-aqua-serena.webp" type="image/webp" /><img
-                            src="../images/villa-aqua-serena.webp"
-                            alt="Villa Aqua Serena — zeitgenössische Architektur Meerblick Golf Saint-Tropez"
+                        <source srcset="../images/villa-aqua-serena.webp" type="image/webp" />
+                        <img src="../images/villa-aqua-serena.webp"
+                            alt="Villa Aqua Serena — architettura contemporanea vista mare Golfo di Saint-Tropez"
                             loading="lazy" decoding="async" width="1400" height="780" />
                     </picture>
                     <div class="v-ov"></div>
                 </a>
                 <div class="v-info">
                     <div class="vi-l">
-                        <span class="vi-style-badge">Architettura contemporanea</span>
+                        <span class="vi-style-badge" data-t="v1.style">Architettura contemporanea</span>
                         <span class="vi-dest">Golfo di Saint-Tropez · Canebiers</span>
                         <h3>Villa Aqua Serena</h3>
-                        <p class="vi-desc">Un puro dialogo tra cemento grezzo, vetro e Mediterraneo. Progettata da uno
-                            studio di architetti parigino, questa villa si dispiega su 580 m² su tre livelli a terrazza.
-                            La sua piscina a sfioro di 22 metri cancella l'orizzonte — l'acqua della baia di
-                            Saint-Tropez sembra cominciare ai vostri piedi. All'interno, volumi essenziali, una cucina
-                            Bulthaup aperta sul mare e una spa privata scolpita nella pietra naturale.</p>
-                        <div class="vi-tags"><span>🏊 Piscina a sfioro 22m</span><span>🌊 Vista mare
-                                panoramica</span><span>💆 Spa privata</span><span>580 m²</span><span>14 pers.</span>
+                        <p class="vi-desc" data-t="v1.desc">Un dialogue pur entre le béton brut, le verre et la
+                            Méditerranée. Conçue par un cabinet d'architectes parisien, cette villa déploie 580 m² sur
+                            trois niveaux en terrasses. Sa piscine à débordement de 22 mètres efface l'horizon — l'eau
+                            de la baie de Saint-Tropez semble commencer à vos pieds. À l'intérieur, des volumes épurés,
+                            une cuisine Bulthaup ouverte sur la mer et un spa privatif taillé dans la pierre naturelle.
+                        </p>
+                        <div class="vi-tags">
+                            <span>🏊 Piscina a sfioro 22m</span>
+                            <span>🌊 Vista mare panoramica</span>
+                            <span>💆 Spa privata</span>
+                            <span>580 m²</span>
+                            <span>14 <span data-t="villa.guests">ospiti</span></span>
                         </div>
                     </div>
-                    <div class="vi-r"><button class="vi-broch"
-                            onclick="openBrochure('Villa Aqua Serena');event.stopPropagation()">Brochure</button><a
-                            href="/it/location/villa-aqua-serena" class="vi-see">Vedi →</a></div>
+                    <div class="vi-r">
+                        <button class="vi-broch" onclick="openBrochure('Villa Aqua Serena');event.stopPropagation()"
+                            aria-label="Brochure Villa Aqua Serena" aria-label="Recevoir la brochure Villa Aqua Serena"
+                            data-t="villa.brochure">Brochure</button>
+                        <a href="../villa.html?id=villa-aqua-serena" class="vi-see"
+                            aria-label="Vedi Villa Aqua Serena">Vedi →</a>
+                    </div>
                 </div>
             </article>
 
+            <!-- VILLA 2 — Bastide provençale, pierre et authenticité luxueuse -->
             <article class="villa" data-dest="saint-tropez" data-am="pool sea">
-                <a href="/it/location/bastide-des-pins" class="v-img">
+                <a href="../villa.html?id=bastide-des-pins" class="v-img" aria-label="Photo de Bastide des Pins">
                     <picture>
-                        <source srcset="../images/bastide-des-pins.webp" type="image/webp" /><img
-                            src="../images/bastide-des-pins.webp"
-                            alt="Bastide des Pins — Provenzalisches Anwesen Ramatuelle" loading="lazy" decoding="async"
+                        <source srcset="../images/bastide-des-pins.webp" type="image/webp" />
+                        <img src="../images/bastide-des-pins.webp" alt="Bastide des Pins — tenuta provenzale Ramatuelle"
+                            loading="lazy" decoding="async" width="1400" height="780" />
+                    </picture>
+                    <div class="v-ov"></div>
+                </a>
+                <div class="v-info">
+                    <div class="vi-l">
+                        <span class="vi-style-badge" data-t="v2.style">Bastide provenzale</span>
+                        <span class="vi-dest">Golfo di Saint-Tropez · Ramatuelle</span>
+                        <h3>Bastide des Pins</h3>
+                        <p class="vi-desc" data-t="v2.desc">Deux hectares de Provence sauvage gardés par une forêt de
+                            pins centenaires. Cette bastide du XVIIIe siècle, entièrement restaurée par un décorateur
+                            d'intérieur milanais, marie les pierres dorées de la région aux matières les plus précieuses
+                            — lin naturel, bois de chêne blanchi, faïences artisanales. Le domaine privé dévoile un
+                            potager en permaculture, un court de tennis en terre battue et une piscine naturelle aux
+                            reflets d'émeraude.</p>
+                        <div class="vi-tags">
+                            <span>🏊 Piscina naturale</span>
+                            <span>🌳 Tenuta privata 2 ha</span>
+                            <span>🎾 Campo da tennis</span>
+                            <span>420 m²</span>
+                            <span>10 <span data-t="villa.guests">ospiti</span></span>
+                        </div>
+                    </div>
+                    <div class="vi-r">
+                        <button class="vi-broch" onclick="openBrochure('Bastide des Pins');event.stopPropagation()"
+                            aria-label="Brochure Bastide des Pins" aria-label="Recevoir la brochure Bastide des Pins"
+                            data-t="villa.brochure">Brochure</button>
+                        <a href="../villa.html?id=bastide-des-pins" class="vi-see"
+                            aria-label="Voir Bastide des Pins">Voir →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- VILLA 3 — Villa moderne vue mer, design intérieur haut couture -->
+            <article class="villa" data-dest="saint-tropez" data-am="pool sea gym">
+                <a href="../villa.html?id=villa-horizon" class="v-img" aria-label="Photo de Villa Horizon">
+                    <picture>
+                        <source srcset="../images/villa-horizon.webp" type="image/webp" />
+                        <img src="../images/villa-horizon.webp"
+                            alt="Villa Horizon — Gassin vista panoramica Saint-Tropez" loading="lazy" decoding="async"
                             width="1400" height="780" />
                     </picture>
                     <div class="v-ov"></div>
                 </a>
                 <div class="v-info">
                     <div class="vi-l">
-                        <span class="vi-style-badge">Bastide provenzale</span>
-                        <span class="vi-dest">Golfo di Saint-Tropez · Ramatuelle</span>
-                        <h3>Bastide des Pins</h3>
-                        <p class="vi-desc">Due ettari di Provenza selvaggia custoditi da una foresta di pini centenari.
-                            Questa bastide del XVIII secolo, interamente restaurata da un decoratore d'interni milanese,
-                            sposa le pietre dorate della regione con i materiali più preziosi — lino naturale, rovere
-                            sbiancato, ceramiche artigianali. Il dominio privato svela un orto in permacultura, un campo
-                            da tennis in terra battuta e una piscina naturale dai riflessi smeraldo.</p>
-                        <div class="vi-tags"><span>🏊 Piscina naturale</span><span>🌳 Tenuta privata 2 ha</span><span>🎾
-                                Campo da tennis</span><span>420 m²</span><span>10 pers.</span></div>
-                    </div>
-                    <div class="vi-r"><button class="vi-broch"
-                            onclick="openBrochure('Bastide des Pins');event.stopPropagation()">Brochure</button><a
-                            href="/it/location/bastide-des-pins" class="vi-see">Vedi →</a></div>
-                </div>
-            </article>
-
-            <article class="villa" data-dest="saint-tropez" data-am="pool sea gym">
-                <a href="/it/location/villa-horizon" class="v-img">
-                    <picture>
-                        <source srcset="../images/villa-horizon.webp" type="image/webp" /><img
-                            src="../images/villa-horizon.webp" alt="Villa Horizon — Gassin Panoramablick Saint-Tropez"
-                            loading="lazy" decoding="async" width="1400" height="780" />
-                    </picture>
-                    <div class="v-ov"></div>
-                </a>
-                <div class="v-info">
-                    <div class="vi-l">
-                        <span class="vi-style-badge">Design haute couture</span>
+                        <span class="vi-style-badge" data-t="v3.style">Design haute couture</span>
                         <span class="vi-dest">Golfo di Saint-Tropez · Gassin</span>
                         <h3>Villa Horizon</h3>
-                        <p class="vi-desc">Sospese sopra il golfo, le cinque suite di Villa Horizon si aprono ciascuna
-                            su un panorama unico tra Sainte-Maxime e le Isole d'Oro. Il designer — ex direttore
-                            artistico di un palace parigino — ha immaginato ogni stanza come un quadro vivente: cuoio da
-                            sella, marmi di Carrara e ottone spazzolato in dialogo con la piscina a specchio di 18
-                            metri. Una sala fitness Technogym, un home cinema e un eliporto completano l'insieme.</p>
-                        <div class="vi-tags"><span>🏊 Piscina a specchio 18m</span><span>🌊 Vista 180° sul
-                                golfo</span><span>🏋️ Palestra Technogym</span><span>650 m²</span><span>12 pers.</span>
+                        <p class="vi-desc" data-t="v3.desc">Suspendues au-dessus du golfe, les cinq suites de Villa
+                            Horizon s'ouvrent chacune sur un panorama unique entre Sainte-Maxime et les Îles d'Or. Le
+                            designer — ancien directeur artistique d'un palace parisien — a imaginé chaque pièce comme
+                            un tableau vivant : cuir de selle, marbres de Carrare et laiton brossé dialoguent avec la
+                            piscine à miroir de 18 mètres. Une salle de sport équipée Technogym, un home-cinéma et un
+                            helipad complètent l'ensemble.</p>
+                        <div class="vi-tags">
+                            <span>🏊 Piscina a specchio 18m</span>
+                            <span>🌊 Vista 180° sul golfo</span>
+                            <span>🏋️ Palestra Technogym</span>
+                            <span>650 m²</span>
+                            <span>12 <span data-t="villa.guests">ospiti</span></span>
                         </div>
                     </div>
-                    <div class="vi-r"><button class="vi-broch"
-                            onclick="openBrochure('Villa Horizon');event.stopPropagation()">Brochure</button><a
-                            href="/it/location/villa-horizon" class="vi-see">Vedi →</a></div>
+                    <div class="vi-r">
+                        <button class="vi-broch" onclick="openBrochure('Villa Horizon');event.stopPropagation()"
+                            aria-label="Brochure Villa Horizon" aria-label="Recevoir la brochure Villa Horizon"
+                            data-t="villa.brochure">Brochure</button>
+                        <a href="../villa.html?id=villa-horizon" class="vi-see" aria-label="Vedi Villa Horizon">Vedi
+                            →</a>
+                    </div>
                 </div>
             </article>
 
+            <!-- VILLA 4 — Mas provençal rénové, charme authentique cinq étoiles -->
             <article class="villa" data-dest="saint-tropez" data-am="pool">
-                <a href="/it/location/mas-des-oliviers" class="v-img">
+                <a href="../villa.html?id=mas-des-oliviers" class="v-img" aria-label="Photo de Mas des Oliviers">
                     <picture>
-                        <source srcset="../images/bastide-des-pins.webp" type="image/webp" /><img
-                            src="../images/bastide-des-pins.webp" alt="Mas des Oliviers — Grimaud authentischer Luxus"
+                        <source srcset="../images/bastide-des-pins.webp" type="image/webp" />
+                        <img src="../images/bastide-des-pins.webp" alt="Mas des Oliviers — Grimaud autenticità lussuosa"
                             loading="lazy" decoding="async" width="1400" height="780" />
                     </picture>
                     <div class="v-ov"></div>
                 </a>
                 <div class="v-info">
                     <div class="vi-l">
-                        <span class="vi-style-badge">Mas provenzale</span>
+                        <span class="vi-style-badge" data-t="v4.style">Mas provenzale</span>
                         <span class="vi-dest">Golfo di Saint-Tropez · Grimaud</span>
                         <h3>Mas des Oliviers</h3>
-                        <p class="vi-desc">Nascosto dietro una cortina di ulivi tricentenari, questo mas provenzale del
-                            XVII secolo emana una serenità che il tempo sembra non aver sfiorato. La sua
-                            ristrutturazione — affidata a un mastro artigiano — ha preservato ogni trave a vista, ogni
-                            mattonella di terracotta e ogni volta a botte. La piscina rivestita di mosaico turchese,
-                            l'orto aromatico e la terrazza ombreggiata di glicine compongono un art de vivre provenzale
-                            elevato al suo livello di eccellenza più assoluto.</p>
-                        <div class="vi-tags"><span>🏊 Piscina a mosaico</span><span>🌿 Parco 1,5 ha</span><span>🍷
-                                Cantina vini privata</span><span>380 m²</span><span>8 pers.</span></div>
+                        <p class="vi-desc" data-t="v4.desc">Caché derrière un rideau d'oliviers tricentenaires, ce mas
+                            provençal du XVIIe siècle dégage une sérénité que le temps ne semble pas avoir effleurée. Sa
+                            rénovation — confiée à un artisan compagnon du devoir — a préservé chaque poutre apparente,
+                            chaque tomette et chaque voûte en berceau. La piscine carrelée en mosaïque turquoise, le
+                            potager aromatique et la terrasse ombragée de glycine composent un art de vivre provençal
+                            porté à son niveau d'excellence le plus absolu.</p>
+                        <div class="vi-tags">
+                            <span>🏊 Piscina a mosaico</span>
+                            <span>🌿 Parco 1,5 ha</span>
+                            <span>🍷 Cantina vini privata</span>
+                            <span>380 m²</span>
+                            <span>8 <span data-t="villa.guests">ospiti</span></span>
+                        </div>
                     </div>
-                    <div class="vi-r"><button class="vi-broch"
-                            onclick="openBrochure('Mas des Oliviers');event.stopPropagation()">Brochure</button><a
-                            href="/it/location/mas-des-oliviers" class="vi-see">Vedi →</a></div>
+                    <div class="vi-r">
+                        <button class="vi-broch" onclick="openBrochure('Mas des Oliviers');event.stopPropagation()"
+                            aria-label="Brochure Mas des Oliviers" aria-label="Recevoir la brochure Mas des Oliviers"
+                            data-t="villa.brochure">Brochure</button>
+                        <a href="../villa.html?id=mas-des-oliviers" class="vi-see"
+                            aria-label="Voir Mas des Oliviers">Voir →</a>
+                    </div>
                 </div>
             </article>
 
         </div>
+
     </section>
 
+
+    <!-- CONCIERGERIE -->
     <section class="conc" id="conc">
         <div class="conc-wrap">
             <div class="conc-img">
                 <picture>
                     <source srcset="../images/hero-mobile.webp" type="image/webp" /><img
-                        src="../images/hero-mobile.webp" alt="" loading="lazy" decoding="async" width="600"
-                        height="900" />
+                        src="../images/hero-mobile.webp" alt="Concierge Azur Villa Prestige" loading="lazy"
+                        decoding="async" width="600" height="900" />
                 </picture>
             </div>
             <div class="conc-text">
-                <span class="eyebrow">Concierge</span>
-                <h2><span>Esperienze</span><br><em>curate nei minimi dettagli</em></h2>
-                <p>Dall'arrivo alla tavola stellata, dalla spa privata allo yacht al tramonto.</p>
+                <span class="eyebrow" data-t="cx.label">Concierge</span>
+                <h2><span data-t="cx.h1">Esperienze</span><br><em data-t="cx.h2">pensées dans les moindres détails</em>
+                </h2>
+                <p data-t="cx.p">Dall'arrivo alla tavola stellata, dalla spa privata allo yacht al tramonto.</p>
                 <ul class="cx-list">
-                    <li>🍽️ <span>Chef privato & gastronomia</span></li>
-                    <li>🛥️ <span>Yacht & trasferimenti privati</span></li>
-                    <li>💆 <span>Spa & benessere in villa</span></li>
-                    <li>🚁 <span>Elipista & aviazione privata</span></li>
-                    <li>🎭 <span>Exklusive Esperienze</span></li>
+                    <li>🍽️ <span data-t="cx.chef">Chef privato & gastronomia</span></li>
+                    <li>🛥️ <span data-t="cx.yacht">Yacht & trasferimenti privati</span></li>
+                    <li>💆 <span data-t="cx.spa">Spa & benessere a domicilio</span></li>
+                    <li>🚁 <span data-t="cx.heli">Eliporto & aviazione privata</span></li>
+                    <li>🎭 <span data-t="cx.xp">Esperienze esclusive</span></li>
                 </ul>
-                <a href="/it/conciergerie" class="btn-outline">Scopri il concierge</a>
+                <a href="../conciergerie.html" class="btn-outline" data-t="cx.cta">Scopri il nostro servizio
+                    concierge</a>
             </div>
         </div>
     </section>
 
+    <!-- PROPRIETAIRES -->
     <section class="owners" id="owners">
         <div class="ow-wrap">
             <div class="ow-text">
-                <span class="eyebrow">Proprietari</span>
-                <h2><span>Affida la tua villa</span><br><em>a esperti 5 stelle</em></h2>
-                <p>Unser Team übernimmt vollständig die Verwaltung und Vermarktung Ihrer Immobilie. Optimierte
-                    Einnahmen. Absolute Discrezione.</p>
+                <span class="eyebrow" data-t="ow.label">Proprietari</span>
+                <h2><span data-t="ow.h1">Affidateci la vostra villa</span><br><em data-t="ow.h2">a esperti 5 stelle</em>
+                </h2>
+                <p data-t="ow.p">Notre équipe prend en charge intégralement la gestion et la commercialisation. Revenus
+                    optimisés. Discrétion absolue.</p>
                 <div class="ow-points">
-                    <div class="owp"><span class="owp-c">✓</span><span>Gestione locativa completa & ottimizzata</span>
-                    </div>
-                    <div class="owp"><span class="owp-c">✓</span><span>Accoglienza degli ospiti agli standard
-                            alberghieri</span></div>
-                    <div class="owp"><span class="owp-c">✓</span><span>Report mensile dettagliato & trasparente</span>
-                    </div>
-                    <div class="owp"><span class="owp-c">✓</span><span>Manutenzione & cura di alto livello</span></div>
+                    <div class="owp"><span class="owp-c">✓</span><span data-t="ow.l1">Gestion locative complète &
+                            optimisée</span></div>
+                    <div class="owp"><span class="owp-c">✓</span><span data-t="ow.l2">Accueil aux standards
+                            hôteliers</span></div>
+                    <div class="owp"><span class="owp-c">✓</span><span data-t="ow.l3">Reporting mensuel détaillé &
+                            transparent</span></div>
+                    <div class="owp"><span class="owp-c">✓</span><span data-t="ow.l4">Maintenance & entretien haut de
+                            gamme</span></div>
                 </div>
-                <div class="ow-kpi"><span class="kpi-n">+32%</span><span class="kpi-l">di entrate in media vs gestione
-                        autonoma</span></div>
-                <a href="/it/gestion" class="btn-primary-dark">Affida il mio immobile</a>
+                <div class="ow-kpi"><span class="kpi-n">+32%</span><span class="kpi-l" data-t="ow.kpi">de revenus en
+                        moyenne vs gestion seule</span></div>
+                <a href="../gestion.html" class="btn-primary-dark" data-t="ow.cta">Affidare la mia proprietà</a>
             </div>
             <div class="ow-img">
                 <picture>
@@ -382,184 +533,204 @@
         </div>
     </section>
 
+    <!-- TRUST -->
     <section class="trust" id="trust">
         <div class="trust-wrap">
-            <span class="eyebrow">Il nostro impegno</span>
-            <h2><span>Uno standard</span> <em>senza compromessi</em></h2>
+            <span class="eyebrow" data-t="trust.label">Il nostro impegno</span>
+            <h2><span data-t="trust.h1">Uno standard</span> <em data-t="trust.h2">senza compromessi</em></h2>
             <div class="trust-grid">
                 <div class="tg"><span class="tg-n">47</span>
-                    <p>Recensioni 5★ verificate</p>
+                    <p data-t="trust.avis">Recensioni 5★ verificate</p>
                 </div>
                 <div class="tg"><span class="tg-n">15</span>
-                    <p>Proprietà d'eccezione</p>
+                    <p data-t="trust.villas">Proprietà d'eccezione</p>
                 </div>
                 <div class="tg"><span class="tg-n">2h</span>
-                    <p>Tempo di risposta garantito</p>
+                    <p data-t="trust.reply">Tempo di risposta garantito</p>
                 </div>
                 <div class="tg"><span class="tg-n">5★</span>
-                    <p>Valutazione di soddisfazione</p>
+                    <p data-t="trust.note">Valutazione di soddisfazione</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FAQ -->
     <section class="faq" id="faq">
         <div class="faq-wrap">
-            <div class="faq-head"><span class="eyebrow">Domande frequenti</span>
-                <h2><span>Tutto ciò che</span> <em>desiderate sapere</em></h2>
+            <div class="faq-head"><span class="eyebrow" data-t="faq.label">Domande frequenti</span>
+                <h2><span data-t="faq.h1">Tutto quello che</span> <em data-t="faq.h2">volete sapere</em></h2>
             </div>
             <div class="faq-layout">
                 <div class="faq-list">
-                    <div class="faq-item"><button class="faq-q" aria-expanded="false"
-                            onclick="toggleFaq(this)"><span>Cosa include il noleggio di una villa?</span><span
-                                class="faq-ico">+</span></button>
+                    <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)"><span
+                                data-t="faq.q1">Cosa include l'affitto?</span><span class="faq-ico">+</span></button>
                         <div class="faq-a" hidden>
-                            <p>Servizio di pulizie giornaliero, biancheria alberghiera di qualità e accesso al concierge
-                                24/7.</p>
+                            <p data-t="faq.a1">Servizio di pulizie quotidiano, biancheria alberghiera e concierge
+                                24h/24.</p>
                         </div>
                     </div>
-                    <div class="faq-item"><button class="faq-q" aria-expanded="false"
-                            onclick="toggleFaq(this)"><span>Qual è il periodo migliore per prenotare?</span><span
+                    <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)"><span
+                                data-t="faq.q2">Qual è il periodo migliore per prenotare?</span><span
                                 class="faq-ico">+</span></button>
                         <div class="faq-a" hidden>
-                            <p>Consigliamo di prenotare tra novembre e marzo per assicurarsi la villa durante l'alta
-                                stagione estiva (giugno–agosto). Maggio e settembre offrono un ottimo compromesso: tempo
-                                perfetto, meno affollamento e tariffe più accessibili.</p>
+                            <p data-t="faq.a2">Nous recommandons de réserver entre novembre et mars pour sécuriser votre
+                                villa lors de la haute saison estivale (juin–août). Les mois de mai et septembre offrent
+                                un excellent compromis : météo parfaite, affluence réduite et tarifs plus accessibles.
+                            </p>
                         </div>
                     </div>
-                    <div class="faq-item"><button class="faq-q" aria-expanded="false"
-                            onclick="toggleFaq(this)"><span>Offrite servizi di concierge in loco?</span><span
+                    <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)"><span
+                                data-t="faq.q3">Offrite servizi di concierge in loco?</span><span
                                 class="faq-ico">+</span></button>
                         <div class="faq-a" hidden>
-                            <p>Absolut. Unser Concierge-Team ist lokal im Golfo di Saint-Tropez ansässig. Privatkoch,
-                                Transfers aus Nizza oder Toulon, Bootsverleih, Zugang zu Privatstränden — jedes Detail
-                                wird mit der Präzision eines Palasthotels orchestriert.</p>
+                            <p data-t="faq.a3">Absolument. Notre équipe de conciergerie est basée localement dans le
+                                Golfe de Saint-Tropez. Chef privé, transferts depuis Nice ou Toulon, location de
+                                bateaux, accès aux plages privées — chaque détail est orchestré avec la précision d'un
+                                service palace.</p>
                         </div>
                     </div>
-                    <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)"><span>I
-                                soggiorni sono completamente personalizzabili?</span><span
+                    <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)"><span
+                                data-t="faq.q4">I soggiorni sono personalizzabili?</span><span
                                 class="faq-ico">+</span></button>
                         <div class="faq-a" hidden>
-                            <p>Assolutamente. Chef privato, trattamenti spa, trasferimenti in elicottero, fiori
-                                all'arrivo.</p>
+                            <p data-t="faq.a4">Absolument. Chef privé, soins spa, transferts héliportés, fleurs à
+                                l'arrivée.</p>
                         </div>
                     </div>
-                    <div class="faq-item"><button class="faq-q" aria-expanded="false"
-                            onclick="toggleFaq(this)"><span>Come funziona la gestione locativa?</span><span
+                    <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)"><span
+                                data-t="faq.q5">Come funziona la gestione locativa?</span><span
                                 class="faq-ico">+</span></button>
                         <div class="faq-a" hidden>
-                            <p>Gestione integrale, report mensile. +32% di entrate locative in media.</p>
+                            <p data-t="faq.a5">Gestione integrale, rendicontazione mensile. +32% di reddito medio.</p>
                         </div>
                     </div>
-                    <div class="faq-item"><button class="faq-q" aria-expanded="false"
-                            onclick="toggleFaq(this)"><span>Quali sono le condizioni di cancellazione?</span><span
+                    <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)"><span
+                                data-t="faq.q6">Quali sono le condizioni di cancellazione?</span><span
                                 class="faq-ico">+</span></button>
                         <div class="faq-a" hidden>
-                            <p>Condizioni flessibili presentate dal vostro consulente dedicato.</p>
+                            <p data-t="faq.a6">Condizioni flessibili presentate dal vostro consulente dedicato.</p>
                         </div>
                     </div>
                 </div>
                 <div class="faq-aside">
                     <div class="fa-card">
                         <p class="fa-ico">💬</p>
-                        <h3>Una domanda specifica?</h3>
-                        <p>I nostri consulenti compongono il vostro soggiorno su misura.</p>
-                        <a href="https://wa.me/+33621084443" class="btn-primary-dark" target="_blank"
-                            rel="noopener">Parlare con un consulente</a>
-                        <div class="fa-tels"><a href="tel:+33621084443" class="fa-tel">Guillaume · +33 6 21 08 44
-                                43</a><a href="tel:+33625156663" class="fa-tel">Mike · +33 6 25 15 66 63</a></div>
-                        <p class="fa-hrs">Lun – Ven · 9h – 19h</p>
+                        <h3 data-t="faq.cta_h">Una domanda?</h3>
+                        <p data-t="faq.cta_sub">I nostri consulenti compongono il vostro soggiorno su misura.</p>
+                        <a href="https://wa.me/+33600000001" class="btn-primary-dark" target="_blank" rel="noopener"
+                            data-t="faq.cta_btn">Parlare con un consulente</a>
+                        <div class="fa-tels">
+                            <a href="tel:+33600000001" class="fa-tel">Pascal · +33 6 00 00 00 01</a>
+                            <a href="tel:+33600000002" class="fa-tel">Isabelle · +33 6 00 00 00 02</a>
+                        </div>
+                        <p class="fa-hrs" data-t="faq.hours">Lun – Ven · 9h – 19h</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- NEWSLETTER -->
     <section class="newsletter" id="newsletter">
         <div class="nl-wrap">
             <div class="nl-text">
-                <span class="eyebrow">Newsletter privata</span>
-                <h2><span>Accedete alla nostra collezione</span><br><em>in anteprima</em></h2>
-                <p>Neue Objekte, exklusive Verfügbarkeiten, Neuigkeiten aus dem Golfo di Saint-Tropez.</p>
+                <span class="eyebrow" data-t="nl.label">Newsletter privata</span>
+                <h2><span data-t="nl.h1">Accedi alla nostra collezione</span><br><em data-t="nl.h2">in anteprima</em>
+                </h2>
+                <p data-t="nl.sub">Nuove proprietà, disponibilità esclusive, notizie.</p>
                 <ul class="nl-bens">
-                    <li>✓ <span>Disponibilità 48h prima del pubblico</span></li>
-                    <li>✓ <span>Offerte esclusive per i membri</span></li>
-                    <li>✓ <span>Consulente dedicato al vostro account</span></li>
+                    <li>✓ <span data-t="nl.b1">Disponibilità 48h prima del grande pubblico</span></li>
+                    <li>✓ <span data-t="nl.b2">Offerte esclusive per i membri</span></li>
+                    <li>✓ <span data-t="nl.b3">Consulente dedicato al vostro account</span></li>
                 </ul>
             </div>
             <form class="nl-form" id="nl-form" onsubmit="submitNL(event)" novalidate>
                 <div class="nl-row">
-                    <div class="nl-f"><label>Nome</label><input type="text" name="firstname" required
-                            placeholder="Ihr Nome" /></div>
+                    <div class="nl-f"><label data-t="form.fullname">Nome</label><input type="text" name="firstname"
+                            required data-t-ph="form.name_ph" placeholder="Il vostro nome" /></div>
                     <div class="nl-f"><label>Email</label><input type="email" name="email" required
-                            placeholder="vostre@email.com" /></div>
+                            placeholder="vostra@email.com" /></div>
                 </div>
                 <div class="nl-row">
-                    <div class="nl-f"><label>Destinazione</label><select name="destination" class="nl-sel">
+                    <div class="nl-f"><label data-t="nl.destlbl">Destinazione</label><select name="destination"
+                            class="nl-sel">
+                            <option value="all" data-t="filter.all">Tutte</option>
                             <option value="saint-tropez">Saint-Tropez</option>
-                            <option value="ramatuelle">Ramatuelle</option>
-                            <option value="gassin">Gassin</option>
                         </select></div>
                     <div class="nl-f nl-f--check"><label class="nl-ck"><input type="checkbox" name="consent"
-                                required /><span>Accetto di ricevere le comunicazioni di Azur Home
-                                Collection</span></label></div>
+                                required /><span data-t="nl.consent">J'accepte de recevoir les communications d'Azur
+                                Villa Prestige</span></label></div>
                 </div>
-                <button type="submit" class="nl-submit" id="nl-submit"><span>Unisciti alla lista privata</span><svg
-                        width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <button type="submit" class="nl-submit" id="nl-submit"
+                    aria-label="Iscriviti alla newsletter privata"><span data-t="nl.cta">Unisciti alla lista
+                        privata</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                         <line x1="2" y1="7" x2="11" y2="7" stroke="currentColor" stroke-width="1.1" />
                         <polyline points="7,3 11,7 7,11" stroke="currentColor" stroke-width="1.1" fill="none" />
                     </svg></button>
-                <p class="nl-legal">Iscrivendovi, accettate i nostri <a href="/it/legal/conditions-generales">T&C</a> &
-                    <a href="/it/legal/confidentialite">informativa sulla privacy</a> zu. Disiscrizione in 1 clic.</p>
+                <p class="nl-legal"><span data-t="nl.legal">Iscrivendovi, accettate i nostri</span> <a
+                        href="../legal/conditions-generales" data-t="nl.cgv">Termini</a> & <a
+                        href="../legal/confidentialite" data-t="nl.priv">informativa sulla privacy</a>. <span
+                        data-t="nl.unsub">Désabonnement en 1 clic.</span></p>
             </form>
         </div>
     </section>
 
+    <!-- CTA FINAL -->
     <section class="cta-final" id="cta-final">
         <div class="cf-inner">
-            <span class="eyebrow light">Iniziamo insieme</span>
-            <h2><span>Costruiamo insieme</span><br><em>un'esperienza all'altezza delle vostre ville.</em></h2>
-            <p>Che siate ospiti in cerca di una villa d'eccezione o proprietari che desiderano affidare il vostro
-                immobile — il nostro team vi accompagna.</p>
-            <div class="cf-btns"><a href="https://wa.me/+33621084443" class="btn-sand" target="_blank"
-                    rel="noopener">Parlare con un esperto</a><a href="/it/location" class="btn-ghost-light">Esplora la
-                    collezione</a></div>
-            <div class="cf-contacts"><a href="tel:+33621084443">Guillaume · +33 6 21 08 44 43</a><span>·</span><a
-                    href="tel:+33625156663">Mike · +33 6 25 15 66 63</a></div>
+            <span class="eyebrow light" data-t="cf.label">Iniziamo insieme</span>
+            <h2><span data-t="cf.h1">Costruiamo insieme</span><br><em data-t="cf.h2">une expérience à la hauteur de vos
+                    villas.</em></h2>
+            <p data-t="cf.p">Che siate locatari o proprietari — il nostro team vi accompagna.</p>
+            <div class="cf-btns">
+                <a href="https://wa.me/+33600000001" class="btn-sand" target="_blank" rel="noopener"
+                    data-t="cf.wa">Parlare con un esperto</a>
+                <a href="../location.html" class="btn-ghost-light" data-t="cf.explore">Esplora la collezione</a>
+            </div>
+            <div class="cf-contacts"><a href="tel:+33600000001">Pascal · +33 6 00 00 00 01</a><span>·</span><a
+                    href="tel:+33600000002">Isabelle · +33 6 00 00 00 02</a></div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="ft-top">
-            <div class="ft-brand"><img src="../images/logo.jpeg" alt="Azur Home Collection" class="ft-logo-img" />
+            <div class="ft-brand">
+                <img src="../images/logo.png" alt="Azur Villa Prestige" class="ft-logo-img" loading="lazy" />
                 <p class="ftb-sub">Property Management · Seasonal Rental<br>Saint-Tropez · Ramatuelle · Gassin</p>
             </div>
             <nav class="ft-nav">
                 <div class="fn-col">
-                    <h4>Services</h4><a href="/it/location">Mieten</a><a href="/it/gestion">Verwaltung</a><a
-                        href="/it/conciergerie">Concierge</a>
+                    <h3 class="fn-col-title">Services</h3><a href="../location.html"
+                        data-t="nav.location">Location</a><a href="../gestion.html">Gestion</a><a
+                        href="../conciergerie.html">Concierge</a>
                 </div>
                 <div class="fn-col">
-                    <h4>Destinazionee</h4><a href="/it/location?destination=saint-tropez">Saint-Tropez</a><a
-                        href="/it/location?destination=gassin">Gassin</a><a
-                        href="/it/location?destination=ramatuelle">Ramatuelle</a>
+                    <h3 class="fn-col-title">Destinations</h3><a
+                        href="../location.html?zone=saint-tropez">Saint-Tropez</a><a
+                        href="../location.html?zone=gassin">Gassin</a><a
+                        href="../location.html?zone=ramatuelle">Ramatuelle</a>
                 </div>
                 <div class="fn-col">
-                    <h4>Società</h4><a href="/it/a-propos">Chi siamo</a><a href="/it/blog">Blog</a><a
-                        href="/it/contact">Contatto</a>
+                    <h3 class="fn-col-title">Società</h3><a href="../a-propos.html">À propos</a><a
+                        href="../contact.html">Contact</a><a href="../blog.html">Blog</a>
                 </div>
                 <div class="fn-col">
-                    <h4>Contatto</h4><a href="tel:+33621084443">Guillaume<br>+33 6 21 08 44 43</a><a
-                        href="tel:+33625156663">Mike<br>+33 6 25 15 66 63</a><a
-                        href="mailto:guillaumindany@gmail.com">Email</a><a href="https://wa.me/+33621084443"
-                        target="_blank">WhatsApp →</a>
+                    <h3 class="fn-col-title">Contact</h3><a href="tel:+33600000001">Pascal<br>+33 6 00 00 00 01</a><a
+                        href="tel:+33600000002">Isabelle<br>+33 6 00 00 00 02</a><a
+                        href="mailto:contact@azurvillaprestige.com">Email</a><a href="https://wa.me/+33600000001"
+                        target="_blank" data-t="ft.wa">WhatsApp →</a>
                 </div>
             </nav>
         </div>
-        <div class="ft-bot"><span>© 2026 Azur Home Collection.</span><span class="ft-credit">Entworfen & entwickelt von
-                <a href="https://www.sudwebproject.com" target="_blank">Sud Web Project</a></span>
-            <div class="ft-legal"><a href="/it/legal/mentions-legales">Note legali</a><a
-                    href="/it/legal/confidentialite">Privacy</a><a href="/it/legal/cgv">T&C</a></div>
+        <div class="ft-bot">
+            <span>© 2026 Azur Villa Prestige.</span>
+            <span class="ft-credit"><span data-t="ft.by">Progettato & sviluppato da</span> <a
+                    href="https://www.sudwebproject.com" target="_blank">Sud Web Project</a></span>
+            <div class="ft-legal"><a href="../legal/mentions-legales" data-t="ft.legal">Note legali</a><a
+                    href="../legal/confidentialite" data-t="ft.priv">Privacy</a><a href="../legal/cgv"
+                    data-t="ft.cgv">CGV</a></div>
         </div>
     </footer>
 
@@ -569,157 +740,118 @@
         <div class="modal-box">
             <div class="modal-hd">
                 <div>
-                    <p class="modal-ey">Private Brochure</p>
-                    <h2>Brochure erhalten</h2>
+                    <p class="modal-ey" data-t="modal.eyebrow">Brochure privata</p>
+                    <h2 data-t="modal.title">Ricevi la brochure</h2>
                     <p class="modal-prop" id="modal-prop"></p>
-                </div><button class="modal-x" id="modal-x">×</button>
+                </div><button class="modal-x" id="modal-x" aria-label="Fermer">×</button>
             </div>
             <form class="mf" id="mf" onsubmit="submitBrochure(event)">
-                <div class="mf-r"><label>Nome completo</label><input type="text" name="name" required
-                        placeholder="Il vostro nome" /></div>
+                <div class="mf-r"><label data-t="form.fullname">Nome</label><input type="text" name="name" required
+                        data-t-ph="form.name_ph" placeholder="Il vostro nome" /></div>
                 <div class="mf-r"><label>Email</label><input type="email" name="email" required
-                        placeholder="vostre@email.com" /></div>
-                <div class="mf-r"><label>Telefono</label><input type="tel" name="phone"
+                        placeholder="vostra@email.com" /></div>
+                <div class="mf-r"><label data-t="form.phone">Telefono</label><input type="tel" name="phone"
                         placeholder="+33 6 xx xx xx xx" /></div>
-                <div class="mf-r"><label>Date previste</label><input type="text" name="dates"
-                        placeholder="Es: luglio 2026, 2 settimane" /></div>
-                <button type="submit">Ricevere via WhatsApp →</button>
-                <p class="mf-legal">GDPR · Dati protetti · Risposta entro 15 min</p>
+                <div class="mf-r"><label data-t="form.dates">Date</label><input type="text" name="dates"
+                        data-t-ph="form.dates_ph" placeholder="Es.: luglio 2026, 2 settimane" /></div>
+                <button type="submit" data-t="form.submit" aria-label="Recevoir la brochure par WhatsApp">Recevoir par
+                    WhatsApp →</button>
+                <p class="mf-legal" data-t="form.rgpd">GDPR · Dati protetti · Risposta entro 15 min</p>
             </form>
         </div>
     </div>
 
-    <!-- LEAD MODAL -->
-    <div class="lead-modal" id="lead-modal" role="dialog" aria-modal="true" aria-hidden="true">
-        <div class="lm-bg" id="lm-bg" onclick="closeLeadModal()"></div>
-        <div class="lm-box" id="lm-box">
-            <div class="lm-form-wrap" id="lm-form-wrap">
-                <button class="lm-close" onclick="closeLeadModal()" aria-label="Chiudi"><svg width="14" height="14"
-                        viewBox="0 0 14 14" fill="none">
-                        <line x1="1" y1="1" x2="13" y2="13" stroke="currentColor" stroke-width="1.2" />
-                        <line x1="13" y1="1" x2="1" y2="13" stroke="currentColor" stroke-width="1.2" />
-                    </svg></button>
-                <div class="lm-header">
-                    <img src="../images/logo.jpeg" alt="Azur Home Collection" class="lm-logo" />
-                    <span class="lm-eyebrow">Richiesta di soggiorno</span>
-                    <h2 class="lm-title">La vostra villa <em>vi aspetta</em></h2>
-                    <p class="lm-sub">Completate le vostre informazioni — un consulente risponderà entro 2 ore.</p>
-                </div>
-                <div class="lm-recap" id="lm-recap"></div>
-                <form class="lm-form" id="lm-form" onsubmit="submitLead(event)" novalidate>
-                    <div class="lm-fields">
-                        <div class="lm-field"><label class="lm-lbl">Vor- & Nachname <span
-                                    class="lm-req">*</span></label><input type="text" id="lm-name" class="lm-inp"
-                                placeholder="Marie Dupont" required autocomplete="name" /></div>
-                        <div class="lm-field"><label class="lm-lbl">Email <span class="lm-req">*</span></label><input
-                                type="email" id="lm-email" class="lm-inp" placeholder="marie@email.com" required
-                                autocomplete="email" /></div>
-                        <div class="lm-field"><label class="lm-lbl">Telefono <span class="lm-req">*</span></label><input
-                                type="tel" id="lm-phone" class="lm-inp" placeholder="+33 6 xx xx xx xx" required
-                                autocomplete="tel" /></div>
-                        <div class="lm-field lm-field--full"><label class="lm-lbl">Nachricht (optional)</label><textarea
-                                id="lm-msg" class="lm-inp lm-textarea"
-                                placeholder="Besondere Wünsche für Ihren Aufenthalt?" rows="2"></textarea></div>
-                    </div>
-                    <button type="submit" class="lm-submit" id="lm-submit"><span id="lm-submit-txt">Invia la mia
-                            richiesta</span><svg width="14" height="10" viewBox="0 0 16 10" fill="none">
-                            <line x1="0" y1="5" x2="13" y2="5" stroke="currentColor" stroke-width="1.2" />
-                            <polyline points="9,1 13,5 9,9" stroke="currentColor" stroke-width="1.2" fill="none" />
-                        </svg></button>
-                    <p class="lm-rgpd">🔒 I vostri dati sono protetti. Risposta garantita entro 2 ore.</p>
-                </form>
-            </div>
-            <div class="lm-confirm" id="lm-confirm" style="display:none">
-                <div class="lm-confirm-inner">
-                    <div class="lm-check-anim"><svg viewBox="0 0 52 52" fill="none">
-                            <circle class="lm-check-circle" cx="26" cy="26" r="24" stroke="currentColor"
-                                stroke-width="1.5" />
-                            <polyline class="lm-check-tick" points="14,26 22,34 38,18" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                        </svg></div>
-                    <img src="../images/logo.jpeg" alt="Azur Home Collection" class="lm-conf-logo" />
-                    <h2 class="lm-conf-title">Grazie <em id="lm-conf-name"></em></h2>
-                    <p class="lm-conf-sub">La vostra richiesta è stata ricevuta. Un consulente di Azur Home Collection
-                        vi contatterà <strong>entro 2 ore</strong> per organizzare il vostro soggiorno su misura.</p>
-                    <div class="lm-conf-divider"></div>
-                    <p class="lm-conf-sign">— Il team di Azur Home Collection</p>
-                    <div class="lm-conf-contacts"><a href="tel:+33621084443">Guillaume · +33 6 21 08 44
-                            43</a><span>·</span><a href="tel:+33625156663">Mike · +33 6 25 15 66 63</a></div>
-                    <button class="lm-conf-close" onclick="closeLeadModal()">Chiudi</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- MAJORDOME -->
     <div class="maj" id="maj">
-        <button class="maj-btn" id="maj-btn" aria-expanded="false" onclick="toggleMaj()"><span
-                class="maj-notif">1</span><svg class="mj-o" width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <button class="maj-btn" id="maj-btn" aria-expanded="false"
+            onclick="toggleMaj();gtag('event','maj_open',{event_category:'Majordome'})">
+            <span class="maj-notif">1</span>
+            <svg class="mj-o" width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor"
                     stroke-width="1.5" fill="none" />
-            </svg><svg class="mj-c" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display:none">
+            </svg>
+            <svg class="mj-c" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display:none">
                 <line x1="2" y1="2" x2="14" y2="14" stroke="currentColor" stroke-width="1.5" />
                 <line x1="14" y1="2" x2="2" y2="14" stroke="currentColor" stroke-width="1.5" />
-            </svg></button>
+            </svg>
+        </button>
         <div class="maj-panel" id="maj-panel" aria-hidden="true">
-            <div class="maj-hd"><img src="../images/logo.jpeg" alt="" class="maj-logo" />
+            <div class="maj-hd">
+                <img src="../images/logo.png" alt="" class="maj-logo" />
                 <div>
-                    <p class="maj-name">Azur Home Collection</p>
-                    <p class="maj-st"><span class="maj-dot"></span><span>Il vostro concierge · Online</span></p>
-                </div><a href="https://wa.me/+33621084443" class="maj-wa-ico" target="_blank" rel="noopener"><svg
-                        width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                    <p class="maj-name">Azur Villa Prestige</p>
+                    <p class="maj-st"><span class="maj-dot"></span><span data-t="maj.online">Votre concierge · En
+                            ligne</span></p>
+                </div>
+                <a href="https://wa.me/+33600000001" class="maj-wa-ico" target="_blank" rel="noopener"><svg width="13"
+                        height="13" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372C7.078 9.5 6.5 10 6.5 11.5c0 1.5 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L.057 24l6.35-1.658A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" />
-                    </svg></a><button class="maj-x" id="maj-x">×</button>
+                    </svg></a>
+                <button class="maj-x" id="maj-x" aria-label="Chiudi chat">×</button>
             </div>
             <div class="maj-msgs" id="maj-msgs" aria-live="polite"></div>
             <div class="maj-flow" id="maj-flow">
                 <div class="mj-step active" id="mjs-0">
-                    <p class="mj-q">Come possiamo valorizzare il vostro soggiorno?</p>
-                    <div class="mj-ch"><button onclick="flowNext('rent')">🏖️ Noleggiare una villa</button><button
-                            onclick="flowNext('sell')">🏡 Vendere</button><button onclick="flowNext('conc')">✨
-                            Concierge</button></div>
+                    <p class="mj-q" data-t="maj.q1">Come possiamo rendere il vostro soggiorno straordinario?</p>
+                    <div class="mj-ch"><button onclick="flowNext('rent')" data-t="maj.c_rent"
+                            aria-label="Louer une villa">🏖️ Affittare una villa</button><button
+                            onclick="flowNext('sell')" data-t="maj.c_sell" aria-label="Vendre un bien">🏡
+                            Vendere</button><button onclick="flowNext('conc')" data-t="maj.c_conc"
+                            aria-label="Demander la conciergerie">✨ Conciergerie</button></div>
                 </div>
                 <div class="mj-step" id="mjs-1a">
-                    <p class="mj-q">Welches Destinazione?</p>
-                    <div class="mj-ch"><button onclick="flowNext('st')">🌊 Saint-Tropez</button><button
-                            onclick="flowNext('ramatuelle')">🌿 Ramatuelle</button><button
-                            onclick="flowNext('gassin')">🏡 Gassin</button></div><button class="mj-back"
-                        onclick="flowBack()">← Indietro</button>
+                    <p class="mj-q" data-t="maj.q2_rent">Quale destinazione?</p>
+                    <div class="mj-ch"><button onclick="flowNext('st')" data-t="maj.dest_st"
+                            aria-label="Choisir Saint-Tropez">🌊 Saint-Tropez</button><button
+                            onclick="flowNext('ramatuelle')" aria-label="Choisir Ramatuelle">🌿
+                            Ramatuelle</button><button onclick="flowNext('gassin')" aria-label="Choisir Gassin">🏡
+                            Gassin</button></div><button class="mj-back" onclick="flowBack()" data-t="maj.back"
+                        aria-label="Indietro">← Indietro</button>
                 </div>
                 <div class="mj-step" id="mjs-1b">
-                    <p class="mj-q">Che tipo?</p>
-                    <div class="mj-ch"><button onclick="flowNext('villa-sell')">🏡 Villa</button><button
-                            onclick="flowNext('apt-sell')">🏢 Appartamento</button></div><button class="mj-back"
-                        onclick="flowBack()">← Indietro</button>
+                    <p class="mj-q" data-t="maj.q2_sell">Quale tipo?</p>
+                    <div class="mj-ch"><button onclick="flowNext('villa-sell')" data-t="maj.sell_villa"
+                            aria-label="Vendre une villa">🏡 Villa</button><button onclick="flowNext('apt-sell')"
+                            data-t="maj.sell_apt" aria-label="Vendre un appartement">🏢 Appartamento</button></div>
+                    <button class="mj-back" onclick="flowBack()" data-t="maj.back" aria-label="Indietro">←
+                        Indietro</button>
                 </div>
                 <div class="mj-step" id="mjs-1c">
-                    <p class="mj-q">Quale servizio?</p>
-                    <div class="mj-ch"><button onclick="flowNext('chef')">🍽️ Chef privato</button><button
-                            onclick="flowNext('transfer')">🚁 Trasporto</button><button
-                            onclick="flowNext('wellness')">💆 Benessere</button><button onclick="flowNext('xp')">🎭
-                            Esperienze</button></div><button class="mj-back" onclick="flowBack()">← Indietro</button>
+                    <p class="mj-q" data-t="maj.q2_conc">Quale servizio?</p>
+                    <div class="mj-ch"><button onclick="flowNext('chef')" data-t="maj.conc_chef"
+                            aria-label="Service chef prive">🍽️ Chef</button><button onclick="flowNext('transfer')"
+                            data-t="maj.conc_trans" aria-label="Service transport">🚁 Transport</button><button
+                            onclick="flowNext('wellness')" data-t="maj.conc_well" aria-label="Service bien-etre">💆
+                            Bien-être</button><button onclick="flowNext('xp')" data-t="maj.conc_xp"
+                            aria-label="Service experiences">🎭 Esperienze</button></div><button class="mj-back"
+                        onclick="flowBack()" data-t="maj.back" aria-label="Indietro">← Indietro</button>
                 </div>
                 <div class="mj-step" id="mjs-2">
-                    <p class="mj-q">Come preferite essere contattati?</p>
-                    <div class="mj-ch"><button onclick="flowNext('wa')" class="mj-wa">💬 WhatsApp</button><button
-                            onclick="flowNext('callback')">📞 Richiamata</button><button
-                            onclick="flowNext('brochure')">📋 Brochure</button></div><button class="mj-back"
-                        onclick="flowBack()">← Indietro</button>
+                    <p class="mj-q" data-t="maj.q3">Come desidera essere contattato?</p>
+                    <div class="mj-ch"><button onclick="flowNext('wa')" class="mj-wa" data-t="maj.wa"
+                            aria-label="Contact par WhatsApp">💬 WhatsApp</button><button onclick="flowNext('callback')"
+                            data-t="maj.callback" aria-label="Demander un rappel">📞 Richiamata</button><button
+                            onclick="flowNext('brochure')" data-t="maj.brochure" aria-label="Recevoir une brochure">📋
+                            Brochure</button></div><button class="mj-back" onclick="flowBack()" data-t="maj.back"
+                        aria-label="Indietro">← Indietro</button>
                 </div>
                 <div class="mj-step" id="mjs-3">
-                    <p class="mj-q">Ihre Contattodaten</p>
+                    <p class="mj-q" data-t="maj.q4">I vostri recapiti</p>
                     <form onsubmit="submitMaj(event)" id="mj-form"><input type="text" name="name" required
-                            placeholder="Ihr Nome" /><input type="tel" name="contact" required
-                            placeholder="+33 6 xx xx xx xx" /><button type="submit">Invia →</button></form>
-                    <p class="mj-leg">GDPR · Risposta entro 15 min</p><button class="mj-back" onclick="flowBack()">←
-                        Indietro</button>
+                            data-t-ph="form.name_ph" placeholder="Il vostro nome" /><input type="tel" name="contact"
+                            required placeholder="+33 6 xx xx xx xx" /><button type="submit" data-t="maj.send"
+                            aria-label="Invia i miei dati">Invia →</button></form>
+                    <p class="mj-leg" data-t="maj.rgpd">GDPR · Risposta entro 15 min</p><button class="mj-back"
+                        onclick="flowBack()" data-t="maj.back" aria-label="Indietro">← Indietro</button>
                 </div>
                 <div class="mj-step" id="mjs-4">
                     <div class="mj-ok">
                         <div class="mj-check">✓</div>
-                        <p>La vostra richiesta è stata ricevuta.</p>
-                        <p>Un esperto vi contatterà entro 15 minuti.</p><button class="mj-wa" id="mj-wa-final"
-                            onclick="redirectToWA()">Parla su WhatsApp →</button>
+                        <p data-t="maj.done">La sua richiesta è in gestione.</p>
+                        <p data-t="maj.done_sub">Un esperto la contatterà entro 15 minuti.</p><button class="mj-wa"
+                            id="mj-wa-final" onclick="redirectToWA()" aria-label="Continuer sur WhatsApp">Parler sur
+                            WhatsApp →</button>
                     </div>
                 </div>
             </div>
@@ -730,15 +862,110 @@
     </div>
 
     <div class="sticky-mob" id="sticky-mob">
-        <a href="https://wa.me/+33621084443" class="sm-wa" target="_blank" rel="noopener"><svg width="15" height="15"
-                viewBox="0 0 24 24" fill="currentColor">
+        <a href="https://wa.me/+33600000001" class="sm-wa" target="_blank" rel="noopener"
+            onclick="gtag('event','sticky_wa',{event_category:'CTA'})">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                 <path
                     d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372C7.078 9.5 6.5 10 6.5 11.5c0 1.5 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L.057 24l6.35-1.658A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" />
-            </svg><span>WhatsApp · 2h</span></a>
-        <a href="#collection" class="sm-villas" onclick="scrollToSection('collection')">Vedi le ville</a>
+            </svg>
+            <span data-t="mob.wa">WhatsApp · 2h</span>
+        </a>
+        <a href="#collection" class="sm-villas" onclick="scrollToSection('collection')" data-t="mob.villas">Voir les
+            villas</a>
     </div>
 
-    <script src="../main.js"></script>
+
+    <!-- ══ MODALE LEAD — Luxe premium ══ -->
+    <div class="lead-modal" id="lead-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="lm-bg" id="lm-bg" onclick="closeLeadModal()"></div>
+        <div class="lm-box" id="lm-box">
+
+            <!-- État 1 : Formulaire -->
+            <div class="lm-form-wrap" id="lm-form-wrap">
+                <button class="lm-close" onclick="closeLeadModal()" aria-label="Fermer">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <line x1="1" y1="1" x2="13" y2="13" stroke="currentColor" stroke-width="1.2" />
+                        <line x1="13" y1="1" x2="1" y2="13" stroke="currentColor" stroke-width="1.2" />
+                    </svg>
+                </button>
+                <div class="lm-header">
+                    <img src="../images/logo.png" alt="Azur Villa Prestige" class="lm-logo" />
+                    <span class="lm-eyebrow">Richiesta di soggiorno</span>
+                    <h2 class="lm-title">La vostra villa <em>vi aspetta</em></h2>
+                    <p class="lm-sub">Compilate i vostri dati — un consulente risponderà entro 2 ore.</p>
+                </div>
+
+                <!-- Récap des données de la search pill -->
+                <div class="lm-recap" id="lm-recap"></div>
+
+                <form class="lm-form" id="lm-form" onsubmit="submitLead(event)" novalidate>
+                    <div class="lm-fields">
+                        <div class="lm-field">
+                            <label class="lm-lbl" for="lm-name">Nome & Cognome <span class="lm-req">*</span></label>
+                            <input type="text" id="lm-name" class="lm-inp" placeholder="Mario Rossi" required
+                                autocomplete="name" />
+                        </div>
+                        <div class="lm-field">
+                            <label class="lm-lbl" for="lm-email">Email <span class="lm-req">*</span></label>
+                            <input type="email" id="lm-email" class="lm-inp" placeholder="marie@email.com" required
+                                autocomplete="email" />
+                        </div>
+                        <div class="lm-field">
+                            <label class="lm-lbl" for="lm-phone">Telefono <span class="lm-req">*</span></label>
+                            <input type="tel" id="lm-phone" class="lm-inp" placeholder="+33 6 xx xx xx xx" required
+                                autocomplete="tel" />
+                        </div>
+                        <div class="lm-field lm-field--full">
+                            <label class="lm-lbl" for="lm-msg">Messaggio (opzionale)</label>
+                            <textarea id="lm-msg" class="lm-inp lm-textarea"
+                                placeholder="Desideri particolari per il vostro soggiorno?" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="lm-submit" id="lm-submit" aria-label="Invia la mia richiesta">
+                        <span id="lm-submit-txt">Invia la mia richiesta</span>
+                        <svg width="14" height="10" viewBox="0 0 16 10" fill="none">
+                            <line x1="0" y1="5" x2="13" y2="5" stroke="currentColor" stroke-width="1.2" />
+                            <polyline points="9,1 13,5 9,9" stroke="currentColor" stroke-width="1.2" fill="none" />
+                        </svg>
+                    </button>
+                    <p class="lm-rgpd">🔒 I vostri dati sono protetti. Risposta garantita entro 2h.</p>
+                </form>
+            </div>
+
+            <!-- État 2 : Confirmation luxe -->
+            <div class="lm-confirm" id="lm-confirm" style="display:none">
+                <div class="lm-confirm-inner">
+                    <div class="lm-check-anim" id="lm-check-anim">
+                        <svg viewBox="0 0 52 52" fill="none">
+                            <circle class="lm-check-circle" cx="26" cy="26" r="24" stroke="currentColor"
+                                stroke-width="1.5" />
+                            <polyline class="lm-check-tick" points="14,26 22,34 38,18" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                        </svg>
+                    </div>
+                    <img src="../images/logo.png" alt="Azur Villa Prestige" class="lm-conf-logo" />
+                    <h2 class="lm-conf-title">Grazie <em id="lm-conf-name"></em></h2>
+                    <p class="lm-conf-sub">La vostra richiesta è stata ricevuta. Un conseiller Azur Villa Prestige vous
+                        contactera <strong>dans les 2 heures</strong> pour organiser votre séjour sur-mesure.</p>
+                    <div class="lm-conf-divider"></div>
+                    <p class="lm-conf-sign">— Il team di Azur Villa Prestige</p>
+                    <div class="lm-conf-contacts">
+                        <a href="tel:+33600000001">Pascal · +33 6 00 00 00 01</a>
+                        <span>·</span>
+                        <a href="tel:+33600000002">Isabelle · +33 6 00 00 00 02</a>
+                    </div>
+                    <button class="lm-conf-close" onclick="closeLeadModal()" aria-label="Fermer">Fermer</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts déplacés en fin de page pour ne pas bloquer le rendu -->
+    <!-- Scripts non-bloquants — chargés après le contenu visible -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>
