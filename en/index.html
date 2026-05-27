@@ -108,10 +108,12 @@
     </div>
 
     <!-- NAV -->
-    <header class="nav" id="nav">
-        <a class="nav-logo" href="/"><img src="../images/logo.png" alt="Azur Villa Prestige" class="nav-logo-img" /></a>
-        <nav class="nav-links">
-            <a href="../location.html">Rental</a>
+    <header class="nav" id="nav" role="banner">
+        <a class="nav-logo" href="../" aria-label="Azur Villa Prestige — Home">
+            <img src="../images/logo.png" alt="Azur Villa Prestige" class="nav-logo-img" width="44" height="44" />
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="../location.html">Rentals</a>
             <a href="../gestion.html">Management</a>
             <a href="../conciergerie.html">Concierge</a>
             <a href="../a-propos.html">About</a>
@@ -119,34 +121,37 @@
             <a href="../blog.html">Blog</a>
         </nav>
         <div class="nav-right">
-            <div class="lang-sel">
-                <button class="lb" aria-label="Français" onclick="window.location='../'">Fr</button><span>·</span>
-                <button class="lb" onclick="window.location='../'" aria-label="English">En</button><span>·</span>
-                <button class="lb" onclick="window.location='../de/'" aria-label="Deutsch">De</button><span>·</span>
+            <div class="lang-sel" aria-label="Language selection">
+                <button class="lb" onclick="window.location='../'" aria-label="Français">Fr</button><span
+                    aria-hidden="true">·</span>
+                <button class="lb active" aria-current="true" aria-label="English">En</button><span
+                    aria-hidden="true">·</span>
+                <button class="lb" onclick="window.location='../de/'" aria-label="Deutsch">De</button><span
+                    aria-hidden="true">·</span>
                 <button class="lb" onclick="window.location='../it/'" aria-label="Italiano">It</button>
             </div>
-            <button class="nav-cta" id="nav-cta" onclick="openMaj();gtag('event','nav_cta',{event_category:'Nav'})"
-                aria-label="Contact us" data-t="nav.book">Contact us</button>
+            <button class="nav-cta" id="nav-cta" onclick="openMaj()" aria-label="Contact us">Contact us</button>
             <button class="burger" id="burger" aria-expanded="false" aria-label="Open menu"
                 aria-controls="mob-menu"><span></span><span></span></button>
         </div>
     </header>
 
-    <div class="mob-menu" id="mob-menu" aria-hidden="true">
-        <nav>
-            <a href="../location.html" data-t="nav.location">Rental</a>
+    <div class="mob-menu" id="mob-menu" aria-hidden="true" role="dialog" aria-label="Mobile menu">
+        <nav aria-label="Mobile navigation">
+            <a href="../location.html">Rentals</a>
             <a href="../gestion.html">Management</a>
             <a href="../conciergerie.html">Concierge</a>
             <a href="../a-propos.html">About</a>
-
             <a href="../contact.html">Contact</a>
+            <a href="../blog.html">Blog</a>
         </nav>
         <div class="mob-lang">
-            <button class="lb" aria-label="Français" onclick="window.location='../'">Fr</button>
-            <button class="lb" onclick="window.location='../'" aria-label="English">En</button>
+            <button class="lb" onclick="window.location='../'" aria-label="Français">Fr</button>
+            <button class="lb active" aria-label="English">En</button>
             <button class="lb" onclick="window.location='../de/'" aria-label="Deutsch">De</button>
             <button class="lb" onclick="window.location='../it/'" aria-label="Italiano">It</button>
         </div>
+    </div>
     </div>
 
     <!-- HERO -->

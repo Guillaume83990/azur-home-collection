@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8" />
@@ -26,39 +26,39 @@
 
 <body class="page-villa"> <!-- NAV -->
     <header class="nav" id="nav" role="banner"> <a class="nav-logo" href="../index.html"
-            aria-label="Azur Villa Prestige — Accueil"> <img src="../images/logo.png" alt="Azur Villa Prestige"
+            aria-label="Azur Villa Prestige — Startseite"> <img src="../images/logo.png" alt="Azur Villa Prestige"
                 class="nav-logo-img" width="44" height="44" /></a>
-        <nav class="nav-links" aria-label="Navigation principale">
-            <a href="../location.html" class="nav-link--active">Location</a>
-            <a href="../gestion.html">Gestion</a>
-            <a href="../conciergerie.html">Conciergerie</a>
-            <a href="../a-propos.html">À propos</a>
+        <nav class="nav-links" aria-label="Hauptnavigation">
+            <a href="../location.html" class="nav-link--active">Miete</a>
+            <a href="../gestion.html">Verwaltung</a>
+            <a href="../conciergerie.html">Concierge</a>
+            <a href="../a-propos.html">Über uns</a>
             <a href="../contact.html">Contact</a>
             <a href="../blog.html">Blog</a>
         </nav>
         <div class="nav-right">
-            <div class="lang-sel" aria-label="Sélection de langue" id="villa-lang-sel">
-                <button class="lb active" aria-current="true" aria-label="Français">Fr</button><span
+            <div class="lang-sel" aria-label="Sprachauswahl" id="villa-lang-sel">
+                <button class="lb" onclick="window.location='../villa.html'+window.location.search"
+                    aria-label="Französisch">Fr</button><span aria-hidden="true">·</span>
+                <button class="lb" onclick="window.location='../en/villa.html'+window.location.search"
+                    aria-label="English">En</button><span aria-hidden="true">·</span>
+                <button class="lb active" aria-current="true" aria-label="Deutsch">De</button><span
                     aria-hidden="true">·</span>
-                <button class="lb" onclick="window.location='en/villa.html'+window.location.search" aria-label="English"
-                    id="lb-en">En</button><span aria-hidden="true">·</span>
-                <button class="lb" onclick="window.location='de/villa.html'+window.location.search" aria-label="Deutsch"
-                    id="lb-de">De</button><span aria-hidden="true">·</span>
-                <button class="lb" onclick="window.location='it/villa.html'+window.location.search"
-                    aria-label="Italiano" id="lb-it">It</button>
+                <button class="lb" onclick="window.location='../it/villa.html'+window.location.search"
+                    aria-label="Italiano">It</button>
             </div>
-            <button class="nav-cta" onclick="openBookingModal()">Demander un devis</button>
+            <button class="nav-cta" onclick="openBookingModal()">Angebot anfragen</button>
             <button class="burger" id="burger" aria-expanded="false"
-                aria-label="Ouvrir le menu"><span></span><span></span></button>
+                aria-label="Menü öffnen"><span></span><span></span></button>
         </div>
     </header>
 
-    <div class="mob-menu" id="mob-menu" aria-hidden="true" role="dialog" aria-label="Menu mobile">
+    <div class="mob-menu" id="mob-menu" aria-hidden="true" role="dialog" aria-label="Mobiles Menü">
         <nav>
-            <a href="../location.html">Location</a>
-            <a href="../gestion.html">Gestion</a>
-            <a href="../conciergerie.html">Conciergerie</a>
-            <a href="../a-propos.html">À propos</a>
+            <a href="../location.html">Miete</a>
+            <a href="../gestion.html">Verwaltung</a>
+            <a href="../conciergerie.html">Concierge</a>
+            <a href="../a-propos.html">Über uns</a>
             <a href="../contact.html">Contact</a>
             <a href="../blog.html">Blog</a>
         </nav>
@@ -72,9 +72,9 @@
         </div>
         <div class="vd-hero-content" id="vd-hero-content">
             <nav class="vd-breadcrumb" aria-label="Fil d'ariane">
-                <a href="../index.html">Accueil</a>
+                <a href="../index.html">Startseite</a>
                 <span aria-hidden="true">›</span>
-                <a href="../location.html">Location</a>
+                <a href="../location.html">Miete</a>
                 <span aria-hidden="true">›</span>
                 <span id="vd-bc-name"></span>
             </nav>
@@ -95,7 +95,7 @@
                         <line x1="13" y1="2" x2="13" y2="6" stroke="currentColor" stroke-width="1.4"
                             stroke-linecap="round" />
                         <line x1="3" y1="9" x2="17" y2="9" stroke="currentColor" stroke-width="1.4" />
-                    </svg> Demander un devis</button>
+                    </svg> Angebot anfragen</button>
                 <div class="vd-hero-contacts">
                     <a href="tel:+33600000001" class="vd-contact-link"><svg width="13" height="13" viewBox="0 0 20 20"
                             fill="none">
@@ -121,7 +121,7 @@
             <div class="vd-desc-grid">
                 <!-- Gauche : texte -->
                 <div class="vd-desc-left" id="vd-desc-left">
-                    <span class="eyebrow dark">La propriété</span>
+                    <span class="eyebrow dark">Die Immobilie</span>
                     <h2 id="vd-desc-title"></h2>
                     <p id="vd-desc-text"></p>
                     <div class="vd-ams" id="vd-ams"></div>
@@ -131,8 +131,8 @@
                     <div class="vd-specs-box" id="vd-specs-box"></div>
                     <!-- CTA sidebar visible et contrasté -->
                     <div class="vd-sidebar-cta">
-                        <h3>Intéressé par cette villa ?</h3>
-                        <p>Réponse garantie sous 2 heures</p>
+                        <h3>Interesse an dieser Villa?</h3>
+                        <p>Antwort garantiert innerhalb 2 Stunden</p>
                         <button class="vd-btn-primary vd-btn-full" onclick="openBookingModal()"><svg width="14"
                                 height="14" viewBox="0 0 20 20" fill="none">
                                 <rect x="3" y="4" width="14" height="14" rx="1" stroke="currentColor" stroke-width="1.4"
@@ -142,7 +142,7 @@
                                 <line x1="13" y1="2" x2="13" y2="6" stroke="currentColor" stroke-width="1.4"
                                     stroke-linecap="round" />
                                 <line x1="3" y1="9" x2="17" y2="9" stroke="currentColor" stroke-width="1.4" />
-                            </svg> Demander un devis</button>
+                            </svg> Angebot anfragen</button>
                         <div class="vd-sidebar-phones"><a href="tel:+33600000001"><span>Pascal</span>
                                 <span>+33 6 00 00 00 01</span>
                             </a>
@@ -160,7 +160,7 @@
     <section class="vd-galerie" id="vd-galerie">
         <div class="vd-galerie-head">
             <span class="eyebrow dark">Galerie</span>
-            <h2>Découvrez <em>chaque espace</em></h2>
+            <h2>Entdecken Sie <em>jeden Raum</em></h2>
         </div>
         <div class="vd-galerie-grid" id="vd-galerie-grid"></div>
     </section>
@@ -169,29 +169,29 @@
     <section class="vd-conc">
         <div class="vd-wrap">
             <div class="vd-conc-inner">
-                <span class="eyebrow light">Inclus dans votre séjour</span>
-                <h2>Conciergerie <em>5 étoiles</em></h2>
+                <span class="eyebrow light">In Ihrem Aufenthalt enthalten</span>
+                <h2>Concierge <em>5 Sterne</em></h2>
                 <div class="vd-conc-grid">
                     <div class="vd-conc-item"><span>🍽️</span>
-                        <p>Chef privé à domicile</p>
+                        <p>Privater Koch zu Hause</p>
                     </div>
                     <div class="vd-conc-item"><span>🚁</span>
-                        <p>Transferts héliportés</p>
+                        <p>Hubschrauber-Transfers</p>
                     </div>
                     <div class="vd-conc-item"><span>⛵</span>
-                        <p>Location yacht & bateau</p>
+                        <p>Yacht- & Bootsverleih</p>
                     </div>
                     <div class="vd-conc-item"><span>💆</span>
-                        <p>Spa & bien-être à domicile</p>
+                        <p>Spa & Wellness zu Hause</p>
                     </div>
                     <div class="vd-conc-item"><span>🎾</span>
-                        <p>Réservations restaurants & clubs</p>
+                        <p>Restaurant- & Clubreservierungen</p>
                     </div>
                     <div class="vd-conc-item"><span>🛒</span>
-                        <p>Personal shopping & courses</p>
+                        <p>Personal Shopping & Einkäufe</p>
                     </div>
                 </div>
-                <a href="../conciergerie.html" class="vd-btn-ghost">Découvrir la conciergerie →</a>
+                <a href="../conciergerie.html" class="vd-btn-ghost">Concierge entdecken →</a>
             </div>
         </div>
     </section>
@@ -199,8 +199,8 @@
     <!-- ══ VILLAS SIMILAIRES ══ -->
     <section class="vd-similaires">
         <div class="vd-wrap">
-            <span class="eyebrow dark">Dans la même zone</span>
-            <h2>Villas <em>similaires</em></h2>
+            <span class="eyebrow dark">In der gleichen Zone</span>
+            <h2>Ähnliche <em>Villen</em></h2>
             <div class="vd-sim-grid" id="vd-sim-grid"></div>
         </div>
     </section>
@@ -208,11 +208,11 @@
     <!-- ══ CTA FINAL ══ -->
     <section class="vd-cta-final">
         <div class="vd-cta-inner">
-            <span class="eyebrow light">Prêt à réserver ?</span>
+            <span class="eyebrow light">Bereit zu buchen?</span>
             <h2 id="vd-cta-title"></h2>
-            <p>Disponibilités et tarifs sur demande · Réponse sous 2h</p>
+            <p>Verfügbarkeiten und Preise auf Anfrage · Antwort innerhalb 2h</p>
             <div class="vd-cta-btns">
-                <button class="vd-btn-primary" onclick="openBookingModal()">Demander un devis</button>
+                <button class="vd-btn-primary" onclick="openBookingModal()">Angebot anfragen</button>
                 <a href="tel:+33600000001" class="vd-btn-ghost">Pascal · +33 6 00 00 00 01</a>
             </div>
         </div>
@@ -228,26 +228,26 @@
             </div>
             <nav class="ft-nav" aria-label="Navigation footer">
                 <div class="fn-col">
-                    <h4>Services</h4>
-                    <a href="../location.html">Location</a>
-                    <a href="../gestion.html">Gestion</a>
-                    <a href="../conciergerie.html">Conciergerie</a>
+                    <h4>Dienstleistungen</h4>
+                    <a href="../location.html">Miete</a>
+                    <a href="../gestion.html">Verwaltung</a>
+                    <a href="../conciergerie.html">Concierge</a>
                 </div>
                 <div class="fn-col">
-                    <h4>Destinations</h4>
+                    <h4>Reiseziele</h4>
                     <a href="../location.html?zone=saint-tropez">Saint-Tropez</a>
                     <a href="../location.html?zone=ramatuelle">Ramatuelle</a>
                     <a href="../location.html?zone=gassin">Gassin</a>
                     <a href="../location.html?zone=grimaud">Grimaud</a>
                 </div>
                 <div class="fn-col">
-                    <h4>Société</h4>
-                    <a href="../a-propos.html">À propos</a>
+                    <h4>Unternehmen</h4>
+                    <a href="../a-propos.html">Über uns</a>
                     <a href="../contact.html">Contact</a>
                     <a href="../blog.html">Blog</a>
                 </div>
                 <div class="fn-col">
-                    <h4>Contact</h4>
+                    <h4>Kontakt</h4>
                     <a href="tel:+33600000001">Pascal<br>+33 6 00 00 00 01</a>
                     <a href="tel:+33600000002">Isabelle<br>+33 6 00 00 00 02</a>
                     <a href="mailto:contact@azurvillaprestige.com">Email</a>
@@ -256,13 +256,13 @@
             </nav>
         </div>
         <div class="ft-bot">
-            <span>© 2026 Azur Villa Prestige. Tous droits réservés.</span>
-            <span class="ft-credit">Conçu & développé par <a href="https://www.sudwebproject.com" target="_blank"
+            <span>© 2026 Azur Villa Prestige. Alle Rechte vorbehalten.</span>
+            <span class="ft-credit">Konzipiert & entwickelt von <a href="https://www.sudwebproject.com" target="_blank"
                     rel="noopener">Sud Web Project</a></span>
             <nav class="ft-legal" aria-label="Mentions légales">
-                <a href="../legal/mentions-legales.html">Mentions légales</a>
-                <a href="../legal/confidentialite.html">Confidentialité</a>
-                <a href="../legal/cgv.html">CGV</a>
+                <a href="../legal/mentions-legales.html">Impressum</a>
+                <a href="../legal/confidentialite.html">Datenschutz</a>
+                <a href="../legal/cgv.html">AGB</a>
             </nav>
         </div>
     </footer>
@@ -281,69 +281,70 @@
                     </svg></button>
                 <div class="bm-header">
                     <img src="../images/logo.png" alt="" class="bm-logo" width="52" height="52" />
-                    <span class="bm-eyebrow">Demande de séjour</span>
+                    <span class="bm-eyebrow">Aufenthaltsanfrage</span>
                     <h2 class="bm-title" id="bm-villa-name">Votre villa <em>vous attend</em></h2>
-                    <p class="bm-sub">Remplissez vos informations — notre équipe vous rappelle sous 2 heures.</p>
+                    <p class="bm-sub">Füllen Sie Ihre Daten aus — unser Team ruft Sie innerhalb von 2 Stunden zurück.
+                    </p>
                 </div>
                 <form class="bm-form" id="bm-form" onsubmit="submitBooking(event)" novalidate>
                     <div class="bm-fields">
                         <!-- Ligne 1 : Prénom + Nom -->
                         <div class="bm-field">
-                            <label class="bm-lbl" for="bm-prenom">Prénom <span class="bm-req">*</span></label>
-                            <input type="text" id="bm-prenom" class="bm-inp" placeholder="Marie" required
+                            <label class="bm-lbl" for="bm-prenom">Vorname <span class="bm-req">*</span></label>
+                            <input type="text" id="bm-prenom" class="bm-inp" placeholder="Maria" required
                                 autocomplete="given-name" />
                         </div>
                         <div class="bm-field">
-                            <label class="bm-lbl" for="bm-nom">Nom <span class="bm-req">*</span></label>
-                            <input type="text" id="bm-nom" class="bm-inp" placeholder="Dupont" required
+                            <label class="bm-lbl" for="bm-nom">Nachname <span class="bm-req">*</span></label>
+                            <input type="text" id="bm-nom" class="bm-inp" placeholder="Müller" required
                                 autocomplete="family-name" />
                         </div>
                         <!-- Ligne 2 : Email + Téléphone -->
                         <div class="bm-field">
-                            <label class="bm-lbl" for="bm-email">Email <span class="bm-req">*</span></label>
+                            <label class="bm-lbl" for="bm-email">E-Mail <span class="bm-req">*</span></label>
                             <input type="email" id="bm-email" class="bm-inp" placeholder="marie@email.com" required
                                 autocomplete="email" />
                         </div>
                         <div class="bm-field">
-                            <label class="bm-lbl" for="bm-tel">Téléphone <span class="bm-req">*</span></label>
+                            <label class="bm-lbl" for="bm-tel">Telefon <span class="bm-req">*</span></label>
                             <input type="tel" id="bm-tel" class="bm-inp" placeholder="+33 6 xx xx xx xx" required
                                 autocomplete="tel" />
                         </div>
                         <!-- Ligne 3 : Dates -->
                         <div class="bm-field">
-                            <label class="bm-lbl" for="bm-arrival">Date d'arrivée</label>
+                            <label class="bm-lbl" for="bm-arrival">Anreisedatum</label>
                             <input type="date" id="bm-arrival" class="bm-inp bm-date" />
                         </div>
                         <div class="bm-field">
-                            <label class="bm-lbl" for="bm-departure">Date de départ</label>
+                            <label class="bm-lbl" for="bm-departure">Abreisedatum</label>
                             <input type="date" id="bm-departure" class="bm-inp bm-date" />
                         </div>
                         <!-- Ligne 4 : Voyageurs + Message -->
                         <div class="bm-field">
-                            <label class="bm-lbl" for="bm-guests">Nombre de voyageurs</label>
-                            <input type="number" id="bm-guests" class="bm-inp" placeholder="Ex : 6" min="1" max="30" />
+                            <label class="bm-lbl" for="bm-guests">Anzahl Reisende</label>
+                            <input type="number" id="bm-guests" class="bm-inp" placeholder="Z.B. 6" min="1" max="30" />
                         </div>
                         <div class="bm-field bm-field--full">
-                            <label class="bm-lbl" for="bm-msg">Message (optionnel)</label>
+                            <label class="bm-lbl" for="bm-msg">Nachricht (optional)</label>
                             <textarea id="bm-msg" class="bm-inp bm-textarea"
-                                placeholder="Vos souhaits particuliers, questions..." rows="3"></textarea>
+                                placeholder="Ihre besonderen Wünsche, Fragen..." rows="3"></textarea>
                         </div>
                         <!-- RGPD -->
                         <div class="bm-field bm-field--full bm-field--check">
-                            <label class="bm-check-label"><input type="checkbox" id="bm-rgpd" required />
-                                <span>J'accepte que mes données soient utilisées pour traiter ma demande. <a
-                                        href="../legal/confidentialite.html" target="_blank">Politique de
-                                        confidentialité</a></span>
+                            <label class="bm-check-label"><input type="checkbox" id="bm-rgpd" required /> <span>Ich
+                                    stimme zu, dass meine Daten zur Bearbeitung meiner Anfrage verwendet werden. <a
+                                        href="../legal/confidentialite.html"
+                                        target="_blank">Datenschutzrichtlinie</a></span>
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="bm-submit" id="bm-submit"><span id="bm-submit-txt">Envoyer ma
-                            demande</span>
+                    <button type="submit" class="bm-submit" id="bm-submit"><span id="bm-submit-txt">Anfrage
+                            senden</span>
                         <svg width="14" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true">
                             <line x1="0" y1="5" x2="13" y2="5" stroke="currentColor" stroke-width="1.2" />
                             <polyline points="9,1 13,5 9,9" stroke="currentColor" stroke-width="1.2" fill="none" />
                         </svg></button>
-                    <p class="bm-rgpd-note">🔒 Données protégées · Réponse garantie sous 2 heures</p>
+                    <p class="bm-rgpd-note">🔒 Daten geschützt · Antwort garantiert innerhalb 2 Stunden</p>
                 </form>
             </div>
 
@@ -358,16 +359,16 @@
                         </svg>
                     </div> <img src="../images/logo.png" alt="" class="bm-conf-logo" width="56" height="56" />
                     <h2 class="bm-conf-title">Merci <em id="bm-conf-prenom"></em></h2>
-                    <p class="bm-conf-msg">Votre demande a bien été prise en compte.<br>Notre équipe va
-                        <strong>rapidement revenir vers vous</strong> pour organiser votre séjour sur-mesure.</p>
+                    <p class="bm-conf-msg">Ihre Anfrage wurde erhalten.<br>Unser Team wird sich <strong>in Kürze bei
+                            Ihnen melden</strong>, um Ihren maßgeschneiderten Aufenthalt zu organisieren.</p>
                     <div class="bm-conf-divider"></div>
-                    <p class="bm-conf-sign">— L'équipe Azur Villa Prestige</p>
+                    <p class="bm-conf-sign">— Das Team von Azur Villa Prestige</p>
                     <div class="bm-conf-contacts">
                         <a href="tel:+33600000001">Pascal · +33 6 00 00 00 01</a>
                         <span>·</span>
                         <a href="tel:+33600000002">Isabelle · +33 6 00 00 00 02</a>
                     </div>
-                    <button class="bm-conf-close" onclick="closeBookingModal()">Fermer</button>
+                    <button class="bm-conf-close" onclick="closeBookingModal()">Schließen</button>
                 </div>
             </div>
 
@@ -389,15 +390,15 @@
             <div class="maj-hd"><img src="../images/logo.png" alt="" class="maj-logo" width="28" height="28" />
                 <div>
                     <p class="maj-name">Azur Villa Prestige</p>
-                    <p class="maj-st"><span class="maj-dot"></span><span>En ligne</span></p>
+                    <p class="maj-st"><span class="maj-dot"></span><span>Online</span></p>
                 </div><button class="maj-x" id="maj-x">×</button>
             </div>
             <div class="maj-msgs" id="maj-msgs"></div>
             <div class="maj-flow" id="maj-flow">
                 <div class="mj-step active" id="mjs-0">
-                    <p class="mj-q">Intéressé par cette villa ?</p>
+                    <p class="mj-q">Interesse an dieser Villa?</p>
                     <div class="mj-ch">
-                        <button onclick="closeBookingModal();openBookingModal()">📋 Demander un devis</button>
+                        <button onclick="closeBookingModal();openBookingModal()">📋 Angebot anfragen</button>
                         <button onclick="window.location='tel:+33600000001'">📞 Pascal</button>
                         <button onclick="window.location='tel:+33600000002'">📞 Isabelle</button>
                     </div>
@@ -412,7 +413,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="../js/main.js" defer></script>
-    <script src="../js/villas-data.js" defer></script>
+    <script src="../js/villas-data-de.js" defer></script>
     <script src="../js/villa.js" defer></script>
 </body>
 
