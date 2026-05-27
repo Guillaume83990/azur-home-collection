@@ -202,24 +202,24 @@ function startHero() {
 
     if (typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
-        gsap.to('#hpx', { scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.5 }, yPercent: 20, ease: 'none' });
+        gsap.to('#hpx', { scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.5, once: true }, yPercent: 20, ease: 'none' });
 
         // Brand
-        gsap.from('.bi-left>*,.bi-right', { scrollTrigger: { trigger: '.brand', start: 'top 72%' }, opacity: 0, y: 28, duration: .85, stagger: .1, ease: 'power3.out' });
-        gsap.from('.bv', { scrollTrigger: { trigger: '.brand-values', start: 'top 74%' }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
-        gsap.from('.sv-item', { scrollTrigger: { trigger: '.services-row', start: 'top 74%' }, opacity: 0, y: 22, duration: .8, stagger: .12, ease: 'power3.out' });
+        gsap.from('.bi-left>*,.bi-right', { scrollTrigger: { trigger: '.brand', start: 'top 72%', once: true }, opacity: 0, y: 28, duration: .85, stagger: .1, ease: 'power3.out' });
+        gsap.from('.bv', { scrollTrigger: { trigger: '.brand-values', start: 'top 74%', once: true }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
+        gsap.from('.sv-item', { scrollTrigger: { trigger: '.services-row', start: 'top 74%', once: true }, opacity: 0, y: 22, duration: .8, stagger: .12, ease: 'power3.out' });
 
         // Villas
-        gsap.from('.villa', { scrollTrigger: { trigger: '.villas', start: 'top 75%' }, opacity: 0, y: 30, duration: .9, stagger: .14, ease: 'power3.out' });
+        gsap.from('.villa', { scrollTrigger: { trigger: '.villas', start: 'top 75%', once: true }, opacity: 0, y: 30, duration: .9, stagger: .14, ease: 'power3.out' });
 
         // Destinations
-        gsap.from('.dest', { scrollTrigger: { trigger: '.dests-grid', start: 'top 74%' }, clipPath: 'inset(0 100% 0 0)', duration: 1.1, stagger: .18, ease: 'power4.inOut' });
+        gsap.from('.dest', { scrollTrigger: { trigger: '.dests-grid', start: 'top 74%', once: true }, clipPath: 'inset(0 100% 0 0)', duration: 1.1, stagger: .18, ease: 'power4.inOut' });
 
         // Conc + Owners
-        gsap.from('.conc-img', { scrollTrigger: { trigger: '.conc', start: 'top 70%' }, clipPath: 'inset(0 100% 0 0)', duration: 1.1, ease: 'power4.inOut' });
-        gsap.from('.conc-text>*', { scrollTrigger: { trigger: '.conc', start: 'top 70%' }, opacity: 0, y: 26, duration: .85, stagger: .1, ease: 'power3.out' });
-        gsap.from('.ow-text>*', { scrollTrigger: { trigger: '.owners', start: 'top 70%' }, opacity: 0, y: 26, duration: .85, stagger: .1, ease: 'power3.out' });
-        gsap.from('.ow-img', { scrollTrigger: { trigger: '.ow-img', start: 'top 70%' }, clipPath: 'inset(0 100% 0 0)', duration: 1.1, ease: 'power4.inOut' });
+        gsap.from('.conc-img', { scrollTrigger: { trigger: '.conc', start: 'top 70%', once: true }, clipPath: 'inset(0 100% 0 0)', duration: 1.1, ease: 'power4.inOut' });
+        gsap.from('.conc-text>*', { scrollTrigger: { trigger: '.conc', start: 'top 70%', once: true }, opacity: 0, y: 26, duration: .85, stagger: .1, ease: 'power3.out' });
+        gsap.from('.ow-text>*', { scrollTrigger: { trigger: '.owners', start: 'top 70%', once: true }, opacity: 0, y: 26, duration: .85, stagger: .1, ease: 'power3.out' });
+        gsap.from('.ow-img', { scrollTrigger: { trigger: '.ow-img', start: 'top 70%', once: true }, clipPath: 'inset(0 100% 0 0)', duration: 1.1, ease: 'power4.inOut' });
 
         // Trust count-up
         document.querySelectorAll('.tg-n').forEach(el => {
@@ -233,11 +233,11 @@ function startHero() {
         });
 
         // FAQ + NL
-        gsap.from('.faq-head>*', { scrollTrigger: { trigger: '.faq', start: 'top 74%' }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
-        gsap.from('.faq-item', { scrollTrigger: { trigger: '.faq-list', start: 'top 74%' }, opacity: 0, y: 18, duration: .7, stagger: .07, ease: 'power3.out' });
-        gsap.from('.nl-text>*', { scrollTrigger: { trigger: '.newsletter', start: 'top 72%' }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
-        gsap.from('.nl-form', { scrollTrigger: { trigger: '.nl-form', start: 'top 78%' }, opacity: 0, y: 18, duration: .85, ease: 'power3.out' });
-        gsap.from('.cf-inner>*', { scrollTrigger: { trigger: '.cta-final', start: 'top 72%' }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
+        gsap.from('.faq-head>*', { scrollTrigger: { trigger: '.faq', start: 'top 74%', once: true }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
+        gsap.from('.faq-item', { scrollTrigger: { trigger: '.faq-list', start: 'top 74%', once: true }, opacity: 0, y: 18, duration: .7, stagger: .07, ease: 'power3.out' });
+        gsap.from('.nl-text>*', { scrollTrigger: { trigger: '.newsletter', start: 'top 72%', once: true }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
+        gsap.from('.nl-form', { scrollTrigger: { trigger: '.nl-form', start: 'top 78%', once: true }, opacity: 0, y: 18, duration: .85, ease: 'power3.out' });
+        gsap.from('.cf-inner>*', { scrollTrigger: { trigger: '.cta-final', start: 'top 72%', once: true }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
     }
 }
 

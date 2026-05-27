@@ -31,6 +31,7 @@
     </noscript>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');</script>
+    <link rel="preload" as="image" href="images/hero-desktop.webp" type="image/webp" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -206,11 +207,12 @@
                     <label class="sp-lbl" data-t="search.checkin">Arrivée</label>
                     <input type="date" class="sp-inp sp-date" id="sp-in" aria-label="Date d'arrivée" />
                     <span class="sp-arr">→</span>
-                    <input type="date" class="sp-inp sp-date" id="sp-out" />
+                    <input type="date" class="sp-inp sp-date" id="sp-out" aria-label="Date de départ" />
                 </div>
                 <div class="sp-sep"></div>
                 <div class="sp-field">
                     <label class="sp-lbl" data-t="search.guests">Voyageurs</label>
+                    <label for="sp-guests" class="sr-only">Voyageurs</label>
                     <input type="number" class="sp-inp sp-guests" id="sp-guests" min="1" max="30" placeholder="2"
                         aria-label="Voyageurs" aria-label="Nombre de voyageurs" aria-label="Nombre de voyageurs" />
                 </div>
@@ -786,7 +788,7 @@
         </button>
         <div class="maj-panel" id="maj-panel" aria-hidden="true">
             <div class="maj-hd">
-                <img src="images/logo.png" alt="" class="maj-logo" />
+                <img src="images/logo.png" alt="" class="maj-logo" width="28" height="28" />
                 <div>
                     <p class="maj-name">Azur Villa Prestige</p>
                     <p class="maj-st"><span class="maj-dot"></span><span data-t="maj.online">Votre concierge · En
@@ -898,7 +900,7 @@
                     </svg>
                 </button>
                 <div class="lm-header">
-                    <img src="images/logo.png" alt="Azur Villa Prestige" class="lm-logo" />
+                    <img src="images/logo.png" alt="Azur Villa Prestige" class="lm-logo" width="52" height="52" />
                     <span class="lm-eyebrow">Demande de séjour</span>
                     <h2 class="lm-title">Votre villa <em>vous attend</em></h2>
                     <p class="lm-sub">Complétez vos informations — un conseiller vous répond sous 2 heures.</p>
@@ -952,7 +954,7 @@
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
                         </svg>
                     </div>
-                    <img src="images/logo.png" alt="Azur Villa Prestige" class="lm-conf-logo" />
+                    <img src="images/logo.png" alt="Azur Villa Prestige" class="lm-conf-logo" width="44" height="44" />
                     <h2 class="lm-conf-title">Merci <em id="lm-conf-name"></em></h2>
                     <p class="lm-conf-sub">Votre demande a bien été reçue. Un conseiller Azur Villa Prestige vous
                         contactera <strong>dans les 2 heures</strong> pour organiser votre séjour sur-mesure.</p>
@@ -974,7 +976,7 @@
     <!-- Scripts non-bloquants — chargés après le contenu visible -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 
 </html>
