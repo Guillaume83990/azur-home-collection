@@ -28,10 +28,7 @@ window.filterCat = function (btn, cat) {
         var visibleCards = Array.from(cards).filter(function (c) {
             return !c.classList.contains('hidden');
         });
-        gsap.fromTo(visibleCards,
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: .5, stagger: .08, ease: 'power3.out' }
-        );
+        gsap.from(visibleCards, { opacity: 0, y: 20, duration: .5, stagger: .08, ease: 'power3.out', clearProps: 'all' });
     }
     if (typeof gtag === 'function') {
         gtag('event', 'blog_filter', { event_category: 'Blog', event_label: cat });
@@ -111,7 +108,7 @@ function showNLSuccess(name, txt, btn) {
 
 function fallbackWA(name, email, txt, btn) {
     var msg = 'Newsletter AHC Blog - Prenom : ' + name + ' - Email : ' + email;
-    window.open('https://wa.me/+33621084443?text=' + encodeURIComponent(msg), '_blank');
+    window.open('https://wa.me/+33600000001?text=' + encodeURIComponent(msg), '_blank');
     txt.textContent = 'Envoye !';
     btn.style.background = '#93A8AC';
 }
@@ -151,22 +148,19 @@ function initGSAP() {
     /* Article featured */
     var feat = document.querySelector('[data-gsap-feat]');
     if (feat) {
-        gsap.fromTo(feat,
-            { opacity: 0, y: 40 },
-            {
-                scrollTrigger: { trigger: feat, start: 'top 80%', once: true },
-                opacity: 1, y: 0, duration: 1.0, ease: 'power3.out'
-            }
-        );
+        gsap.from(feat, {
+            scrollTrigger: { trigger: feat, start: 'top 80%', once: true },
+            opacity: 0, y: 40, duration: 1.0, ease: 'power3.out', clearProps: 'all'
+        });
     }
 
     /* Cards grille */
     document.querySelectorAll('[data-gsap-card]').forEach(function (card, i) {
-        gsap.fromTo(card,
-            { opacity: 0, y: 36 },
+        gsap.from(card,
             {
                 scrollTrigger: { trigger: '.bl-grid', start: 'top 82%', once: true },
-                opacity: 1, y: 0, duration: .8, delay: i * .1, ease: 'power3.out'
+                opacity: 0, y: 36, duration: .8, delay: i * .1, ease: 'power3.out',
+                clearProps: 'all'
             }
         );
     });
@@ -216,6 +210,14 @@ function initGSAP() {
 
 /* ══ INIT ══ */
 document.addEventListener('DOMContentLoaded', function () {
+    /* Fallback : rendre tout visible si GSAP non chargé */
+    if (typeof gsap === 'undefined') {
+        document.querySelectorAll('[data-gsap-card],[data-gsap-feat],[data-gsap-nl],[data-gsap-cta],[data-gsap-quote]').forEach(function (el) {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+        });
+    }
+
     var setVh = function () {
         document.documentElement.style.setProperty('--vh', (window.innerHeight * .01) + 'px');
     };

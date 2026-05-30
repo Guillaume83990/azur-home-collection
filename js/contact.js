@@ -64,7 +64,7 @@ window.submitContact = function (e) {
 };
 
 function fallbackWA(msg, prenom) {
-    window.open('https://wa.me/+33621084443?text=' + encodeURIComponent(msg), '_blank');
+    window.open('https://wa.me/+33600000001?text=' + encodeURIComponent(msg), '_blank');
     showConfirm(prenom);
 }
 
@@ -99,7 +99,7 @@ function showConfirm(prenom) {
 /* ══ GSAP ANIMATIONS PAGE ══ */
 function initGSAP() {
     if (typeof gsap === 'undefined') {
-        document.querySelectorAll('.ct-h1-w,.ct-eyebrow,.ct-sub').forEach(function (el) {
+        document.querySelectorAll('.ct-h1-w,.ct-eyebrow,.ct-sub,#ct-hero-ctas,#ct-hero-bottom').forEach(function (el) {
             el.style.opacity = '1'; el.style.transform = 'none';
         });
         return;
@@ -119,13 +119,17 @@ function initGSAP() {
     }
 
     /* Hero texte */
-    var tl = gsap.timeline({ delay: .15 });
+    var tl = gsap.timeline({ delay: .2 });
     var ey = document.querySelector('.ct-eyebrow');
     var ws = document.querySelectorAll('.ct-h1-w');
     var sub = document.querySelector('.ct-sub');
-    if (ey) tl.from(ey, { opacity: 0, y: 14, duration: .7, ease: 'power3.out' });
-    if (ws.length) tl.to(ws, { y: 0, opacity: 1, duration: 1.1, stagger: .18, ease: 'power4.out' }, '-=.3');
-    if (sub) tl.from(sub, { opacity: 0, y: 18, duration: .9, ease: 'power3.out' }, '-=.4');
+    var ctas = document.getElementById('ct-hero-ctas');
+    var bot = document.getElementById('ct-hero-bottom');
+    if (ey) tl.from(ey, { opacity: 0, y: 10, duration: .6, ease: 'power3.out', clearProps: 'all' });
+    if (ws.length) tl.from(ws, { opacity: 0, y: 32, duration: 1.1, stagger: .18, ease: 'power4.out', clearProps: 'all' }, '-=.3');
+    if (sub) tl.from(sub, { opacity: 0, y: 14, duration: .7, ease: 'power3.out', clearProps: 'all' }, '-=.4');
+    if (ctas) tl.from(ctas, { opacity: 0, y: 18, duration: .7, ease: 'power3.out', clearProps: 'all' }, '-=.4');
+    if (bot) tl.from(bot, { opacity: 0, y: 10, duration: .5, ease: 'power3.out', clearProps: 'all' }, '-=.3');
 
     /* Aside blocs */
     document.querySelectorAll('[data-gsap-aside]').forEach(function (el, i) {
