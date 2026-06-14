@@ -19,19 +19,11 @@
     <title>Azur Villa Prestige — Hospitalité de Luxe · Golfe de Saint-Tropez</title>
     <script
         type="application/ld+json">{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Azur Villa Prestige","url":"https://www.azurvillaprestige.com","telephone":"+33600000001","priceRange":"€€€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"47"}}</script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@200;300;400&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@200;300;400&display=swap"
-            rel="stylesheet" />
-    </noscript>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');</script>
-    <link rel="preload" as="image" href="images/hero-desktop.webp" type="image/webp" />
+    <link rel="preload" href="images/hero-desktop.webp" as="image" type="image/webp" />
+    <link rel="preload" href="fonts/cormorant-v24-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/dm-sans-v17-latin-300.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -436,11 +428,12 @@
 
             <!-- VILLA 4 — Mas provençal rénové, charme authentique cinq étoiles -->
             <article class="villa" data-dest="saint-tropez" data-am="pool">
-                <a href="villa.html?id=mas-des-oliviers" class="v-img" aria-label="Photo de Mas des Oliviers">
+                <a href="images/villa-mas-des-oliviers.webp" class="v-img" aria-label="Photo de Mas des Oliviers">
                     <picture>
-                        <source srcset="images/bastide-des-pins.webp" type="image/webp" />
-                        <img src="images/bastide-des-pins.webp" alt="Mas des Oliviers — Grimaud authenticité luxueuse"
-                            loading="lazy" decoding="async" width="1400" height="780" />
+                        <source srcset="images/villa-mas-des-oliviers.webp" type="image/webp" />
+                        <img src="images/villa-mas-des-oliviers.webp"
+                            alt="Mas des Oliviers — Grimaud authenticité luxueuse" loading="lazy" decoding="async"
+                            width="1400" height="780" />
                     </picture>
                     <div class="v-ov"></div>
                 </a>
@@ -467,7 +460,8 @@
                         <button class="vi-broch" onclick="openBrochure('Mas des Oliviers');event.stopPropagation()"
                             aria-label="Brochure Mas des Oliviers" aria-label="Recevoir la brochure Mas des Oliviers"
                             data-t="villa.brochure">Brochure</button>
-                        <a href="villa.html?id=mas-des-oliviers" class="vi-see" aria-label="Voir Mas des Oliviers">Voir
+                        <a href="images/villa-mas-des-oliviers.webp" class="vi-see"
+                            aria-label="Voir Mas des Oliviers">Voir
                             →</a>
                     </div>
                 </div>
@@ -972,11 +966,26 @@
         </div>
     </div>
 
-    <!-- Scripts déplacés en fin de page pour ne pas bloquer le rendu -->
-    <!-- Scripts non-bloquants — chargés après le contenu visible -->
+    <!-- ── COOKIE BANNER ── -->
+    <div id="cookie-banner" class="ck-banner" aria-live="polite" aria-label="Gestion des cookies">
+        <div class="ck-inner">
+            <div class="ck-left">
+                <span class="ck-eyebrow">Confidentialité</span>
+                <p class="ck-text" id="ck-text">
+                    Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic.
+                    <a href="mentions-legales.html" class="ck-link" id="ck-link">En savoir plus</a>
+                </p>
+            </div>
+            <div class="ck-right">
+                <button class="ck-refuse" id="ck-refuse" onclick="cookieRefuse()">Refuser</button>
+                <button class="ck-accept" id="ck-accept" onclick="cookieAccept()">Accepter</button>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="js/main.js" defer></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

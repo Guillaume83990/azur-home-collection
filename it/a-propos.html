@@ -29,19 +29,11 @@
         type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Azur Villa Prestige","description":"Agence de location et gestion de villas de luxe dans le Golfe de Saint-Tropez. Conciergerie 5 étoiles, gestion locative et sélection exclusive de propriétés de prestige.","url":"https://www.azurhomecollection.com","logo":"https://www.azurhomecollection.com/images/logo.png","telephone":"+33600000001","email":"contact@azurhomecollection.com","priceRange":"€€€€","foundingDate":"2020","address":{"@type":"PostalAddress","addressLocality":"Saint-Tropez","addressRegion":"Var","postalCode":"83990","addressCountry":"FR"},"areaServed":{"@type":"Place","name":"Golfe de Saint-Tropez"},"employee":[{"@type":"Person","name":"Pascal","jobTitle":"Co-fondateur & Directeur","telephone":"+33600000001"},{"@type":"Person","name":"Isabelle","jobTitle":"Co-fondateur & Directeur commercial","telephone":"+33600000002"}],"sameAs":["https://www.instagram.com/azurhomecollection"]}</script>
     <script
         type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.azurhomecollection.com/"},{"@type":"ListItem","position":2,"name":"Chi siamo","item":"https://www.azurhomecollection.com/a-propos.html"}]}</script>
-    <!-- Fonts async -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@200;300;400&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'" /> <noscript>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@200;300;400&display=swap"
-            rel="stylesheet" />
-    </noscript> <!-- Preload LCP -->
-    <link rel="preload" as="image" href="images/hero-desktop.webp" type="image/webp" /> <!-- GA4 async -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');</script>
+    <link rel="preload" href="../images/hero-desktop.webp" as="image" type="image/webp" />
+    <link rel="preload" href="../fonts/cormorant-v24-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../fonts/dm-sans-v17-latin-300.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/a-propos.css" />
 </head>
@@ -135,8 +127,8 @@
                 </div>
                 <div class="ap-manifeste-img" id="ap-manifeste-img">
                     <picture>
-                        <source srcset="../images/villa-aqua-serena.webp" type="image/webp" /> <img
-                            src="../images/villa-aqua-serena.webp"
+                        <source srcset="../images/isabelle-pascal.webp" type="image/webp" /> <img
+                            src="../images/isabelle-pascal.webp"
                             alt="Pascal e Isabelle, fondatori di Azur Villa Prestige — Saint-Tropez" loading="lazy"
                             decoding="async" width="560" height="680" class="ap-img-cover" />
                     </picture>
@@ -151,7 +143,8 @@
     <!-- ══ IMAGE PLEINE LARGEUR ══ -->
     <div class="ap-full-img" data-gsap-full>
         <picture>
-            <source srcset="../images/hero-desktop.webp" type="image/webp" /> <img src="../images/hero-desktop.webp"
+            <source srcset="../images/vue-golfe-st-tropez.webp" type="image/webp" /> <img
+                src="../images/vue-golfe-st-tropez.webp"
                 alt="Vista aerea del Golfo di Saint-Tropez — territorio di Azur Villa Prestige" loading="lazy"
                 decoding="async" width="1920" height="700" class="ap-img-cover" />
         </picture>
@@ -208,8 +201,8 @@
                 <article class="ap-membre" data-gsap-membre>
                     <div class="ap-membre-img">
                         <picture>
-                            <source srcset="../images/villa-horizon.webp" type="image/webp" /> <img
-                                src="../images/villa-horizon.webp"
+                            <source srcset="../images/pascal-photo.webp" type="image/webp" /> <img
+                                src="../images/pascal-photo.webp"
                                 alt="Pascal — Cofondatore Azur Villa Prestige Saint-Tropez" loading="lazy"
                                 decoding="async" width="560" height="680" class="ap-img-cover" />
                         </picture>
@@ -229,8 +222,8 @@
                 <article class="ap-membre" data-gsap-membre>
                     <div class="ap-membre-img">
                         <picture>
-                            <source srcset="../images/bastide-des-pins.webp" type="image/webp" /> <img
-                                src="../images/bastide-des-pins.webp"
+                            <source srcset="../images/isabelle-photo.webp" type="image/webp" /> <img
+                                src="../images/isabelle-photo.webp"
                                 alt="Isabelle — Cofondatrice Azur Villa Prestige Saint-Tropez" loading="lazy"
                                 decoding="async" width="560" height="680" class="ap-img-cover" />
                         </picture>

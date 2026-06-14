@@ -29,7 +29,6 @@ function initNav() {
     const mob = document.getElementById('mob-menu');
     if (!nav) return;
 
-    /* ── Nav transparente sur hero ── */
     var hasHero = !!(
         document.querySelector('.loc-hero') ||
         document.querySelector('.ges-hero') ||
@@ -101,16 +100,13 @@ function initIntro() {
         intro.remove(); startHero(); return;
     }
 
-    /* Arc SVG — longueur totale du cercle r=56 → 2πr ≈ 352 */
     var arcLen = 352;
     if (icArc) gsap.set(icArc, { strokeDashoffset: arcLen });
 
-    /* ── Objet compteur 0→100 ── */
     var pctObj = { v: 0 };
 
     var tl = gsap.timeline({
         onComplete: function () {
-            /* Exit — fondu et collapse vers le haut */
             gsap.to([tagline, eyebrow, sep], {
                 opacity: 0, y: -12, duration: .35, stagger: .05, ease: 'power2.in'
             });
@@ -137,13 +133,8 @@ function initIntro() {
         }
     });
 
-    /* ── ENTRÉE ── */
-
-    /* 0.0s — Lignes horizontales slide depuis les bords */
     tl.to(ilTop, { scaleX: 1, duration: 1.1, ease: 'power3.inOut' }, 0)
         .to(ilBot, { scaleX: 1, duration: 1.1, ease: 'power3.inOut', delay: .1 }, 0)
-
-        /* 0.3s — Compteur apparaît + arc tourne + chiffre monte */
         .to(counter, { opacity: 1, duration: .4, ease: 'power2.out' }, .3)
         .to(pctObj, {
             v: 100, duration: 1.9, ease: 'power1.inOut',
@@ -153,38 +144,19 @@ function initIntro() {
                 if (icArc) gsap.set(icArc, { strokeDashoffset: arcLen - (arcLen * v / 100) });
             }
         }, .3)
-
-        /* 0.5s — Eyebrow fade + slide */
         .to(eyebrow, { opacity: 1, y: 0, duration: .7, ease: 'power3.out' }, .5)
-
-        /* 0.8s — Nom "Azur" reveal depuis le bas */
         .to(ibw1, { y: '0%', duration: .9, ease: 'power4.out' }, .8)
-
-        /* 1.0s — "Villa Prestige" italique */
         .to(ibw2, { y: '0%', duration: .9, ease: 'power4.out' }, 1.05)
-
-        /* 1.4s — Séparateur diamant + lignes */
         .to(sep, { opacity: 1, duration: .4 }, 1.4)
         .to('.is-line--l', { scaleX: 1, duration: .6, ease: 'power3.out' }, 1.4)
         .to('.is-line--r', { scaleX: 1, duration: .6, ease: 'power3.out' }, 1.5)
         .to('.is-diamond', { scale: 1, duration: .4, ease: 'back.out(3)' }, 1.7)
-
-        /* 1.8s — Tagline */
         .to(tagline, { opacity: 1, y: 0, duration: .6, ease: 'power3.out' }, 1.8)
-
-        /* 2.0s — Footer */
         .to(footer, { opacity: 1, y: 0, duration: .6, ease: 'power3.out' }, 2.0)
-
-        /* 2.5s — Pause contemplative */
-        .to({}, { duration: 1.1 })
-
-        /* Fin → onComplete déclenche l'exit */
-        ;
+        .to({}, { duration: 1.1 });
 }
 
-
 function startHero() {
-    // S'assurer que le search pill est TOUJOURS visible
     const pill = document.getElementById('search-pill');
     if (pill) pill.style.opacity = '1';
 
@@ -198,30 +170,19 @@ function startHero() {
     tl.from('.hero-eyebrow', { opacity: 0, y: 12, duration: .7, ease: 'power3.out' })
         .to('.h1w>*', { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1.05, stagger: .17, ease: 'power4.out' }, '-=.25')
         .from('.hero-sub', { opacity: 0, y: 16, duration: .9, ease: 'power3.out' }, '-=.35');
-    // search-pill déjà visible (opacity:1 en CSS)
 
     if (typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
         gsap.to('#hpx', { scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.5, once: true }, yPercent: 20, ease: 'none' });
-
-        // Brand
         gsap.from('.bi-left>*,.bi-right', { scrollTrigger: { trigger: '.brand', start: 'top 72%', once: true }, opacity: 0, y: 28, duration: .85, stagger: .1, ease: 'power3.out' });
         gsap.from('.bv', { scrollTrigger: { trigger: '.brand-values', start: 'top 74%', once: true }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
         gsap.from('.sv-item', { scrollTrigger: { trigger: '.services-row', start: 'top 74%', once: true }, opacity: 0, y: 22, duration: .8, stagger: .12, ease: 'power3.out' });
-
-        // Villas
         gsap.from('.villa', { scrollTrigger: { trigger: '.villas', start: 'top 75%', once: true }, opacity: 0, y: 30, duration: .9, stagger: .14, ease: 'power3.out' });
-
-        // Destinations
         gsap.from('.dest', { scrollTrigger: { trigger: '.dests-grid', start: 'top 74%', once: true }, clipPath: 'inset(0 100% 0 0)', duration: 1.1, stagger: .18, ease: 'power4.inOut' });
-
-        // Conc + Owners
         gsap.from('.conc-img', { scrollTrigger: { trigger: '.conc', start: 'top 70%', once: true }, clipPath: 'inset(0 100% 0 0)', duration: 1.1, ease: 'power4.inOut' });
         gsap.from('.conc-text>*', { scrollTrigger: { trigger: '.conc', start: 'top 70%', once: true }, opacity: 0, y: 26, duration: .85, stagger: .1, ease: 'power3.out' });
         gsap.from('.ow-text>*', { scrollTrigger: { trigger: '.owners', start: 'top 70%', once: true }, opacity: 0, y: 26, duration: .85, stagger: .1, ease: 'power3.out' });
         gsap.from('.ow-img', { scrollTrigger: { trigger: '.ow-img', start: 'top 70%', once: true }, clipPath: 'inset(0 100% 0 0)', duration: 1.1, ease: 'power4.inOut' });
-
-        // Trust count-up
         document.querySelectorAll('.tg-n').forEach(el => {
             const txt = el.textContent.trim(), num = parseFloat(txt);
             if (isNaN(num)) return;
@@ -231,8 +192,6 @@ function startHero() {
                 onEnter: () => gsap.to(obj, { v: num, duration: 2, ease: 'power3.out', onUpdate: () => { el.textContent = Math.round(obj.v) + suf; } })
             });
         });
-
-        // FAQ + NL
         gsap.from('.faq-head>*', { scrollTrigger: { trigger: '.faq', start: 'top 74%', once: true }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
         gsap.from('.faq-item', { scrollTrigger: { trigger: '.faq-list', start: 'top 74%', once: true }, opacity: 0, y: 18, duration: .7, stagger: .07, ease: 'power3.out' });
         gsap.from('.nl-text>*', { scrollTrigger: { trigger: '.newsletter', start: 'top 72%', once: true }, opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out' });
@@ -242,7 +201,7 @@ function startHero() {
 }
 
 /* ══════════════════════════════════════════
-   SEARCH PILL — 2 étapes + envoi WhatsApp/email
+   SEARCH PILL
 ══════════════════════════════════════════ */
 let searchStep = 1;
 let searchData = {};
@@ -251,34 +210,9 @@ window.showDestDrop = function () { document.getElementById('sp-dest-drop')?.cla
 window.hideDestDrop = function () { setTimeout(() => document.getElementById('sp-dest-drop')?.classList.remove('open'), 200); };
 window.setDest = function (val) { const i = document.getElementById('sp-dest'); if (i) i.value = val; };
 
-/* ════════════════════════════════════════
-   SEARCH PILL — 2 étapes + envoi email réel via EmailJS
-   EmailJS : gratuit jusqu'à 200 emails/mois, sans backend
-   ════════════════════════════════════════ */
-// ⚙️ CONFIG EmailJS — À remplir avec vos identifiants EmailJS
-// 1. Créer un compte sur emailjs.com (gratuit)
-// 2. Créer un "Email Service" (Gmail ou autre)
-// 3. Créer un "Email Template" avec les variables ci-dessous
-// 4. Remplir les 3 constantes :
-const EMAILJS_SERVICE_ID = 'service_XXXXXXX';   // ← Votre Service ID EmailJS
-const EMAILJS_TEMPLATE_ID = 'template_XXXXXXX';  // ← Votre Template ID EmailJS
-const EMAILJS_PUBLIC_KEY = 'XXXXXXXXXXXXXXXXXXXX'; // ← Votre Public Key EmailJS
-
-// Template EmailJS suggéré (créez-le sur emailjs.com) :
-// Sujet : 🏖️ Nouvelle demande — {{villa_dest}} — {{client_name}}
-// Corps :
-// Nouvelle demande de réservation reçue via azurhomecollection.com
-//
-// 👤 Client : {{client_name}}
-// 📧 Email : {{client_email}}
-// 📞 Téléphone : {{client_phone}}
-//
-// 📍 Destination : {{villa_dest}}
-// 📅 Arrivée : {{checkin}}
-// 📅 Départ : {{checkout}}
-// 👥 Voyageurs : {{guests}}
-//
-// → Répondre directement à {{client_email}}
+const EMAILJS_SERVICE_ID = 'service_XXXXXXX';
+const EMAILJS_TEMPLATE_ID = 'template_XXXXXXX';
+const EMAILJS_PUBLIC_KEY = 'XXXXXXXXXXXXXXXXXXXX';
 
 window.submitSearch = async function (e) {
     e.preventDefault();
@@ -288,7 +222,6 @@ window.submitSearch = async function (e) {
     const guests = document.getElementById('sp-guests')?.value;
 
     if (searchStep === 1) {
-        // Valider qu'au moins la destination est renseignée
         if (!dest && !checkin && !guests) {
             document.getElementById('sp-dest')?.focus();
             return;
@@ -300,25 +233,21 @@ window.submitSearch = async function (e) {
         if (btn) { btn.textContent = 'Confirmer →'; }
         searchStep = 2;
         gtag('event', 'search_step1', { event_category: 'Lead', event_label: searchData.dest });
-        // Scroll doux vers la pill si nécessaire
         document.getElementById('search-pill')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
     }
 
-    // ── Étape 2 : Récupérer les coordonnées
     const name = document.getElementById('sp-name')?.value?.trim();
     const email = document.getElementById('sp-email')?.value?.trim();
     const phone = document.getElementById('sp-phone')?.value?.trim();
 
     if (!name || !email || !phone) {
-        // Feedback visuel si champs manquants
         [['sp-name', name], ['sp-email', email], ['sp-phone', phone]].forEach(([id, val]) => {
             if (!val) document.getElementById(id)?.classList.add('sp-error');
         });
         return;
     }
 
-    // Formater les dates lisiblement
     const fmtDate = d => {
         if (!d) return '—';
         const [y, m, mo] = d.split('-');
@@ -326,7 +255,6 @@ window.submitSearch = async function (e) {
         return `${parseInt(mo)} ${months[m]} ${y}`;
     };
 
-    // Calcul durée
     let dureeStr = '';
     if (searchData.checkin && searchData.checkout) {
         const d1 = new Date(searchData.checkin), d2 = new Date(searchData.checkout);
@@ -335,16 +263,10 @@ window.submitSearch = async function (e) {
     }
 
     const templateParams = {
-        client_name: name,
-        client_email: email,
-        client_phone: phone,
+        client_name: name, client_email: email, client_phone: phone,
         villa_dest: searchData.dest || 'Non précisé',
-        checkin: fmtDate(searchData.checkin),
-        checkout: fmtDate(searchData.checkout),
-        duree: dureeStr,
-        guests: searchData.guests || 'Non précisé',
-        reply_to: email,
-        // Message formaté complet pour le template email
+        checkin: fmtDate(searchData.checkin), checkout: fmtDate(searchData.checkout),
+        duree: dureeStr, guests: searchData.guests || 'Non précisé', reply_to: email,
         full_message:
             `Nouvelle demande de réservation reçue via azurhomecollection.com\n\n` +
             `👤 ${name}\n📧 ${email}\n📞 ${phone}\n\n` +
@@ -354,51 +276,39 @@ window.submitSearch = async function (e) {
             `👥 Voyageurs : ${searchData.guests || 'Non précisé'}`
     };
 
-    // ── Bouton en état chargement
     const btn = document.getElementById('sp-btn');
     if (btn) { btn.style.opacity = '.6'; btn.style.pointerEvents = 'none'; }
-
     gtag('event', 'search_submit', { event_category: 'Lead', event_label: searchData.dest, value: 1 });
 
     try {
-        // ── Envoi via EmailJS
         if (window.emailjs && EMAILJS_SERVICE_ID !== 'service_XXXXXXX') {
             await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
         } else {
-            // Fallback : ouvrir client mail natif (mailto:) si EmailJS non configuré
             const subject = encodeURIComponent(`🏖️ Demande réservation — ${searchData.dest} — ${name}`);
             const body = encodeURIComponent(templateParams.full_message);
             window.location.href = `mailto:contact@azurvillaprestige.com?subject=${subject}&body=${body}`;
         }
-
-        // ── Succès : afficher le message de confirmation
         const pill = document.getElementById('search-pill');
         const ok = document.getElementById('search-ok');
         if (pill) pill.style.display = 'none';
         if (ok) { ok.style.display = 'flex'; ok.classList.add('visible'); }
-
-        // Reset complet après 6 secondes
         setTimeout(() => {
             if (pill) { pill.style.display = ''; searchStep = 1; }
             const step2 = document.getElementById('sp-step2');
             if (step2) { step2.style.display = 'none'; }
             if (ok) { ok.style.display = 'none'; ok.classList.remove('visible'); }
             const btxt = document.getElementById('sp-btn-txt');
-            if (btxt) { btxt.textContent = 'Rechercher' || 'Rechercher'; }
+            if (btxt) { btxt.textContent = 'Rechercher'; }
             if (btn) { btn.style.opacity = ''; btn.style.pointerEvents = ''; }
             document.getElementById('search-pill')?.reset?.();
         }, 6000);
-
     } catch (err) {
         console.error('EmailJS error:', err);
-        // Fallback WhatsApp si EmailJS échoue
         const msg = encodeURIComponent(templateParams.full_message);
         window.open(`https://wa.me/+33600000001?text=${msg}`, '_blank');
         if (btn) { btn.style.opacity = ''; btn.style.pointerEvents = ''; }
     }
 };
-
-/* Filtres villas — gérés par location.js sur la page catalogue */
 
 /* ══════════════════════════════════════════
    MODALE BROCHURE
@@ -424,7 +334,7 @@ window.submitBrochure = function (e) {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
     gtag('event', 'brochure_submit', { event_category: 'Conversion', event_label: currentProp, value: 1 });
-    const msg = encodeURIComponent(`${'Bonjour' || 'Bonjour'} brochure ${currentProp}.\n${data.name} · ${data.email}\n${data.phone || ''}\n${data.dates || ''}`);
+    const msg = encodeURIComponent(`Bonjour brochure ${currentProp}.\n${data.name} · ${data.email}\n${data.phone || ''}\n${data.dates || ''}`);
     window.open(`https://wa.me/+33600000001?text=${msg}`, '_blank');
     closeModal();
 };
@@ -492,9 +402,9 @@ function showStep(id) {
 function buildWAMsg() {
     const il = { rent: 'Location de villa', sell: 'Vente immobilière', conc: 'Conciergerie' };
     const dl = { st: 'Saint-Tropez', cour: 'Courchevel', both: 'Saint-Tropez & Courchevel', 'villa-sell': 'Villa', 'apt-sell': 'Appartement' };
-    let m = `${'Bonjour' || 'Bonjour'} ${il[flowState.intent] || flowState.intent}`;
-    if (flowState.dest) m += `\n${'Destination :' || 'Destination:'} ${dl[flowState.dest] || flowState.dest}`;
-    m += `\n\n${'Pouvez-vous me contacter ?'}`;
+    let m = `Bonjour ${il[flowState.intent] || flowState.intent}`;
+    if (flowState.dest) m += `\nDestination : ${dl[flowState.dest] || flowState.dest}`;
+    m += `\n\nPouvez-vous me contacter ?`;
     return encodeURIComponent(m);
 }
 
@@ -505,11 +415,9 @@ window.flowNext = function (choice) {
     if (step === '0') flowState.intent = choice;
     if (['1a', '1b', '1c'].includes(step)) flowState.dest = choice;
     if (step === '2') flowState.contact = choice;
-    // User bubble
     const btn = document.querySelector(`.mj-step.active button[onclick*="${choice}"]`);
     if (btn) addMsg(btn.textContent.trim(), false);
     gtag('event', 'maj_step', { event_category: 'Majordome', event_label: `${step}_${choice}` });
-    // WA redirect
     if (next === 'wa') {
         gtag('event', 'maj_wa_redirect', { event_category: 'Lead', value: 1 });
         setTimeout(() => {
@@ -548,7 +456,7 @@ window.submitMaj = function (e) {
         showStep('4');
         const waf = document.getElementById('mj-wa-final');
         if (waf) {
-            const msg = encodeURIComponent(`${'Bonjour' || 'Bonjour'} ${data.name} (${data.contact}).`);
+            const msg = encodeURIComponent(`Bonjour ${data.name} (${data.contact}).`);
             waf.onclick = () => { window.open(`https://wa.me/${WA}?text=${msg}`, '_blank'); gtag('event', 'maj_wa_final', { event_category: 'Lead', value: 1 }); };
         }
     }, 500);
@@ -595,23 +503,15 @@ function initMajordome() {
 }
 
 /* ══════════════════════════════════════════
-   INIT — DOMContentLoaded
-══════════════════════════════════════════ */
-
-/* ══════════════════════════════════════════
-   MODALE LEAD — Capture leads depuis search pill
+   MODALE LEAD
 ══════════════════════════════════════════ */
 window.openLeadModal = function () {
     const modal = document.getElementById('lead-modal');
     if (!modal) return;
-
-    // Récupérer les données de la search pill
     const dest = document.getElementById('sp-dest')?.value?.trim();
     const checkin = document.getElementById('sp-in')?.value;
     const checkout = document.getElementById('sp-out')?.value;
     const guests = document.getElementById('sp-guests')?.value;
-
-    // Construire le récap visuel
     const recap = document.getElementById('lm-recap');
     if (recap) {
         const fmtDate = d => {
@@ -629,25 +529,17 @@ window.openLeadModal = function () {
         }
         if (guests && guests !== '2') items.push(`<div class="lm-recap-item">👥 <strong>${guests} personnes</strong></div>`);
         recap.innerHTML = items.join('<span class="lm-recap-dot">·</span>');
-        // Nettoyer les points entre les flèches
         recap.innerHTML = recap.innerHTML.replace(/<span class="lm-recap-dot">·<\/span><span class="lm-recap-dot">→<\/span>/g, '<span class="lm-recap-dot">→</span>');
     }
-
-    // Stocker les données pour l'envoi
     window._searchData = { dest, checkin, checkout, guests };
-
-    // Reset formulaire + afficher état form
     document.getElementById('lm-form-wrap').style.display = '';
     document.getElementById('lm-confirm').style.display = 'none';
     document.getElementById('lm-form')?.reset();
     document.querySelectorAll('.lm-inp').forEach(i => i.classList.remove('error'));
-
-    // Ouvrir
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     setTimeout(() => document.getElementById('lm-name')?.focus(), 300);
-
     gtag('event', 'lead_modal_open', { event_category: 'Lead', event_label: dest || 'no-dest' });
 };
 
@@ -661,14 +553,11 @@ window.closeLeadModal = function () {
 
 window.submitLead = async function (e) {
     e.preventDefault();
-
     const name = document.getElementById('lm-name')?.value?.trim();
     const email = document.getElementById('lm-email')?.value?.trim();
     const phone = document.getElementById('lm-phone')?.value?.trim();
     const msg = document.getElementById('lm-msg')?.value?.trim();
     const sd = window._searchData || {};
-
-    // Validation
     let valid = true;
     [['lm-name', name], ['lm-email', email], ['lm-phone', phone]].forEach(([id, val]) => {
         const el = document.getElementById(id);
@@ -676,39 +565,26 @@ window.submitLead = async function (e) {
         else el?.classList.remove('error');
     });
     if (!valid) return;
-
-    // Bouton en chargement
     const btn = document.getElementById('lm-submit');
     const txt = document.getElementById('lm-submit-txt');
     if (btn) btn.disabled = true;
     if (txt) txt.textContent = 'Envoi en cours…';
-
-    // Formater les dates
     const fmtDate = d => {
         if (!d) return '—';
         const [y, m, mo] = d.split('-');
         const months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
         return `${parseInt(mo)} ${months[parseInt(m) - 1]} ${y}`;
     };
-
-    // Calcul durée
     let dureeStr = '';
     if (sd.checkin && sd.checkout) {
         const nuits = Math.round((new Date(sd.checkout) - new Date(sd.checkin)) / 86400000);
         if (nuits > 0) dureeStr = `${nuits} nuit${nuits > 1 ? 's' : ''}`;
     }
-
     const templateParams = {
-        client_name: name,
-        client_email: email,
-        client_phone: phone,
+        client_name: name, client_email: email, client_phone: phone,
         villa_dest: sd.dest || 'Golfe de Saint-Tropez',
-        checkin: fmtDate(sd.checkin),
-        checkout: fmtDate(sd.checkout),
-        duree: dureeStr,
-        guests: sd.guests || '—',
-        message: msg || '—',
-        reply_to: email,
+        checkin: fmtDate(sd.checkin), checkout: fmtDate(sd.checkout),
+        duree: dureeStr, guests: sd.guests || '—', message: msg || '—', reply_to: email,
         full_message:
             `🏖️ NOUVELLE DEMANDE — azurhomecollection.com\n\n` +
             `👤 ${name}\n📧 ${email}\n📞 ${phone}\n\n` +
@@ -719,39 +595,29 @@ window.submitLead = async function (e) {
             `👥 Voyageurs : ${sd.guests || '—'}\n` +
             (msg ? `\n💬 Message : ${msg}` : '')
     };
-
     gtag('event', 'lead_submit', { event_category: 'Conversion', event_label: sd.dest || 'no-dest', value: 1 });
-
     try {
-        // Envoi EmailJS
         if (window.emailjs && typeof EMAILJS_SERVICE_ID !== 'undefined' && EMAILJS_SERVICE_ID !== 'service_XXXXXXX') {
             await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
         } else {
-            // Fallback mailto si EmailJS pas configuré
             const subj = encodeURIComponent(`🏖️ Demande — ${sd.dest || 'Saint-Tropez'} — ${name}`);
             const body = encodeURIComponent(templateParams.full_message);
             window.open(`mailto:contact@azurvillaprestige.com?subject=${subj}&body=${body}`);
         }
-
-        // ── Afficher la confirmation luxe
         document.getElementById('lm-form-wrap').style.display = 'none';
         const confirm = document.getElementById('lm-confirm');
         if (confirm) {
             confirm.style.display = '';
-            // Prénom seulement
             const firstName = name.split(' ')[0];
             const nameEl = document.getElementById('lm-conf-name');
             if (nameEl) nameEl.textContent = firstName;
-            // Relancer l'animation check
             const circle = confirm.querySelector('.lm-check-circle');
             const tick = confirm.querySelector('.lm-check-tick');
             if (circle) { circle.style.animation = 'none'; void circle.offsetWidth; circle.style.animation = ''; }
             if (tick) { tick.style.animation = 'none'; void tick.offsetWidth; tick.style.animation = ''; }
         }
-
     } catch (err) {
         console.error('Send error:', err);
-        // Fallback WhatsApp
         const waMsg = encodeURIComponent(templateParams.full_message);
         window.open(`https://wa.me/+33600000001?text=${waMsg}`, '_blank');
         if (btn) btn.disabled = false;
@@ -759,23 +625,101 @@ window.submitLead = async function (e) {
     }
 };
 
+/* ══════════════════════════════════════════
+   COOKIE BANNER — 4 langues
+══════════════════════════════════════════ */
+const CK_KEY = 'avp_cookie_consent';
+
+const CK_TEXTS = {
+    fr: {
+        eyebrow: 'Confidentialité',
+        text: 'Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic.',
+        link: 'En savoir plus',
+        href: 'mentions-legales.html',
+        refuse: 'Refuser',
+        accept: 'Accepter'
+    },
+    en: {
+        eyebrow: 'Privacy',
+        text: 'We use cookies to enhance your experience and analyse our traffic.',
+        link: 'Learn more',
+        href: '../mentions-legales.html',
+        refuse: 'Decline',
+        accept: 'Accept'
+    },
+    de: {
+        eyebrow: 'Datenschutz',
+        text: 'Wir verwenden Cookies, um Ihre Erfahrung zu verbessern und unseren Datenverkehr zu analysieren.',
+        link: 'Mehr erfahren',
+        href: '../mentions-legales.html',
+        refuse: 'Ablehnen',
+        accept: 'Akzeptieren'
+    },
+    it: {
+        eyebrow: 'Privacy',
+        text: 'Utilizziamo i cookie per migliorare la vostra esperienza e analizzare il nostro traffico.',
+        link: 'Scopri di più',
+        href: '../mentions-legales.html',
+        refuse: 'Rifiuta',
+        accept: 'Accetta'
+    }
+};
+
+function initCookieBanner() {
+    if (localStorage.getItem(CK_KEY)) return;
+    const banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+    const lang = (document.documentElement.lang || 'fr').substring(0, 2);
+    const t = CK_TEXTS[lang] || CK_TEXTS.fr;
+    const eyebrow = banner.querySelector('.ck-eyebrow');
+    const text = banner.querySelector('.ck-text');
+    const link = banner.querySelector('.ck-link');
+    const refuse = banner.querySelector('.ck-refuse');
+    const accept = banner.querySelector('.ck-accept');
+    if (eyebrow) eyebrow.textContent = t.eyebrow;
+    if (text) text.firstChild.textContent = t.text + ' ';
+    if (link) { link.textContent = t.link; link.href = t.href; }
+    if (refuse) refuse.textContent = t.refuse;
+    if (accept) accept.textContent = t.accept;
+    setTimeout(() => banner.classList.add('visible'), 1200);
+}
+
+window.cookieAccept = function () {
+    localStorage.setItem(CK_KEY, 'accepted');
+    hideCookieBanner();
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+};
+
+window.cookieRefuse = function () {
+    localStorage.setItem(CK_KEY, 'refused');
+    hideCookieBanner();
+    gtag('consent', 'update', { analytics_storage: 'denied' });
+};
+
+function hideCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+    banner.style.transition = 'transform .4s cubic-bezier(.4, 0, .2, 1)';
+    banner.classList.remove('visible');
+    setTimeout(() => banner.remove(), 400);
+}
+
+/* ══════════════════════════════════════════
+   INIT — DOMContentLoaded
+══════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
-    // VH fix
     document.documentElement.style.setProperty('--vh', (window.innerHeight * .01) + 'px');
     window.addEventListener('resize', () => document.documentElement.style.setProperty('--vh', (window.innerHeight * .01) + 'px'), { passive: true });
-
-
 
     initNav();
     initMajordome();
     initLenis();
+    initCookieBanner(); // ← AJOUT
 
-    // Modal close
     document.getElementById('modal-bg')?.addEventListener('click', closeModal);
     document.getElementById('modal-x')?.addEventListener('click', closeModal);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeMajPanel(); closeLeadModal(); } });
 
-    // Intro + GSAP — uniquement sur la page index (présence de #hpx)
     const isIndex = !!document.getElementById('hpx');
     if (isIndex) {
         if (typeof gsap !== 'undefined') {
@@ -786,7 +730,6 @@ document.addEventListener('DOMContentLoaded', () => {
             startHero();
         }
     } else {
-        // Sur les autres pages, supprimer l'intro si présente
         document.getElementById('intro')?.remove();
     }
 });

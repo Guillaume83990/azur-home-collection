@@ -94,8 +94,7 @@
     letter-spacing: 3.5px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, .48);
-    margin-bottom: 22px;
-    opacity: 0
+    margin-bottom: 22px
 }
 
 .ges-h1 {
@@ -117,8 +116,6 @@
 
 .ges-h1-w {
     display: block;
-    transform: translateY(110%);
-    opacity: 0;
     will-change: transform, opacity
 }
 
@@ -133,15 +130,13 @@
     color: rgba(255, 255, 255, .58);
     line-height: 1.85;
     max-width: 540px;
-    margin-bottom: 32px;
-    opacity: 0
+    margin-bottom: 32px
 }
 
 .ges-hero-ctas {
     display: flex;
     gap: 14px;
-    flex-wrap: wrap;
-    opacity: 0
+    flex-wrap: wrap
 }
 
 .ges-hero-kpis {
@@ -156,7 +151,6 @@
     justify-content: center;
     padding: 0 var(--pad);
     height: 100px;
-    opacity: 0;
     flex-shrink: 0
 }
 

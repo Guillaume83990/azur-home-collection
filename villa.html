@@ -9,17 +9,10 @@
     <meta name="robots" content="index, follow" />
     <link rel="icon" type="image/x-icon" href="../favicon.ico" />
     <meta name="theme-color" content="#F5F0E8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@200;300;400&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'" /> <noscript>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@200;300;400&display=swap"
-            rel="stylesheet" />
-    </noscript> <!-- GA4 async -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');</script>
+    <link rel="preload" href="../fonts/cormorant-v24-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../fonts/dm-sans-v17-latin-300.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/villa.css" />
 </head>
@@ -359,7 +352,8 @@
                     </div> <img src="../images/logo.png" alt="" class="bm-conf-logo" width="56" height="56" />
                     <h2 class="bm-conf-title">Merci <em id="bm-conf-prenom"></em></h2>
                     <p class="bm-conf-msg">Votre demande a bien été prise en compte.<br>Notre équipe va
-                        <strong>rapidement revenir vers vous</strong> pour organiser votre séjour sur-mesure.</p>
+                        <strong>rapidement revenir vers vous</strong> pour organiser votre séjour sur-mesure.
+                    </p>
                     <div class="bm-conf-divider"></div>
                     <p class="bm-conf-sign">— L'équipe Azur Villa Prestige</p>
                     <div class="bm-conf-contacts">
@@ -397,7 +391,8 @@
                 <div class="mj-step active" id="mjs-0">
                     <p class="mj-q">Intéressé par cette villa ?</p>
                     <div class="mj-ch">
-                        <button onclick="closeBookingModal();openBookingModal()">📋 Demander un devis</button>
+                        <button onclick="toggleMaj();setTimeout(function(){openBookingModal();},200)">📋 Demander un
+                            devis</button>
                         <button onclick="window.location='tel:+33600000001'">📞 Pascal</button>
                         <button onclick="window.location='tel:+33600000002'">📞 Isabelle</button>
                     </div>
