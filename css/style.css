@@ -613,16 +613,25 @@ textarea {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--iron);
-    transition: transform .4s var(--ease)
+    background: currentColor;
+    transition: transform .4s var(--ease), opacity .3s;
 }
 
-.burger.open span:first-child {
-    transform: translateY(6px) rotate(45deg)
+.burger.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
 }
 
-.burger.open span:last-child {
-    transform: translateY(-6px) rotate(-45deg)
+.burger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.burger.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+.nav--transparent .burger span {
+    background: #fff;
 }
 
 .burger.open span:nth-child(2) {
