@@ -65,11 +65,15 @@ function initNav() {
             mob.setAttribute('aria-hidden', String(!o));
             burger.setAttribute('aria-expanded', String(o));
             document.body.style.overflow = o ? 'hidden' : '';
+            const maj = document.getElementById('maj');
+            if (maj) maj.style.display = o ? 'none' : '';
         });
         mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
             burger.classList.remove('open'); mob.classList.remove('open');
             mob.setAttribute('aria-hidden', 'true'); burger.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
+            const maj = document.getElementById('maj');
+            if (maj) maj.style.display = '';
         }));
     }
 }

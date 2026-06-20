@@ -93,7 +93,7 @@ body {
     font-family: 'DM Sans', 'system-ui', sans-serif;
     font-weight: 300;
     line-height: 1.7;
-    overflow-x: hidden;
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased
 }
 
@@ -629,7 +629,7 @@ textarea {
 .mob-menu {
     position: fixed;
     inset: 0;
-    z-index: 199;
+    z-index: 300;
     background: var(--cream);
     display: flex;
     flex-direction: column;
@@ -860,12 +860,12 @@ textarea {
     width: 60px;
     font-size: 14px;
     font-weight: 300;
-    -moz-appearance: textfield
+    -moz-appearance: textfield;
 }
 
 .sp-guests::-webkit-outer-spin-button,
 .sp-guests::-webkit-inner-spin-button {
-    -webkit-appearance: none
+    -webkit-appearance: none;
 }
 
 .sp-field--dates {

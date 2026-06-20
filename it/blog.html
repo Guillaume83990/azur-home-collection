@@ -629,33 +629,10 @@
         </div>
     </div>
 
-    <script>
-        (function () {
-            function loadScripts() {
-                var g = document.createElement('script');
-                g.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
-                g.onload = function () {
-                    var st = document.createElement('script');
-                    st.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
-                    st.onload = function () {
-                        var m = document.createElement('script');
-                        m.src = '../js/main.js';
-                        m.onload = function () {
-                            var b = document.createElement('script');
-                            b.src = '../js/blog.js';
-                            document.body.appendChild(b);
-                        };
-                        document.body.appendChild(m);
-                    };
-                    document.body.appendChild(st);
-                };
-                document.body.appendChild(g);
-            }
-            'requestIdleCallback' in window
-                ? requestIdleCallback(loadScripts, { timeout: 2000 })
-                : setTimeout(loadScripts, 200);
-        })();
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/blog.js"></script>
 
 </body>
 
