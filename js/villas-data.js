@@ -11,14 +11,14 @@ window.VILLAS = [
         badge: 'Architecture contemporaine',
         zone: 'saint-tropez',
         location: 'Saint-Tropez · Canebiers',
-        image: '../images/villa-aqua-serena.webp',
+        image: 'images/villa-aqua-serena.webp',
         photos: [
-            { src: '../images/villa-aqua-serena.webp', legend: 'Vue panoramique — piscine & Méditerranée' },
-            { src: '../images/salon-villa-aqua-serena.webp', legend: 'Le salon principal' },
-            { src: '../images/terasse-villa-aqua-serena.webp', legend: 'La terrasse extérieure' },
-            { src: '../images/suite-master-villa-aqua-serena.webp', legend: 'La suite master' },
-            { src: '../images/sdb-villa-aqua-serena.webp', legend: 'La salle de bain privative' },
-            { src: '../images/cuisine-villa-aqua-serena.webp', legend: 'La cuisine Bulthaup' }
+            { src: 'images/villa-aqua-serena.webp', legend: 'Vue panoramique — piscine & Méditerranée' },
+            { src: 'images/salon-villa-aqua-serena.webp', legend: 'Le salon principal' },
+            { src: 'images/terasse-villa-aqua-serena.webp', legend: 'La terrasse extérieure' },
+            { src: 'images/suite-master-villa-aqua-serena.webp', legend: 'La suite master' },
+            { src: 'images/sdb-villa-aqua-serena.webp', legend: 'La salle de bain privative' },
+            { src: 'images/cuisine-villa-aqua-serena.webp', legend: 'La cuisine Bulthaup' }
         ],
         desc_title: 'Un dialogue pur entre béton, verre et Méditerranée',
         desc: "Conçue par un cabinet d'architectes parisien, cette villa déploie 580 m² sur trois niveaux en terrasses. Sa piscine à débordement de 22 mètres efface l'horizon — l'eau de la baie de Saint-Tropez semble commencer à vos pieds. À l'intérieur, des volumes épurés, une cuisine Bulthaup ouverte sur la mer et un spa privatif taillé dans la pierre naturelle.",
